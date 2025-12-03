@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export function Menu  (){
-
     return(
         <nav>
             <MenuUlStyled>
@@ -29,7 +28,9 @@ export function Menu  (){
 }
 
 
-const MenuUlStyled = styled.nav`
+const MenuUlStyled = styled.ul`
+    width: 100%;
+    height: 100%;
     display: flex;
     gap: 70px;
     

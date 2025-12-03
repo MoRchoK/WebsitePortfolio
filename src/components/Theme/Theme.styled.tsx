@@ -5,11 +5,14 @@ export const myTheme = {
         highlighting: "#E63946",
 
         BgMainSection: "#F9F9F9",
-        BgHeader: "rgba(249, 249, 249, 50);",
+        BgHeader: "rgba(249, 249, 249, 0.5);",
         secondarySection: "#E5E9ED",
         additionalSection: "#DCDCDC",
 
-        headerColor: "#0000001A",
+
+        Title: "rgba(45, 45, 45, 1)"
+
+
     },
 
 }
