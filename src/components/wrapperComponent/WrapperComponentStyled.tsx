@@ -32,4 +32,6 @@ export const WrapperComponentStyled= styled.div<WrapperComponentPropsType>`
     min-height: ${(props) => props.height || 'auto'};
     gap: ${(props) => props.gap || '0'};
     padding-top: ${(props) => props.paddingTop || '0'};
+    
+   
 `

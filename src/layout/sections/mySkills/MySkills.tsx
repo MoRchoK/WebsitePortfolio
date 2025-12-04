@@ -3,6 +3,7 @@ import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
 import {WhyHireMeComponent} from "./whyHireMeComponent/WhyHireMeComponent.tsx";
 import {StatSkills} from "./statSkills/StatSkills.tsx";
 
+
 export function MySkills() {
     return (
         <MySkillsSectionStyled>

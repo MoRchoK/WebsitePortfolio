@@ -13,8 +13,10 @@ export const myTheme = {
 
         borderColorBtnMain: "#9E9E9E",
         borderBtnGray: "#E1E1E1",
+        bgColorIcon: 'rgba(253, 253, 253, 1)',
 
-        whteColor: "#fff"
+        whteColor: "#fff",
+        arrowColor: 'rgba(159, 159, 159, 0.31)'
 
 
 
