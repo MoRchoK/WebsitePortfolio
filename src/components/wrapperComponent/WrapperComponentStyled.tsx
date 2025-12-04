@@ -23,4 +23,5 @@ export const WrapperComponentStyled= styled.div<WrapperComponentPropsType>`
     width: ${(props) => props.width || 'auto'};
     position: ${(props) => props.position || 'static'};
     left: ${(props) => props.left || '0'};
+    z-index: 0;
 `
