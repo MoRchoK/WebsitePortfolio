@@ -11,7 +11,10 @@ export const myTheme = {
         secondarySection: "#E5E9ED",
         additionalSection: "#DCDCDC",
 
-        borderColorBtnMain: "#9E9E9E"
+        borderColorBtnMain: "#9E9E9E",
+        borderBtnGray: "#E1E1E1",
+
+        whteColor: "#fff"
 
 
 

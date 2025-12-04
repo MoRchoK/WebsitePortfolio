@@ -34,8 +34,7 @@ const MainStyled = styled.main`
 const ImgStyled = styled.img`
     display: block;
     position: absolute;
-    height: 110vh;
-    transform: scaleX(-1);
+    height: 105vh;
     right: -5%;
     bottom: 0;
     z-index: 1;

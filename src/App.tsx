@@ -1,12 +1,12 @@
 import {Main} from "./layout/sections/Main/Main.tsx";
 import styled from "styled-components";
-import {MySkillsComponent} from "./layout/mySkills/MySkillsComponent.tsx";
+import {MySkills} from "./layout/sections/mySkills/MySkills.tsx";
 
 function App() {
     return (
         <AppStyled >
             <Main/>
-            <MySkillsComponent/>
+            <MySkills/>
         </AppStyled>
     )
 }
