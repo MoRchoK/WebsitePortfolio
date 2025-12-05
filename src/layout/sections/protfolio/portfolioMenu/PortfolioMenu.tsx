@@ -2,7 +2,7 @@ import {MenuAStyled, MenuLiStyled, MenuUlStyled, NavStyled} from "../../../../co
 
 export function PortfolioMenu() {
     return (
-        <NavStyled marginBottom={'4rem'}>
+        <NavStyled marginbottom={'4rem'}>
             <MenuUlStyled gap={'70px'}>
                 <MenuLiStyled>
                     <MenuAStyled>All</MenuAStyled>

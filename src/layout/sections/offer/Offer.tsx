@@ -8,11 +8,11 @@ import sprite from "../../../../public/iconsSprites.svg";
 export function Offer() {
     return (
         <OfferSectionStyled>
-            <WrapperComponentStyled alignItems={'center'}>
-                <TitleComponent  marginBottom={'1rem'} justifyContent={'center'} title={'What I Offer'}/>
+            <WrapperComponentStyled alignitems={'center'}>
+                <TitleComponent   title={'What I Offer'}/>
                 <OfferDescribtion  >Things that I can do for my clients. Just make your good trust I love to provide
                     quality works.</OfferDescribtion>
-                <WrapperComponentStyled alignItems={'center'} flexDirection={'row'} gap={'2rem'}>
+                <WrapperComponentStyled alignitems={'center'} flexdirection={'row'} gap={'2rem'}>
                     <IconOffer
                         xmlns={"http://www.w3.org/1999/xlink"}
                         fill={myTheme.colors.arrowColor}
@@ -24,7 +24,7 @@ export function Offer() {
                         title={'Branding Design'}
                         width={'100px'}
                         height={'100px'}
-                        svgId={'brush'}
+                        svgid={'brush'}
                         fill={myTheme.colors.highlighting}
                         description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci eget mi elit cursus donec amet sed sagittis.'}
                     />
@@ -33,16 +33,17 @@ export function Offer() {
                         width={'85px'}
                         height={'85px'}
                         title={'T-Shirt Design'}
-                        svgId={'Tshirt'}
+                        svgid={'Tshirt'}
                         fill={'#D8D8D8'}
                         description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci eget mi elit cursus donec amet sed sagittis.'}
                     />
 
                     <OfferItems
+
                         width={'85px'}
                         height={'85px'}
                         title={'Package Design'}
-                        svgId={'box'}
+                        svgid={'box'}
                         fill={'#D8D8D8'}
                         description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci eget mi elit cursus donec amet sed sagittis.'}
                     />
@@ -57,6 +58,9 @@ export function Offer() {
         </OfferSectionStyled>
     )
 }
+
+
+
 
 
 const OfferSectionStyled = styled.section`

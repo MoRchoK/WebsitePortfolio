@@ -3,13 +3,14 @@ import styled from "styled-components";
 import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
 
 type OfferItemsPropsType = {
-    svgId: string;
+    svgid: string;
     title: string;
     description: string;
     fill?: string;
     width?: string;
     height?: string;
 }
+
 
 
 const OfferItemsStyled = styled.div`
@@ -45,8 +46,12 @@ const OfferItemsDesctiprion = styled.p`
 export function OfferItems(props: OfferItemsPropsType) {
     return (
         <OfferItemsStyled>
-                <IconOffer xmlns={"http://www.w3.org/1999/xlink"}  width={props.width} height={props.height} fill={props.fill}>
-                    <use  xlinkHref={sprite + "#" + props.svgId}></use>
+                <IconOffer xmlns={"http://www.w3.org/1999/xlink"}
+                           viewBox="0 0 90px 90px"
+                           preserveAspectRatio="xMidYMid meet"
+
+                           width={props.width} height={props.height} fill={props.fill}>
+                    <use  xlinkHref={sprite + "#" + props.svgid}></use>
                 </IconOffer>
             <OfferItemsTitle>{props.title}</OfferItemsTitle>
             <OfferItemsDesctiprion>

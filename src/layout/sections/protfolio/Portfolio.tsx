@@ -2,13 +2,15 @@ import {TitleComponent} from "../../../components/TitleComponent/TitleComponent.
 import styled from "styled-components";
 import {WrapperComponentStyled} from "../../../components/wrapperComponent/WrapperComponentStyled.tsx";
 import {BtnBusinessBlack} from "../../../components/btnBusiness/BtnBusiness.tsx";
+import {PortfolioMenu} from "./portfolioMenu/PortfolioMenu.tsx";
 
 
 export function Portfolio() {
 
     return (
         <PortfolioStyles>
-            <TitleComponent marginBottom={'3.5rem'} title={"Portfolio"}/>
+            <TitleComponent mgbttitle={'55px'} title={"Portfolio"}/>
+            <PortfolioMenu/>
             <PortfolioPost/>
             <BtnBusinessBlack title={'VIEW PORTFOLIO'}/>
         </PortfolioStyles>
@@ -30,9 +32,9 @@ const PortfolioStyles = styled.section`
 
 function PortfolioPost() {
     return (
-       <WrapperComponentStyled marginBottom={'60px'}  gap={'50px'} height={'100%'}>
-           <PortfolioPostStyled height={'540px'} backgroundImage={'/src/image/Rectangle77.webp'} />
-           <PortfolioPostStyled height={'770px'} backgroundImage={'/src/image/Rectangle89.webp'} />
+       <WrapperComponentStyled marginbottom={'60px'}  gap={'50px'} height={'100%'} >
+           <PortfolioPostStyled height={'540px'} backgroundimage={'/src/image/Rectangle77.webp'} />
+           <PortfolioPostStyled height={'770px'} backgroundimage={'/src/image/Rectangle89.webp'} />
        </WrapperComponentStyled>
     )
 }
@@ -43,11 +45,13 @@ function PortfolioPost() {
 type PortfolioPostStyledPropsType = {
     height?: string
     flexGrow?: string
-    backgroundImage?: string
+    backgroundimage?: string
 }
 
+
+
 const PortfolioPostStyled = styled.div<PortfolioPostStyledPropsType>`
-    background-image: url(${(props) => props.backgroundImage});
+    background-image: url(${(props) => props.backgroundimage});
     background-size: cover;
     background-position: center;
     width: 620px;

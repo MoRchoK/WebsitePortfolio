@@ -35,10 +35,11 @@ type MenuUlStyledPropsType = {
 }
 
 type NavStyledProps = {
-    marginBottom?: string
+    marginbottom?: string
 }
+
 export const NavStyled = styled.nav<NavStyledProps>`
-    margin-bottom: ${(props) => props.marginBottom || '0'};
+    margin-bottom: ${(props) => props.marginbottom || '0'};
 
 `
 

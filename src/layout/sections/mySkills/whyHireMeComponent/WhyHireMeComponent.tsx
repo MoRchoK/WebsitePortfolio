@@ -11,7 +11,7 @@ import {
 export function WhyHireMeComponent() {
     return (
         <WrapperComponentStyled height={'300px'} width={'26%'}>
-            <TitleComponent marginBottom='2.5rem'  title='Why Hire Me ?'/>
+            <TitleComponent  title='Why Hire Me ?'/>
             <MySkillsText>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapib eu placerat at nisl posuere aliquet
                 amet
@@ -20,7 +20,7 @@ export function WhyHireMeComponent() {
                 cursus suspendisse risus vulputate enim pharetra eu. Tetur adipiscing elit eu placera.
             </MySkillsText>
 
-            <WrapperComponentStyled flexDirection={'row'} gap={'1.5rem'}>
+            <WrapperComponentStyled flexdirection={'row'} gap={'1.5rem'}>
                 <BtnBusinessBlack title={'Hire Me'} ></BtnBusinessBlack>
                 <BtnBusinessGray  title='Download CV'></BtnBusinessGray>
             </WrapperComponentStyled>

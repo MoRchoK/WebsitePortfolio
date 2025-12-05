@@ -10,17 +10,19 @@ export const myTheme = {
         BgHeader: "rgba(249, 249, 249, 0.5);",
         secondarySection: "#E5E9ED",
         additionalSection: "#DCDCDC",
+        BgBrandsSection: "#FAFAFA",
+        bgColorIcon: 'rgba(253, 253, 253, 1)',
+
 
         borderColorBtnMain: "#9E9E9E",
         borderBtnGray: "#E1E1E1",
-        bgColorIcon: 'rgba(253, 253, 253, 1)',
+        borderGrandIcon: '#DCDCDC',
+
+
+
 
         whteColor: "#fff",
         arrowColor: 'rgba(159, 159, 159, 0.31)'
 
-
-
-
     },
-
 }
