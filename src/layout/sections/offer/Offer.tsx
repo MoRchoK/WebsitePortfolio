@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import {TitleComponent} from "../../../../components/TitleComponent/TitleComponent.tsx";
-import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
-import {WrapperComponentStyled} from "../../../../components/wrapperComponent/WrapperComponentStyled.tsx";
+import {TitleComponent} from "../../../components/TitleComponent/TitleComponent.tsx";
+import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
+import {WrapperComponentStyled} from "../../../components/wrapperComponent/WrapperComponentStyled.tsx";
 import {IconOffer, OfferItems} from "./offerItems/OfferItems.tsx";
-import sprite from "../../../../../public/iconsSprites.svg";
+import sprite from "../../../../public/iconsSprites.svg";
 
 export function Offer() {
     return (
@@ -14,7 +14,7 @@ export function Offer() {
                     quality works.</OfferDescribtion>
                 <WrapperComponentStyled alignItems={'center'} flexDirection={'row'} gap={'2rem'}>
                     <IconOffer
-                        xmlns={"http://www.w3.org/1999/xlink"} viewBox={'0 0 83px 83px'}
+                        xmlns={"http://www.w3.org/1999/xlink"}
                         fill={myTheme.colors.arrowColor}
                         width={'83px'}
                         height={'83px'} >
@@ -47,14 +47,12 @@ export function Offer() {
                         description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci eget mi elit cursus donec amet sed sagittis.'}
                     />
                     <IconOffer
-                        xmlns={"http://www.w3.org/1999/xlink"} viewBox={'0 0 83px 83px'} width={'83px'}
+                        xmlns={"http://www.w3.org/1999/xlink"}
+                        width={'83px'}
                         height={'83px'} fill={myTheme.colors.arrowColor}>
                         <use xlinkHref={sprite + "#" + 'rightArrow' }></use>
                     </IconOffer>
                 </WrapperComponentStyled>
-
-
-
             </WrapperComponentStyled>
         </OfferSectionStyled>
     )
@@ -82,6 +80,7 @@ const OfferDescribtion = styled.p`
     margin-bottom: 3.75rem;
     width: 30%;
     text-align: center;
+    color: ${myTheme.colors.discriptionText}
 
 `
 

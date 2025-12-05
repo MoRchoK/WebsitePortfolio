@@ -1,7 +1,8 @@
 import {Main} from "./layout/sections/Main/Main.tsx";
 import styled from "styled-components";
 import {MySkills} from "./layout/sections/mySkills/MySkills.tsx";
-import {Offer} from "./layout/sections/mySkills/offer/Offer.tsx";
+import {Offer} from "./layout/sections/offer/Offer.tsx";
+import {Portfolio} from "./layout/sections/protfolio/Portfolio.tsx";
 
 function App() {
     return (
@@ -9,6 +10,7 @@ function App() {
             <Main/>
             <MySkills/>
             <Offer/>
+            <Portfolio/>
         </AppStyled>
     )
 }

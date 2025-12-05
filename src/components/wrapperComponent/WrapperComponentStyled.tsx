@@ -14,6 +14,7 @@ type WrapperComponentPropsType = {
     height?: string,
     gap?: string,
     paddingTop?: string,
+
 }
 
 
@@ -29,9 +30,8 @@ export const WrapperComponentStyled= styled.div<WrapperComponentPropsType>`
     left: ${(props) => props.left || '0'};
     z-index: 0;
     margin-bottom: ${(props) => props.marginBottom || '0'};
-    min-height: ${(props) => props.height || 'auto'};
+    height: ${(props) => props.height || 'auto'};
     gap: ${(props) => props.gap || '0'};
     padding-top: ${(props) => props.paddingTop || '0'};
-    
    
 `

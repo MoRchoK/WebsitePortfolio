@@ -3,7 +3,7 @@ import styled from "styled-components";
 export function Menu  (){
     return(
         <nav>
-            <MenuUlStyled>
+            <MenuUlStyled gap={'70px'}>
                 <MenuLiStyled>
                     <MenuAStyled href="">Home</MenuAStyled>
                 </MenuLiStyled>
@@ -28,20 +28,39 @@ export function Menu  (){
 }
 
 
-const MenuUlStyled = styled.ul`
+
+
+type MenuUlStyledPropsType = {
+    gap?: string;
+}
+
+type NavStyledProps = {
+    marginBottom?: string
+}
+export const NavStyled = styled.nav<NavStyledProps>`
+    margin-bottom: ${(props) => props.marginBottom || '0'};
+
+`
+
+export const MenuUlStyled = styled.ul<MenuUlStyledPropsType>`
     width: 100%;
     height: 100%;
     display: flex;
-    gap: 70px;
+    gap: ${(props) => props.gap || '0px'};
     
 `
 
-const MenuLiStyled = styled.li`
+export const MenuLiStyled = styled.li`
     list-style: none;
 `
 
-const MenuAStyled = styled.a`
-    color: black;
+
+type MenuAStyledPropstype = {
+    color?: string;
+}
+
+export const MenuAStyled = styled.a<MenuAStyledPropstype>`
+    color: ${(props) => props.color||'black'};
     text-decoration: none;
 
 `

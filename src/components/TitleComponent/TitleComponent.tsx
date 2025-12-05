@@ -7,7 +7,7 @@ type TitlePropsType = TitleStyledPropsType & {
 
 export function TitleComponent(props: TitlePropsType) {
     return (
-        <TitleStyled justifyContent={props.justifyContent}marginBottom={props.marginBottom}>
+        <TitleStyled justifyContent={props.justifyContent} marginBottom={props.marginBottom}>
             {props.title}
         </TitleStyled>
     )

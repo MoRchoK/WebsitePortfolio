@@ -1,6 +1,6 @@
-import sprite from "../../../../../../public/iconsSprites.svg";
+import sprite from "../../../../../public/iconsSprites.svg";
 import styled from "styled-components";
-import {myTheme} from "../../../../../components/Theme/Theme.styled.tsx";
+import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
 
 type OfferItemsPropsType = {
     svgId: string;
@@ -45,7 +45,7 @@ const OfferItemsDesctiprion = styled.p`
 export function OfferItems(props: OfferItemsPropsType) {
     return (
         <OfferItemsStyled>
-                <IconOffer xmlns={"http://www.w3.org/1999/xlink"} viewBox={'0 0 83px 83px'}  width={props.width} height={props.height} fill={props.fill}>
+                <IconOffer xmlns={"http://www.w3.org/1999/xlink"}  width={props.width} height={props.height} fill={props.fill}>
                     <use  xlinkHref={sprite + "#" + props.svgId}></use>
                 </IconOffer>
             <OfferItemsTitle>{props.title}</OfferItemsTitle>
