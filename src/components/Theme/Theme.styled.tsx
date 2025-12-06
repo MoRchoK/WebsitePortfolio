@@ -5,6 +5,8 @@ export const myTheme = {
         highlighting: "#E63946",
         Title: "rgba(45, 45, 45, 1)",
         additionalText: "#B8B8B8",
+        statusUserText: "#A8A8A8",
+        descriptionPostText: "#535353",
 
         BgMainSection: "#F9F9F9",
         BgHeader: "rgba(249, 249, 249, 0.5);",

@@ -15,7 +15,6 @@ export function BrandsInfo() {
         <BrandsInfoStyled>
             <TitleComponent mgbtdescriotion={'80px'} alignment={'center'} title={'Brands I’ve Worked'}
                             description={'Things that I can do for my clients. Just make your good trust I love to provide quality works.'}/>
-
             <BrandsInfoStyledWrapper>
                 {brandIcon.map((iconId, index) => (
                <BrandsItem maxitem={brandIcon.length} index={index} key={iconId} bgleft={Math.ceil((index+1)%6)}>

@@ -47,7 +47,7 @@ export function OfferItems(props: OfferItemsPropsType) {
     return (
         <OfferItemsStyled>
                 <IconOffer xmlns={"http://www.w3.org/1999/xlink"}
-                           viewBox="0 0 90px 90px"
+
                            preserveAspectRatio="xMidYMid meet"
 
                            width={props.width} height={props.height} fill={props.fill}>
