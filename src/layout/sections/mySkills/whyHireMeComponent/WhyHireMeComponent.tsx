@@ -13,7 +13,7 @@ export function WhyHireMeComponent() {
             <MySkillsText>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapib eu placerat at nisl posuere aliquet
                 amet
-                pharetra malesuada. Spendisse nisl ac at tortor. Sit faucibus suspendisse risus.<br/> Vulputate
+                pharetra malesuada. Spendisse nisl ac at tortor. Sit faucibus suspendisse risus.<br/> <br/> Vulputate
                 pulvinar
                 cursus suspendisse risus vulputate enim pharetra eu. Tetur adipiscing elit eu placera.
             </MySkillsText>
@@ -30,6 +30,10 @@ export function WhyHireMeComponent() {
 const MySkillsText = styled.p`
     color: ${myTheme.colors.discriptionText};
     margin-bottom: 2.5rem;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 185%;
 `
 
 

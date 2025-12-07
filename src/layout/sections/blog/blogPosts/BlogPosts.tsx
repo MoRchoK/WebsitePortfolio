@@ -41,6 +41,8 @@ export function BlogPosts() {
 const PostTitle = styled.h3`
     font-size: 22px;
     color: ${myTheme.colors.PraymaryText};
+    font-weight: 600;
+    line-height: 142%;
 `
 
 type PostImagePropsType = {

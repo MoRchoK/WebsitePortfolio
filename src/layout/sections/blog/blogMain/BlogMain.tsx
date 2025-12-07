@@ -49,6 +49,8 @@ const NameUser = styled.span`
     font-size: 20px;
     color: ${(props) => props.theme.colors.primary};
     margin-bottom: 0.4rem;
+    font-weight: 700;
+    line-height: 100%;
 
 `
 const StatusUser = styled.span`
@@ -67,6 +69,8 @@ const BlogDescription = styled.p`
     margin-bottom: 2rem;
     font-size: 28px;
     color: ${myTheme.colors.descriptionPostText};
-
-
+    font-family: Lato, sans-serif;
+    font-weight: 500;
+    line-height: 170%;
+    letter-spacing: -0.02em;
 `

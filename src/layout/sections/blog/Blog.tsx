@@ -3,7 +3,7 @@ import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
 import {BlogBgImg, BlogMain} from "./blogMain/BlogMain.tsx";
 import {TitleComponent} from "../../../components/TitleComponent/TitleComponent.tsx";
 import {BlogPosts} from "./blogPosts/BlogPosts.tsx";
-import {ButtonLight} from "../../../components/buttonLight/ButtonLight.tsx";
+import {ButtonDark} from "../../../components/buttonDark/Button.tsx";
 
 
 export function Blog() {
@@ -16,7 +16,7 @@ export function Blog() {
                 description={'Things that I can do for my clients. Just make your good trust I love to provide quality works.'}
                 title={'Blog Posts'}/>
             <BlogPosts/>
-            <ButtonLight mg_bottom={'10vh'} title={'Read All Blogs'}/>
+            <ButtonDark mg_bottom={'10vh'} title={'Read All Blogs'}/>
             <BlogBgImg left={'0'}  top={'10%'}  src={'/src/image/Pattern.webp'} alt="No found"/>
         </BlogStyled>
     )

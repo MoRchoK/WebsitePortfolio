@@ -44,6 +44,7 @@ export function Footer() {
         <FooterStyled>
             <WrapperComponentStyled alignitems={'center'} justifycontent={'flex-start'}>
                 <TitleComponent color_description={myTheme.colors.descriptionFooterText} mgbtdescriotion={'60px'}
+                                letter_spacing={'0.015em'}
                                 alignment={'center'}
                                 mgbttitle={'0.5em'}
                                 description={'I’m available for freelance work. Have any projects in your mind? Just feel free to contact me'}
@@ -59,21 +60,24 @@ export function Footer() {
                 <Footnote>
                     © 2021 <FootnoteBold>Templates Jungle.</FootnoteBold> All rights reserved
                 </Footnote>
-                <WrapperComponentStyled  alignitems={'center'} flexdirection={'row'} gap={'20px'} >
+
+                    <SocialList>
                     {logo.map((icon, index) => (
-                        <IconOffer key={index} xmlns={"http://www.w3.org/2000/xlink"}
-                                   preserveAspectRatio="xMidYMid meet"
-                                   height={'24px'}
-                                   width={'24px'}
-                                   viewBox={icon.viewBox}
-                                   fill={myTheme.colors.borderFooterBtn}
-                        >
-                            <use xlinkHref={sprite + "#" + icon.name}></use>
-                        </IconOffer>
+                        <SocialItem>
+                            <SocialLink>
+                                <IconOffer key={index} xmlns={"http://www.w3.org/2000/xlink"}
+                                           preserveAspectRatio="xMidYMid meet"
+                                           height={'24px'}
+                                           width={'24px'}
+                                           viewBox={icon.viewBox}
+                                           fill={myTheme.colors.borderFooterBtn}
+                                >
+                                    <use xlinkHref={sprite + "#" + icon.name}></use>
+                                </IconOffer>
+                            </SocialLink>
+                        </SocialItem>
                     ))}
-                </WrapperComponentStyled>
-
-
+                    </SocialList>
             </WrapperComponentStyled>
 
 
@@ -81,21 +85,29 @@ export function Footer() {
 
             <IconBg stroke={myTheme.colors.bgColorIcon} left={'33%'} top={'5%'} id={'polygon'}/>
             <IconBg stroke={myTheme.colors.bgColorIcon} left={'50%'} top={'10%'} id={'polygon'}/>
-
-
             <IconBg stroke={myTheme.colors.bgColorIcon} right={'26%'} top={'5%'} id={'elipse'}/>
             <IconBg stroke={myTheme.colors.bgColorIcon} right={'43%'} bottom={'25%'} id={'elipse'}/>
-
             <PatternIcon  stroke={myTheme.colors.bgColorIcon} left={'30%'} bottom={'33%'}/>
             <PatternIcon  stroke={myTheme.colors.bgColorIcon} left={'22%'} top={'27%'}/>
             <PatternIcon  stroke={myTheme.colors.bgColorIcon} right={'22%'} top={'27%'}/>
             <PatternIcon  stroke={myTheme.colors.bgColorIcon} right={'30%'} bottom={'40%'}/>
-
-
         </FooterStyled>
     )
-
 }
+
+
+const SocialList = styled.ul`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px
+`
+const SocialItem = styled.li``
+
+
+const SocialLink = styled.a`
+    cursor: pointer;
+`
 
 const FooterLine = styled.hr`
     background-color: ${myTheme.colors.footerLine};
@@ -116,8 +128,14 @@ const FooterStyled = styled.section`
     
 `
 
-const Footnote = styled.span`
+const Footnote = styled.small`
     color: ${myTheme.colors.descriptionFooterText};
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    line-height: 100%;
+    font-size: 14px;
+   
+    
 `
 
 const FootnoteBold = styled.span`

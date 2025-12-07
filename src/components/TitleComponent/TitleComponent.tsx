@@ -9,12 +9,13 @@ type TitlePropsType = TitleStyledPropsType & {
     mgbtdescriotion?: string,
     mgbttitle?: string,
 
+
 }
 
 export function TitleComponent(props: TitlePropsType) {
     return (
         <WrapperComponentStyled alignitems={props.alignment}>
-            <TitleStyled font_size_title={props.font_size_title} mgbttitle={props.mgbttitle} alignment={props.alignment}>
+            <TitleStyled letter_spacing={props.letter_spacing} font_size_title={props.font_size_title} mgbttitle={props.mgbttitle} alignment={props.alignment}>
                 {props.title}
             </TitleStyled>
             {props.description && <TitleDescription color_description ={props.color_description} mgbtdescriotion={props.mgbtdescriotion} alignment={props.alignment}>{props.description}</TitleDescription>}
@@ -25,15 +26,15 @@ export function TitleComponent(props: TitlePropsType) {
 type TitleStyledPropsType = TitleDescriptionProps & {
     mgbttitle?: string,
     font_size_title?: string,
+    letter_spacing?: string,
 }
 
 
 
 const TitleStyled = styled.h2<TitleStyledPropsType>`
-    display: flex;
     font-size: ${(props) => props.font_size_title|| '48px' };
     line-height: 100%;
-    letter-spacing: -1px;
+    letter-spacing: ${(props)=>props.letter_spacing ||  '-1px'};
     color: ${myTheme.colors.Title};
     margin-bottom: ${(props) => props.mgbttitle || '15px'};
     justify-content: ${(props) => props.alignment || 'start'};
@@ -57,4 +58,8 @@ const TitleDescription = styled.p<TitleDescriptionProps>`
     width: 60%;
     font-size: ${(props)=> props.font_size_description || '16px'};
     line-height: 185%;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    
 `

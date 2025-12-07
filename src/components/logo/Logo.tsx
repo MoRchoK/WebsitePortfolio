@@ -16,6 +16,8 @@ const LogoTitleStyled = styled.span`
     font-size: 38px;
     color: ${myTheme.colors.PraymaryText};
     position: relative;
+    font-family: Raleway, sans-serif;
+    font-weight: 700;
     
 `
 

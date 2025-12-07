@@ -48,10 +48,8 @@ export function Offer() {
 
     return (
         <OfferSectionStyled>
-            <WrapperComponentStyled alignitems={'center'}>
-                <TitleComponent title={'What I Offer'}/>
-                <OfferDescribtion>Things that I can do for my clients. Just make your good trust I love to provide
-                    quality works.</OfferDescribtion>
+            <WrapperComponentStyled  alignitems={'center'}>
+                <TitleComponent mgbtdescriotion={'3.75rem'} alignment={'center'} description={'Things that I can do for my clients. Just make your good trust I love to provide quality works'} title={'What I Offer'}/>
                 <WrapperComponentStyled alignitems={'center'} flexdirection={'row'} gap={'2rem'}>
                     <IconOffer xmlns={"http://www.w3.org/1999/xlink"}
                                preserveAspectRatio="xMidYMid meet"
@@ -100,17 +98,4 @@ const OfferSectionStyled = styled.section`
     background-color: ${myTheme.colors.whteColor};
     gap: 160px;
 `
-
-const OfferDescribtion = styled.p`
-    font-size: 16px;
-    line-height: 185%;
-    display: block;
-    margin-bottom: 3.75rem;
-    width: 30%;
-    text-align: center;
-    color: ${myTheme.colors.discriptionText}
-
-`
-
-
 

@@ -58,5 +58,9 @@ type MenuLinkPropsType = {
 export const MenuLink = styled.a<MenuLinkPropsType>`
     color: ${(props) => props.color||'black'};
     text-decoration: none;
-
+    font-family: Raleway, sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    
+    
 `

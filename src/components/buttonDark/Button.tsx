@@ -26,6 +26,9 @@ const BtnDarkStyled = styled.button<BtnDarkPopsType>`
     color: ${myTheme.colors.whteColor};
     font-size: 16px;
     margin-bottom: ${props => props.mg_bottom};
+    font-family: Raleway, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.03em;
 
 `
 

@@ -17,5 +17,7 @@ export const BtnStyled = styled.button<BtnStyledPropsType>`
     color: ${myTheme.colors.PraymaryText};
     padding: 1.25em 3em;
     margin-bottom: ${(props) => props.margin_bottom};
-
+    font-family: Raleway;
+    font-weight: 500;
+    letter-spacing: 0.03em;
 `

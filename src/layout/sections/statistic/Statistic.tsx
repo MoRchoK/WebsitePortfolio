@@ -35,9 +35,9 @@ export function Statistic () {
         <Statisticstyled>
             {stats.map((item, index) => (
                 <WrapperComponentStyled alignitems={"center"} key={index}>
-                    <StatText color={myTheme.colors.statValueText} font_size={'105px'}>{item.value}
-                    </StatText>
-                    <StatText color={myTheme.colors.descriptionPostText} font_size={'18px'}>
+                    <StatValue>{item.value}
+                    </StatValue>
+                    <StatText >
                         {item.text}
                     </StatText>
                 </WrapperComponentStyled>
@@ -55,17 +55,22 @@ const Statisticstyled = styled.section`
     height: 33vh;
     background-color: ${myTheme.colors.BgBrandsSection};
 `
-
-
-type StatTextPropsType = {
-    font_size: string
-    color: string
-
-}
-
-const StatText = styled.span<StatTextPropsType>`
-    font-size: ${(props) => props.font_size};
-    color: ${(props) => props.color};
+const StatValue = styled.span`
+    font-size: 105px;
+    color: ${myTheme.colors.statValueText};
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 100%;
+    margin-bottom: 10px;
 
 `
+const StatText = styled.span`
+    font-size: 18px;
+    color: ${myTheme.colors.descriptionPostText};
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 100%;
+
+`
+
 

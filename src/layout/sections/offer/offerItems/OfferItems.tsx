@@ -24,17 +24,21 @@ const OfferItemsStyled = styled.div`
 const OfferItemsTitle = styled.h3`
     font-size: 25px;
     line-height: 100%;
-    letter-spacing: 1px;
+    letter-spacing: 0.01em;
     horiz-align: center;
     margin-bottom: 1.5rem;
+    font-weight: 600;
 `
 
 const OfferItemsDesctiprion = styled.p`
     width: 75%;
     font-size: 16px;
-    color: ${myTheme.colors.discriptionText};
+    color: ${myTheme.colors.descriptionCard};
     text-align: center;
-
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 177%;
 `
 
 

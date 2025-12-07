@@ -54,6 +54,7 @@ function InfoAboutSkill(props: InfoAboutSkillPropsType) {
         font-size: 16px;
         color: ${myTheme.colors.PraymaryText};
         margin-bottom: 0.6rem;
+        letter-spacing: 0.02em;
     `
     return (
         <WrapperComponentStyled flexdirection={'row'} justifycontent={'space-between'} width={props.percent}>
