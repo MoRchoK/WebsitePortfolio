@@ -6,7 +6,7 @@ import Logo from  '../../../../image/Ellipse.png'
 
 export function BlogMain() {
     return (
-        <WrapperComponentStyled alignitems={"start"} width={"35%"} marginbottom={'160px'}>
+        <WrapperComponentStyled alignitems={"start"} width={"35%"} marginbottom={'160px'} position={'relative'}>
             <BlogDescription>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapibus eu placerat at nisl posuere aliquet
                 amet pharetra malesuada. Suspendisse nisl ac at tortor.
@@ -22,10 +22,27 @@ export function BlogMain() {
                     </StatusUser>
                 </WrapperComponentStyled>
             </WrapperComponentStyled>
+            <BlogBgImg left={'-20%'}  top={'-80%'}  src={'/src/image/bgPost.webp'} alt="No found"/>
+
         </WrapperComponentStyled>
     )
 
 }
+
+type BlogBgImgPropsType = {
+    left?: string;
+    top?: string;
+}
+
+export const BlogBgImg = styled.img<BlogBgImgPropsType>`
+    position: absolute;
+    z-index: -1;
+    left: ${(props) => props.left || '0'};
+    top: ${(props) => props.top || '0'};
+`
+
+
+
 
 
 const NameUser = styled.span`

@@ -26,12 +26,10 @@ export const WrapperComponentStyled = styled.div<WrapperComponentPropsType>`
     width: ${(props) => props.width || 'auto'};
     position: ${(props) => props.position || 'static'};
     left: ${(props) => props.left || '0'};
-    z-index: 0;
+    z-index: 20;
     margin-bottom: ${(props) => props.marginbottom || '0'};
     height: ${(props) => props.height || 'auto'};
     gap: ${(props) => props.gap || '0'};
     padding-top: ${(props) => props.paddingtop || '0'};
-    
-    
 
 `

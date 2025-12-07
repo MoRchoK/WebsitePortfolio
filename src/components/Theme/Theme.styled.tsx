@@ -7,6 +7,8 @@ export const myTheme = {
         additionalText: "#B8B8B8",
         statusUserText: "#A8A8A8",
         descriptionPostText: "#535353",
+        statValueText: "#DDDDDD",
+        descriptionFooterText: "#929292",
 
         BgMainSection: "#F9F9F9",
         BgHeader: "rgba(249, 249, 249, 0.5);",
@@ -14,17 +16,20 @@ export const myTheme = {
         additionalSection: "#DCDCDC",
         BgBrandsSection: "#FAFAFA",
         bgColorIcon: 'rgba(253, 253, 253, 1)',
+        bgIconMain: '#FF7676',
+        strokeSecondSection: '#F0F0F0',
 
 
         borderColorBtnMain: "#9E9E9E",
         borderBtnGray: "#E1E1E1",
         borderGrandIcon: '#DCDCDC',
-
-
+        borderFooterBtn: '#5A5A5A',
 
 
         whteColor: "#fff",
-        arrowColor: 'rgba(159, 159, 159, 0.31)'
+        arrowColor: 'rgba(159, 159, 159, 0.31)',
+        footerLine: '#848484',
+
 
     },
 }

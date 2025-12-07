@@ -1,12 +1,21 @@
 import styled from "styled-components";
 import {myTheme} from "../Theme/Theme.styled.tsx";
 
-export const BtnStyled = styled.button`
-    border: ${myTheme.colors.borderColorBtnMain} 2px solid;
+
+type BtnStyledPropsType = {
+    border_color?: string
+    margin_bottom?: string
+    bg_color?: string
+}
+
+
+export const BtnStyled = styled.button<BtnStyledPropsType>`
+    display: inline-block;
+    border: ${(props) => props.border_color ? props.border_color + ' 2px solid' : myTheme.colors.borderColorBtnMain + ' 2px solid'};
     border-radius: 30px;
-    max-width: 210px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .25);
-    background-color: ${myTheme.colors.BgMainSection};
-    min-height: 60px;
+    background-color: ${(props) => props.bg_color || myTheme.colors.BgMainSection};
     color: ${myTheme.colors.PraymaryText};
+    padding: 1.25em 3em;
+    margin-bottom: ${(props) => props.margin_bottom};
+
 `

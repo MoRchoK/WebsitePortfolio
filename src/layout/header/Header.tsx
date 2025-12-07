@@ -1,14 +1,16 @@
 import {Menu} from "../../components/menu/Menu.tsx";
-import {Logo} from "../../components/Logo/Logo.tsx";
+import {Logo} from "../../components/logo/Logo.tsx";
 import styled from "styled-components";
 import {myTheme} from "../../components/Theme/Theme.styled.tsx";
 
 export function Header() {
 
+    const headerItems = ['Home', 'About', 'Services', 'Store', 'Blog', 'Contact']
+
     return (
         <HeaderStyled>
             <Logo/>
-            <Menu/>
+            <Menu  title={headerItems}/>
         </HeaderStyled>
 
     )
@@ -25,7 +27,7 @@ const HeaderStyled = styled.header`
     position: absolute;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     top: 0;
-    z-index: 2;
-   
+    z-index: 100;
+
 `
 

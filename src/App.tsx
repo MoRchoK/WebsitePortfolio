@@ -5,6 +5,8 @@ import {Offer} from "./layout/sections/offer/Offer.tsx";
 import {Portfolio} from "./layout/sections/protfolio/Portfolio.tsx";
 import {BrandsInfo} from "./layout/sections/brandsInfo/BrandsInfo.tsx";
 import {Blog} from "./layout/sections/blog/Blog.tsx";
+import {Statistic} from "./layout/sections/statistic/Statistic.tsx";
+import {Footer} from "./layout/footer/Footer.tsx";
 
 function App() {
     return (
@@ -15,6 +17,8 @@ function App() {
             <Portfolio/>
             <BrandsInfo/>
             <Blog/>
+            <Statistic/>
+            <Footer/>
         </AppStyled>
     )
 }

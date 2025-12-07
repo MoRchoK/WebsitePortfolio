@@ -1,25 +1,12 @@
-import {MenuAStyled, MenuLiStyled, MenuUlStyled, NavStyled} from "../../../../components/menu/Menu.tsx";
+import {Menu,  NavStyled} from "../../../../components/menu/Menu.tsx";
 
 export function PortfolioMenu() {
+
+    const portfilioItems = ['All', 'Branding', 'Shirt', 'Pakage', 'Poster']
+
     return (
         <NavStyled marginbottom={'4rem'}>
-            <MenuUlStyled gap={'70px'}>
-                <MenuLiStyled>
-                    <MenuAStyled>All</MenuAStyled>
-                </MenuLiStyled>
-                <MenuLiStyled>
-                    <MenuAStyled>Branding</MenuAStyled>
-                </MenuLiStyled>
-                <MenuLiStyled>
-                    <MenuAStyled>T-Shirt</MenuAStyled>
-                </MenuLiStyled>
-                <MenuLiStyled>
-                    <MenuAStyled>Pakage</MenuAStyled>
-                </MenuLiStyled>
-                <MenuLiStyled>
-                    <MenuAStyled>Poster</MenuAStyled>
-                </MenuLiStyled>
-            </MenuUlStyled>
+            <Menu title={portfilioItems}/>
         </NavStyled>
     )
 }

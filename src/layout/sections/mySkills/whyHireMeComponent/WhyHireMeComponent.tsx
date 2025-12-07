@@ -2,16 +2,14 @@ import {WrapperComponentStyled} from "../../../../components/wrapperComponent/Wr
 import {TitleComponent} from "../../../../components/TitleComponent/TitleComponent.tsx";
 import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
 import styled from "styled-components";
-import {
-    BtnBusinessBlack,
-    BtnBusinessPropsType
-} from "../../../../components/btnBusiness/BtnBusiness.tsx";
+import {ButtonDark} from "../../../../components/buttonDark/Button.tsx";
+import {ButtonLight} from "../../../../components/buttonLight/ButtonLight.tsx";
 
 
 export function WhyHireMeComponent() {
     return (
         <WrapperComponentStyled height={'300px'} width={'26%'}>
-            <TitleComponent  title='Why Hire Me ?'/>
+            <TitleComponent title='Why Hire Me ?'/>
             <MySkillsText>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapib eu placerat at nisl posuere aliquet
                 amet
@@ -21,13 +19,10 @@ export function WhyHireMeComponent() {
             </MySkillsText>
 
             <WrapperComponentStyled flexdirection={'row'} gap={'1.5rem'}>
-                <BtnBusinessBlack title={'Hire Me'} ></BtnBusinessBlack>
-                <BtnBusinessGray  title='Download CV'></BtnBusinessGray>
+                <ButtonDark title={'Hire Me'}></ButtonDark>
+                <ButtonLight title='Download CV'></ButtonLight>
             </WrapperComponentStyled>
-
         </WrapperComponentStyled>
-
-
     )
 }
 
@@ -38,22 +33,3 @@ const MySkillsText = styled.p`
 `
 
 
-function BtnBusinessGray (props: BtnBusinessPropsType){
-    return (
-        <BtnBusinessGrayStyled>{props.title}</BtnBusinessGrayStyled>
-    )
-}
-
-const BtnBusinessGrayStyled = styled.button`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    padding: 1em 1.5em;
-    font-size: 16px;
-    border: ${myTheme.colors.borderBtnGray} 2px solid;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    color: ${myTheme.colors.PraymaryText};
-
-
-`

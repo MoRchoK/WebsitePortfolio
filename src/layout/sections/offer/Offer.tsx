@@ -6,62 +6,90 @@ import {IconOffer, OfferItems} from "./offerItems/OfferItems.tsx";
 import sprite from "../../../../public/iconsSprites.svg";
 
 export function Offer() {
+
+    type icon = {
+        id: string,
+        title: string,
+        viewBox: string,
+        description: string,
+        $is_fill: boolean,
+        $is_stroke: boolean,
+    }
+
+    const icon: Array<icon> = [
+        {
+            id: "brush",
+            title: "Brush",
+            viewBox: "0 0 64 64",
+            $is_fill: true,
+            $is_stroke: false,
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci eget mi elit cursus donec amet sed sagittis.'
+        },
+        {
+            id: "Tshirt",
+            $is_fill: false,
+            $is_stroke: true,
+            title: "T-Shirt Design",
+            viewBox: "3 3 58 58",
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci eget mi elit cursus donec amet sed sagittis.'
+        },
+        {
+            id: "box",
+            $is_fill: false,
+            $is_stroke: true,
+            title: "Package Design",
+            viewBox: "0 0 24 24",
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci eget mi elit cursus donec amet sed sagittis.'
+        },
+
+
+    ]
+
+
     return (
         <OfferSectionStyled>
             <WrapperComponentStyled alignitems={'center'}>
-                <TitleComponent   title={'What I Offer'}/>
-                <OfferDescribtion  >Things that I can do for my clients. Just make your good trust I love to provide
+                <TitleComponent title={'What I Offer'}/>
+                <OfferDescribtion>Things that I can do for my clients. Just make your good trust I love to provide
                     quality works.</OfferDescribtion>
                 <WrapperComponentStyled alignitems={'center'} flexdirection={'row'} gap={'2rem'}>
-                    <IconOffer
-                        xmlns={"http://www.w3.org/1999/xlink"}
-                        fill={myTheme.colors.arrowColor}
-                        width={'83px'}
-                        height={'83px'} >
-                        <use xlinkHref={sprite + "#" + 'leftArrow' }></use>
+                    <IconOffer xmlns={"http://www.w3.org/1999/xlink"}
+                               preserveAspectRatio="xMidYMid meet"
+                               viewBox="0 0 53 35"
+                               width={'50px'}
+                               fill={myTheme.colors.additionalText}
+                               stroke={'none'}
+                               height={'60px'}>
+                        <use xlinkHref={sprite + "#" + 'leftArrow'}></use>
                     </IconOffer>
-                    <OfferItems
-                        title={'Branding Design'}
-                        width={'100px'}
-                        height={'100px'}
-                        svgid={'brush'}
-                        fill={myTheme.colors.highlighting}
-                        description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci eget mi elit cursus donec amet sed sagittis.'}
-                    />
+                    {icon.map((item, index) => (
+                        <OfferItems
+                            key={index}
+                            margin_bottom={'2.5rem'}
+                            title={item.title}
+                            width={'100px'}
+                            height={'100px'}
+                            svgid={item.id}
+                            viewBox={item.viewBox}
+                            fill={item.$is_fill ? myTheme.colors.additionalText : 'transparent'}
+                            stroke={item.$is_stroke ? myTheme.colors.additionalText : 'transparent'}
+                            description={item.description}
+                        />
+                    ))}
 
-                    <OfferItems
-                        width={'85px'}
-                        height={'85px'}
-                        title={'T-Shirt Design'}
-                        svgid={'Tshirt'}
-                        fill={'#D8D8D8'}
-                        description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci eget mi elit cursus donec amet sed sagittis.'}
-                    />
-
-                    <OfferItems
-
-                        width={'85px'}
-                        height={'85px'}
-                        title={'Package Design'}
-                        svgid={'box'}
-                        fill={'#D8D8D8'}
-                        description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci eget mi elit cursus donec amet sed sagittis.'}
-                    />
-                    <IconOffer
-                        xmlns={"http://www.w3.org/1999/xlink"}
-                        width={'83px'}
-                        height={'83px'} fill={myTheme.colors.arrowColor}>
-                        <use xlinkHref={sprite + "#" + 'rightArrow' }></use>
+                    <IconOffer xmlns={"http://www.w3.org/1999/xlink"}
+                               preserveAspectRatio="xMidYMid meet"
+                               viewBox="0 0 53 35"
+                               width={'50px'}
+                               height={'60px'}
+                               fill={myTheme.colors.PraymaryText}>
+                        <use xlinkHref={sprite + "#" + 'rightArrow'}></use>
                     </IconOffer>
                 </WrapperComponentStyled>
             </WrapperComponentStyled>
         </OfferSectionStyled>
     )
 }
-
-
-
-
 
 const OfferSectionStyled = styled.section`
     display: flex;
@@ -73,10 +101,6 @@ const OfferSectionStyled = styled.section`
     gap: 160px;
 `
 
-
-// type OfferDescribtionPropsType = {
-//     width: string,
-// }
 const OfferDescribtion = styled.p`
     font-size: 16px;
     line-height: 185%;

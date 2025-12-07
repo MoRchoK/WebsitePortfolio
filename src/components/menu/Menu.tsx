@@ -1,28 +1,22 @@
 import styled from "styled-components";
 
-export function Menu  (){
+
+
+type MenuPropsType = {
+    title: Array<string>
+
+}
+
+export function Menu  (props: MenuPropsType){
     return(
         <nav>
-            <MenuUlStyled gap={'70px'}>
-                <MenuLiStyled>
-                    <MenuAStyled href="">Home</MenuAStyled>
-                </MenuLiStyled>
-                <MenuLiStyled>
-                    <MenuAStyled href="">About</MenuAStyled>
-                </MenuLiStyled>
-                <MenuLiStyled>
-                    <MenuAStyled href="">Services</MenuAStyled>
-                </MenuLiStyled>
-                <MenuLiStyled>
-                    <MenuAStyled href="">Store</MenuAStyled>
-                </MenuLiStyled>
-                <MenuLiStyled>
-                    <MenuAStyled href="">Blog</MenuAStyled>
-                </MenuLiStyled>
-                <MenuLiStyled>
-                    <MenuAStyled href="">Contact</MenuAStyled>
-                </MenuLiStyled>
-            </MenuUlStyled>
+            <MenuUl gap={'70px'}>
+                {props.title.map((item,index) => (
+                    <MenuList key={index}>
+                        <MenuLink href="">{item}</MenuLink>
+                    </MenuList>
+                ))}
+            </MenuUl>
         </nav>
     )
 }
@@ -30,7 +24,7 @@ export function Menu  (){
 
 
 
-type MenuUlStyledPropsType = {
+type MenuUlPropsType = {
     gap?: string;
 }
 
@@ -43,7 +37,7 @@ export const NavStyled = styled.nav<NavStyledProps>`
 
 `
 
-export const MenuUlStyled = styled.ul<MenuUlStyledPropsType>`
+export const MenuUl = styled.ul<MenuUlPropsType>`
     width: 100%;
     height: 100%;
     display: flex;
@@ -51,16 +45,17 @@ export const MenuUlStyled = styled.ul<MenuUlStyledPropsType>`
     
 `
 
-export const MenuLiStyled = styled.li`
+
+export const MenuList = styled.li`
     list-style: none;
 `
 
 
-type MenuAStyledPropstype = {
+type MenuLinkPropsType = {
     color?: string;
 }
 
-export const MenuAStyled = styled.a<MenuAStyledPropstype>`
+export const MenuLink = styled.a<MenuLinkPropsType>`
     color: ${(props) => props.color||'black'};
     text-decoration: none;
 

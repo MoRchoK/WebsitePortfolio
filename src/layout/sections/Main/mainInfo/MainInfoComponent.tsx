@@ -5,7 +5,7 @@ import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
 
 export function MainInfoComponent() {
     return (
-        <WrapperComponentStyled width={'30%'} left={"15vw"} position={'absolute'}>
+        <WrapperComponentStyled width={'30%'} left={"15vw"} position={'absolute'} alignitems={'start'}>
             <MainTitle>Graphic Designer</MainTitle>
             <GreetingStyled>Hello I’m<br/> <NameTitleStyled>Daniel Bryan</NameTitleStyled></GreetingStyled>
             <DiscriptionTextStyled>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem dolorum

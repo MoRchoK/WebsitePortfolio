@@ -12,8 +12,8 @@ export const CircleStyled = styled.div<CircleStyledPropsType>`
     position: absolute;
     border-radius: 50%;
     border: ${myTheme.colors.highlighting} 8px dashed;
-    width: 50vh;
-    height: 50vh;
+    width: 60vh;
+    height: 60vh;
     top: ${(props) => props.top || ''};
     bottom: ${(props) => props.bottom || ''};
     left: ${(props) => props.left || ''};

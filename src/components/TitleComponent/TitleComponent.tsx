@@ -8,28 +8,30 @@ type TitlePropsType = TitleStyledPropsType & {
     alignment?: string,
     mgbtdescriotion?: string,
     mgbttitle?: string,
+
 }
 
 export function TitleComponent(props: TitlePropsType) {
     return (
         <WrapperComponentStyled alignitems={props.alignment}>
-            <TitleStyled mgbttitle={props.mgbttitle} alignment={props.alignment}>
+            <TitleStyled font_size_title={props.font_size_title} mgbttitle={props.mgbttitle} alignment={props.alignment}>
                 {props.title}
             </TitleStyled>
-            {props.description && <TitleDescription mgbtdescriotion={props.mgbtdescriotion} alignment={props.alignment}>{props.description}</TitleDescription>}
+            {props.description && <TitleDescription color_description ={props.color_description} mgbtdescriotion={props.mgbtdescriotion} alignment={props.alignment}>{props.description}</TitleDescription>}
         </WrapperComponentStyled>
     )
 }
 
 type TitleStyledPropsType = TitleDescriptionProps & {
     mgbttitle?: string,
+    font_size_title?: string,
 }
 
 
 
 const TitleStyled = styled.h2<TitleStyledPropsType>`
     display: flex;
-    font-size: 48px;
+    font-size: ${(props) => props.font_size_title|| '48px' };
     line-height: 100%;
     letter-spacing: -1px;
     color: ${myTheme.colors.Title};
@@ -41,13 +43,18 @@ const TitleStyled = styled.h2<TitleStyledPropsType>`
 type TitleDescriptionProps = {
     mgbtdescriotion?: string,
     alignment?: string,
-
+    color_description?: string,
+    font_size_description?: string,
 }
 
+
+
+
 const TitleDescription = styled.p<TitleDescriptionProps>`
-    color: ${myTheme.colors.discriptionText};
+    color: ${props=>props.color_description || myTheme.colors.discriptionText};
     margin-bottom: ${(props) => props.mgbtdescriotion || '15px'};
     text-align: ${(props) => props.alignment || 'start'};
     width: 60%;
-
+    font-size: ${(props)=> props.font_size_description || '16px'};
+    line-height: 185%;
 `
