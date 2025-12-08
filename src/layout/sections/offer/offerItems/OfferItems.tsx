@@ -8,7 +8,7 @@ type OfferItemsPropsType = IconOfferPropsType &  {
     description: string;
 }
 
-const OfferItemsStyled = styled.div`
+export const OfferItemsStyled = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,7 +46,6 @@ export function OfferItems(props: OfferItemsPropsType) {
     return (
         <OfferItemsStyled>
             <IconOffer xmlns={"http://www.w3.org/1999/xlink"}
-                       margin_bottom={props.margin_bottom}
                        preserveAspectRatio="xMidYMid meet"
                        viewBox={props.viewBox}
                        rotate={props.rotate}
@@ -56,7 +55,7 @@ export function OfferItems(props: OfferItemsPropsType) {
                        bottom={props.bottom}
                        top={props.top}
                        right={props.right}
-                       width={props.width} height={props.height} fill={props.fill}>
+                       fill={props.fill}>
                 <use xlinkHref={sprite + "#" + props.svgid}></use>
             </IconOffer>
             <OfferItemsTitle>{props.title}</OfferItemsTitle>
@@ -73,9 +72,6 @@ type IconOfferPropsType = {
     fill?: string,
     viewBox: string
     stroke?: string,
-    width: string;
-    height: string;
-    margin_bottom?: string
     position?: string
     top?: string
     right?: string
@@ -87,16 +83,10 @@ type IconOfferPropsType = {
 
 export const IconOffer = styled.svg<IconOfferPropsType>`
     position: ${(props) => (props.position ? props.position : "static")};
-    width: ${(props) => (props.width ? props.width : "0")};
-    height: ${(props) => (props.height ? props.height : "0")};
-    margin-bottom: ${(props) => props.margin_bottom ? props.margin_bottom:  "0"};
     fill: ${(props) => props.fill || 'currentColor'};
     top: ${(props) => props.top || ''};
     bottom: ${(props) => props.bottom || ''};
     right: ${(props) => props.right || ''};
     left: ${(props) => props.left || ''};
     transform: ${(props) =>props.rotate? `rotate(${props.rotate}deg)` :  ''}
-    
-    
-    
 `

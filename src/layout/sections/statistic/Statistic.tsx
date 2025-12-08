@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
 import {WrapperComponentStyled} from "../../../components/wrapperComponent/WrapperComponentStyled.tsx";
+import {Container} from "../../../container/Container.ts";
 
 
 
@@ -33,8 +34,9 @@ export function Statistic () {
 
     return (
         <Statisticstyled>
+            <Container >
             {stats.map((item, index) => (
-                <WrapperComponentStyled alignitems={"center"} key={index}>
+                <WrapperComponentStyled width={'auto'}  alignitems={"center"}   key={index}>
                     <StatValue>{item.value}
                     </StatValue>
                     <StatText >
@@ -42,6 +44,7 @@ export function Statistic () {
                     </StatText>
                 </WrapperComponentStyled>
             ))}
+            </Container>
         </Statisticstyled>
     )
 }
@@ -50,10 +53,19 @@ const Statisticstyled = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 80px;
     flex-direction: row;
-    height: 33vh;
+    height: 100%;
+    padding: 120px 0;
     background-color: ${myTheme.colors.BgBrandsSection};
+
+    ${Container} {
+        display: flex;
+        gap: 100px;
+        justify-content: center;
+        align-items: center;
+    }
+
+
 `
 const StatValue = styled.span`
     font-size: 105px;
@@ -62,7 +74,6 @@ const StatValue = styled.span`
     letter-spacing: -0.04em;
     line-height: 100%;
     margin-bottom: 10px;
-
 `
 const StatText = styled.span`
     font-size: 18px;
@@ -70,7 +81,6 @@ const StatText = styled.span`
     font-weight: 600;
     letter-spacing: 0.01em;
     line-height: 100%;
-
 `
 
 

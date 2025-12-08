@@ -20,6 +20,20 @@ const СrossStyled = styled.div<crossPropsType>`
     bottom: ${(props) => props.bottom || ''};
     right: ${(props) => props.right || ''};
     z-index: 1;
+    svg{
+        stroke: ${(props)=>props.stroke};
+        position: absolute;
+    }
+    &>svg:first-child{
+        top: 0;
+        left: 0;
+    }
+    &>svg:last-child{
+        top: -7px;
+        left: -13px;
+        transform: rotate(90deg);
+        
+    }
 
 `
 
@@ -27,9 +41,9 @@ const СrossStyled = styled.div<crossPropsType>`
 
 export function PatternIcon (props: crossPropsType) {
     return (
-        <СrossStyled top={props.top} bottom={props.bottom} left={props.left} right={props.right}>
-            <IconBg stroke={props.stroke} top={'0px'} left={'0px'} id={'line'}/>
-            <IconBg stroke={props.stroke} rotate={90} top={'-7px'} left={'-13px'} id={'line'}/>
+        <СrossStyled stroke={props.stroke} top={props.top} bottom={props.bottom} left={props.left} right={props.right}>
+            <IconBg  id={'line'}/>
+            <IconBg  id={'line'}/>
         </СrossStyled>
     )
 }

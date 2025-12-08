@@ -31,5 +31,4 @@ export const WrapperComponentStyled = styled.div<WrapperComponentPropsType>`
     height: ${(props) => props.height || 'auto'};
     gap: ${(props) => props.gap || '0'};
     padding-top: ${(props) => props.paddingtop || '0'};
-
 `

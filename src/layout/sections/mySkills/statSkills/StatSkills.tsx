@@ -5,7 +5,7 @@ import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
 
 export function StatSkills() {
     return (
-        <WrapperComponentStyled   height={'300px'} width={'26%'}>
+        <WrapperComponentStyled   height={'100%'} width={'45%'}>
             <TitleComponent title='My Skills'/>
             <div>
                 <StatSkillComponent title={'Adobe Photoshop'} percent={'96%'}/>
@@ -24,7 +24,7 @@ type StatSkillComponentPropsType = {
 
 function StatSkillComponent(props: StatSkillComponentPropsType) {
     return (
-        <WrapperComponentStyled marginbottom={'1rem'} width={props.percent}>
+        <WrapperComponentStyled marginbottom={'40px'} width={'100%'}>
             <InfoAboutSkill title={props.title} percent={props.percent}/>
             <SkillStayled percent={props.percent}/>
         </WrapperComponentStyled>

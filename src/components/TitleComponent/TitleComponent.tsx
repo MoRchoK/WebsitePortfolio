@@ -22,14 +22,11 @@ export function TitleComponent(props: TitlePropsType) {
         </WrapperComponentStyled>
     )
 }
-
 type TitleStyledPropsType = TitleDescriptionProps & {
     mgbttitle?: string,
     font_size_title?: string,
     letter_spacing?: string,
 }
-
-
 
 const TitleStyled = styled.h2<TitleStyledPropsType>`
     font-size: ${(props) => props.font_size_title|| '48px' };
@@ -48,10 +45,7 @@ type TitleDescriptionProps = {
     font_size_description?: string,
 }
 
-
-
-
-const TitleDescription = styled.p<TitleDescriptionProps>`
+export const TitleDescription = styled.p<TitleDescriptionProps>`
     color: ${props=>props.color_description || myTheme.colors.discriptionText};
     margin-bottom: ${(props) => props.mgbtdescriotion || '15px'};
     text-align: ${(props) => props.alignment || 'start'};

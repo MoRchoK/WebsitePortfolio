@@ -2,6 +2,7 @@ import {Menu} from "../../components/menu/Menu.tsx";
 import {Logo} from "../../components/logo/Logo.tsx";
 import styled from "styled-components";
 import {myTheme} from "../../components/Theme/Theme.styled.tsx";
+import {Container} from "../../container/Container.ts";
 
 export function Header() {
 
@@ -9,8 +10,11 @@ export function Header() {
 
     return (
         <HeaderStyled>
-            <Logo/>
-            <Menu  title={headerItems}/>
+            <Container>
+                <Logo/>
+                <Menu  title={headerItems}/>
+            </Container>
+
         </HeaderStyled>
 
     )

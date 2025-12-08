@@ -8,7 +8,7 @@ import {ButtonLight} from "../../../../components/buttonLight/ButtonLight.tsx";
 
 export function WhyHireMeComponent() {
     return (
-        <WrapperComponentStyled height={'300px'} width={'26%'}>
+        <WrapperComponentStyled height={'100%'} width={'45%'}>
             <TitleComponent title='Why Hire Me ?'/>
             <MySkillsText>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapib eu placerat at nisl posuere aliquet
@@ -17,7 +17,6 @@ export function WhyHireMeComponent() {
                 pulvinar
                 cursus suspendisse risus vulputate enim pharetra eu. Tetur adipiscing elit eu placera.
             </MySkillsText>
-
             <WrapperComponentStyled flexdirection={'row'} gap={'1.5rem'}>
                 <ButtonDark title={'Hire Me'}></ButtonDark>
                 <ButtonLight title='Download CV'></ButtonLight>

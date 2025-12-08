@@ -24,25 +24,26 @@ export function BlogPosts() {
 
 
     return (
-        <WrapperComponentStyled flexwrap={'wrap'} marginbottom={'' +
-            '110px'} gap={'50px'} flexdirection={'row'} justifycontent={'center'} alignitems={'center'}>
+        <WrapperComponentStyled flexwrap={'wrap'} width={'100%'} marginbottom={'60px'} gap={'20px'} flexdirection={'row'} justifycontent={'center'} alignitems={'center'}>
             {Object.values(BlogPosts).map((post, index) => (
-                <BlogPostsStyled key={index}>
+                <WrapperComponentStyled flexdirection={'column'} width={'385px'} key={index}>
                     <PostImage url={post.url}/>
                     <PostTitle>
                         {post.title}
                     </PostTitle>
-                </BlogPostsStyled>
+                </WrapperComponentStyled>
             ))}
         </WrapperComponentStyled>
     )
 }
 
 const PostTitle = styled.h3`
+    display: inline-block;
     font-size: 22px;
     color: ${myTheme.colors.PraymaryText};
     font-weight: 600;
     line-height: 142%;
+    width: 100%;
 `
 
 type PostImagePropsType = {
@@ -52,14 +53,8 @@ const PostImage = styled.div<PostImagePropsType>`
     background-image: ${(props) => props.url && `url(${props.url})`};
     background-size: cover;
     background-position: center;
-    height: 100%;
+    height: 280px;
     width: 100%;
     margin-bottom: 1.5rem;
-    border-radius: 10%;
-`;
-
-const BlogPostsStyled = styled.div`
-    height: 14.5vw;
-    width: 19.7vw;
-
+    border-radius: 5%;
 `

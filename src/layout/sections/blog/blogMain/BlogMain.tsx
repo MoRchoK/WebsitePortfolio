@@ -1,19 +1,19 @@
 import {WrapperComponentStyled} from "../../../../components/wrapperComponent/WrapperComponentStyled.tsx";
 import styled from "styled-components";
 import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
-import Logo from  '../../../../image/Ellipse.png'
+import Logo from '../../../../image/Ellipse.png'
 
 
 export function BlogMain() {
     return (
-        <WrapperComponentStyled alignitems={"start"} width={"35%"} marginbottom={'160px'} position={'relative'}>
+        <WrapperComponentStyled alignitems={"start"} width={"60%"} marginbottom={'130px'} position={'relative'}>
             <BlogDescription>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapibus eu placerat at nisl posuere aliquet
                 amet pharetra malesuada. Suspendisse nisl ac at tortor.
             </BlogDescription>
             <WrapperComponentStyled flexdirection={'row'} gap={'1em'}>
                 <Avatar src={Logo} alt="No found"/>
-                <WrapperComponentStyled >
+                <WrapperComponentStyled>
                     <NameUser>
                         Emma Brown
                     </NameUser>
@@ -22,8 +22,7 @@ export function BlogMain() {
                     </StatusUser>
                 </WrapperComponentStyled>
             </WrapperComponentStyled>
-            <BlogBgImg left={'-20%'}  top={'-80%'}  src={'/src/image/bgPost.webp'} alt="No found"/>
-
+            <BlogBgImg opacity={0.7} left={'-15%'} top={'-80%'} src={'/src/image/bgPost.webp'} alt="No found"/>
         </WrapperComponentStyled>
     )
 
@@ -32,6 +31,7 @@ export function BlogMain() {
 type BlogBgImgPropsType = {
     left?: string;
     top?: string;
+    opacity?: number;
 }
 
 export const BlogBgImg = styled.img<BlogBgImgPropsType>`
@@ -39,10 +39,8 @@ export const BlogBgImg = styled.img<BlogBgImgPropsType>`
     z-index: -1;
     left: ${(props) => props.left || '0'};
     top: ${(props) => props.top || '0'};
+    opacity: ${(props) => props.opacity || 1};
 `
-
-
-
 
 
 const NameUser = styled.span`

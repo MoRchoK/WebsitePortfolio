@@ -17,7 +17,7 @@ type BtnDarkPopsType = {
     mg_bottom?: string
 }
 
-const BtnDarkStyled = styled.button<BtnDarkPopsType>`
+export const BtnDarkStyled = styled.button<BtnDarkPopsType>`
     display: flex;
     align-items: center;
     justify-content: center;

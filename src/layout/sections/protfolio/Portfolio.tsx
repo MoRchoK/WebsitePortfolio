@@ -8,18 +8,21 @@ import bgThreeImg from "../../../image/Rectangle87.webp";
 import bgFourImg from "../../../image/Rectangle79.webp";
 import bgfiveImg from "../../../image/Rectangle92.webp";
 import bgSixImg from "../../../image/Rectangle78.webp";
-
-
+import {Container} from "../../../container/Container.ts";
+import {MenuLink} from "../../../components/menu/Menu.tsx";
+import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
 
 
 export function Portfolio() {
 
     return (
         <PortfolioStyles>
-            <TitleComponent mgbttitle={'55px'} title={"Portfolio"}/>
-            <PortfolioMenu/>
-            <PortfolioPost/>
-            <ButtonDark title={'VIEW PORTFOLIO'}/>
+            <Container>
+                <TitleComponent alignment={'center'} mgbttitle={'55px'} title={"Portfolio"}/>
+                <PortfolioMenu/>
+                <PortfolioPost/>
+                <ButtonDark title={'VIEW PORTFOLIO'}/>
+            </Container>
         </PortfolioStyles>
 
     )
@@ -33,104 +36,88 @@ const PortfolioStyles = styled.section`
     justify-content: center;
     align-items: center;
     margin-bottom: 5%;
+
+    nav {
+        display: flex;
+        justify-content: center;
+
+        ${MenuLink} {
+            color: ${myTheme.colors.descriptionCard};
+        }
+
+        ${MenuLink}:hover {
+            color: ${myTheme.colors.PraymaryText};
+        }
+    }
+    ${Container} {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+
 `
 
-
 function PortfolioPost() {
-    const portfolioItems = [bgOneImg, bgTwoImg, bgThreeImg, bgFourImg, bgfiveImg,bgSixImg]
+    const portfolioItems = [bgOneImg, bgSixImg, bgThreeImg, bgFourImg, bgfiveImg, bgTwoImg,]
+    let positionPost: number = 0
     return (
         <WrapperPrortfolio>
-            <PortfolioPostStyledOne backgroundimage={portfolioItems[0]}></PortfolioPostStyledOne>
-            <PortfolioPostStyledTwo backgroundimage={portfolioItems[1]}></PortfolioPostStyledTwo>
-            <PortfolioPostStyledThree backgroundimage={portfolioItems[2]}></PortfolioPostStyledThree>
-            <PortfolioPostStyledFour backgroundimage={portfolioItems[3]}></PortfolioPostStyledFour>
-            <PortfolioPostStyledFive backgroundimage={portfolioItems[4]}></PortfolioPostStyledFive>
-            <PortfolioPostStyledSix backgroundimage={portfolioItems[5]}></PortfolioPostStyledSix>
+            {portfolioItems.map((item, i) => {
+                if (i + 1 <= 3) {
+                    if ((i + 1) % 2 === 0) {
+                        return <PortfolioPostStyled key={i} grid_row_start={1} grid_row_end={3}
+                                                    grid_column_start={i + 1}
+                                                    backgroundimage={item}/>
+                    } else {
+                        return <PortfolioPostStyled key={i} grid_row_start={1} grid_row_end={2}
+                                                    grid_column_start={i + 1}
+                                                    backgroundimage={item}/>
+                    }
+                } else {
+                    if ((i % 2) === 0) {
+                        positionPost++
+                        return <PortfolioPostStyled key={i} grid_row_start={3} grid_row_end={4}
+                                                    grid_column_start={positionPost}
+                                                    backgroundimage={item}/>
+                    } else {
+                        positionPost++
+                        return <PortfolioPostStyled key={i} grid_row_start={2} grid_row_end={4}
+                                                    grid_column_start={positionPost}
+                                                    backgroundimage={item}/>
+                    }
+                }
+            })}
         </WrapperPrortfolio>
     )
 }
 
+
 const WrapperPrortfolio = styled.div`
     display: grid;
-    width: 1800px;
-    height: 1500px;
+    width: 100%;
+    height: 900px;
     gap: 20px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     margin-bottom: 5%;
-   
 `
 
-
 type PortfolioPostStyledPropsType = {
-    height?: string
-    flexGrow?: string
     backgroundimage?: string
+    grid_row_start: number
+    grid_row_end: number
+    grid_column_start: number
 
 }
 
-const PortfolioPostStyledOne = styled.div<PortfolioPostStyledPropsType>`
+
+const PortfolioPostStyled = styled.div<PortfolioPostStyledPropsType>`
     background-image: url(${(props) => props.backgroundimage});
-    background-color: red;
     background-size: cover;
     background-position: center;
-    gap: 30px;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    grid-column-start: 1;
+    grid-row-start: ${(props) => props.grid_row_start};
+    grid-row-end: ${(props) => props.grid_row_end};
+    grid-column-start: ${(props) => props.grid_column_start};
 `;
 
-
-const PortfolioPostStyledTwo = styled.div<PortfolioPostStyledPropsType>`
-    background-image: url(${(props) => props.backgroundimage});
-    background-color: red;
-    background-size: cover;
-    background-position: center;
-    grid-row-start: 1;
-    grid-row-end: 3;
-    grid-column-start: 2;
-`;
-
-const PortfolioPostStyledThree = styled.div<PortfolioPostStyledPropsType>`
-    background-image: url(${(props) => props.backgroundimage});
-    background-color: red;
-    background-size: cover;
-    background-position: center;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    grid-column-start: 3;
-    
-`;
-
-const PortfolioPostStyledFour = styled.div<PortfolioPostStyledPropsType>`
-    background-image: url(${(props) => props.backgroundimage});
-    background-color: red;
-    background-size: cover;
-    background-position: center;
-    grid-row-start: 2;
-    grid-row-end: 4;
-    grid-column-start: 1;
-    
-`;
-
-const PortfolioPostStyledFive = styled.div<PortfolioPostStyledPropsType>`
-    background-image: url(${(props) => props.backgroundimage});
-    background-color: blue;
-    background-size: cover;
-    background-position: center;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    grid-column-start: 2;
-    
-`;
-
-const PortfolioPostStyledSix = styled.div<PortfolioPostStyledPropsType>`
-    background-image: url(${(props) => props.backgroundimage});
-    background-color: blue;
-    background-size: cover;
-    background-position: center;
-    grid-row-start: 2;
-    grid-row-end: 4;
-    grid-column-start: 3;
-    
-`;

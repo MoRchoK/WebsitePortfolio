@@ -6,13 +6,19 @@ import {CircleStyled} from "../../../components/circleStyled/Circle.styled.tsx";
 import {IconBg} from "../../../components/iconBg/IconBg.tsx";
 
 import {PatternIcon} from "../../../components/bgCross/PatternIcon.tsx";
+import {Container} from "../../../container/Container.ts";
+
 
 export function Main() {
     return (
         <MainStyled>
             <Header/>
-            <MainInfoComponent/>
-            <ImgStyled src='/src/image/mainPhoto.webp'/>
+            <Container>
+                <MainInfoComponent/>
+
+
+            </Container>
+
             <CircleStyled left={"-15%"} bottom={'-15%'}/>
             <CircleStyled right={"-21%"} top={'-21%'}/>
             <CircleStyled right={"12%"} bottom={'10%'}/>
@@ -24,12 +30,11 @@ export function Main() {
 
             <IconBg bottom={'30%'} right={'10%'} id={'polygon'}/>
             <IconBg top={'40%'} left={'53%'} id={'polygon'}/>
-
+            <ImgStyled src='/src/image/mainPhoto.webp'/>
             <PatternIcon top={'20%'} left={'51%'}/>
             <PatternIcon bottom={'40%'} right={'13%'}/>
             <PatternIcon bottom={'53%'} right={'11%'}/>
             <PatternIcon bottom={'18%'} left={'8%'}/>
-
         </MainStyled>
     )
 }
@@ -41,9 +46,10 @@ const MainStyled = styled.main`
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: start;
-    position: relative;
+    justify-content: center;
     overflow: hidden;
+    border: 1px blue solid;
+    position: relative;
 `
 
 
@@ -55,7 +61,7 @@ const ImgStyled = styled.img`
     right: -10%;
     bottom: 0;
     z-index: 4;
-    
+
 `
 
 

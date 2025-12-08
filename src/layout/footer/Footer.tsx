@@ -7,6 +7,7 @@ import {IconOffer} from "../sections/offer/offerItems/OfferItems.tsx";
 import sprite from "../../../public/iconsSprites.svg";
 import {IconBg} from "../../components/iconBg/IconBg.tsx";
 import {PatternIcon} from "../../components/bgCross/PatternIcon.tsx";
+import {Container} from "../../container/Container.ts";
 
 
 
@@ -42,6 +43,7 @@ export function Footer() {
 
     return (
         <FooterStyled>
+            <Container>
             <WrapperComponentStyled alignitems={'center'} justifycontent={'flex-start'}>
                 <TitleComponent color_description={myTheme.colors.descriptionFooterText} mgbtdescriotion={'60px'}
                                 letter_spacing={'0.015em'}
@@ -52,20 +54,18 @@ export function Footer() {
                 <BtnStyled bg_color={'transparent '} margin_bottom={'100px'}
                            border_color={myTheme.colors.borderFooterBtn}>CONTACT ME</BtnStyled>
 
-                <FooterLine/>
 
             </WrapperComponentStyled>
-
-            <WrapperComponentStyled height={'15vh'} width={'55vw'} justifycontent={'space-between'} flexdirection={'row'} alignitems={'center'}   >
+                <FooterLine/>
+            <WrapperComponentStyled height={'115px'} width={'80%'} justifycontent={'space-between'} flexdirection={'row'} alignitems={'center'}   >
                 <Footnote>
                     © 2021 <FootnoteBold>Templates Jungle.</FootnoteBold> All rights reserved
                 </Footnote>
-
                     <SocialList>
                     {logo.map((icon, index) => (
-                        <SocialItem>
+                        <SocialItem key={index}>
                             <SocialLink>
-                                <IconOffer key={index} xmlns={"http://www.w3.org/2000/xlink"}
+                                <IconOffer  xmlns={"http://www.w3.org/2000/xlink"}
                                            preserveAspectRatio="xMidYMid meet"
                                            height={'24px'}
                                            width={'24px'}
@@ -79,10 +79,7 @@ export function Footer() {
                     ))}
                     </SocialList>
             </WrapperComponentStyled>
-
-
-
-
+            </Container>
             <IconBg stroke={myTheme.colors.bgColorIcon} left={'33%'} top={'5%'} id={'polygon'}/>
             <IconBg stroke={myTheme.colors.bgColorIcon} left={'50%'} top={'10%'} id={'polygon'}/>
             <IconBg stroke={myTheme.colors.bgColorIcon} right={'26%'} top={'5%'} id={'elipse'}/>
@@ -112,7 +109,7 @@ const SocialLink = styled.a`
 const FooterLine = styled.hr`
     background-color: ${myTheme.colors.footerLine};
     height: 1px;
-    width: 70vw;
+    width: 95%;
 `
 
 const FooterStyled = styled.section`
@@ -122,22 +119,19 @@ const FooterStyled = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 50vh;
+    height: 100%;
     background-color: ${myTheme.colors.secondarySection};
-    
-    
+    ${Container}{
+        flex-direction: column;
+    }
 `
-
 const Footnote = styled.small`
     color: ${myTheme.colors.descriptionFooterText};
     font-family: Lato, sans-serif;
     font-weight: 400;
     line-height: 100%;
     font-size: 14px;
-   
-    
 `
-
 const FootnoteBold = styled.span`
     color: ${myTheme.colors.PraymaryText};
 `

@@ -5,13 +5,12 @@ import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
 
 export function MainInfoComponent() {
     return (
-        <WrapperComponentStyled width={'30%'} left={"15vw"} position={'absolute'} alignitems={'start'}>
+        <WrapperComponentStyled width={'50%'} alignitems={'start'}>
             <MainTitle>Graphic Designer</MainTitle>
             <GreetingStyled>Hello I’m<br/> <NameTitleStyled>Daniel Bryan</NameTitleStyled></GreetingStyled>
-            <DiscriptionTextStyled>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid dolorem dolorum
-                ducimus earum esse
-                exercitationem fugiat incidunt iusto libero minus molestias, mollitia nisi obcaecati officia optio
-                porro reprehenderit, rerum veniam.</DiscriptionTextStyled>
+            <DiscriptionTextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque consequat,
+                faucibus et, et. Non semper blandit vitae semper blandit. Tellus dignissim a dui turpis arcu, nulla
+                ullamcorper tincidunt.</DiscriptionTextStyled>
             <BtnStyled>GET IN TOUCH</BtnStyled>
         </WrapperComponentStyled>
     )
@@ -45,7 +44,7 @@ const GreetingStyled = styled.p`
     line-height: 1;
     font-family: Raleway, sans-serif;
     font-weight: 700;
-    
+
 `
 
 
