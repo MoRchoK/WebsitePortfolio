@@ -20,7 +20,7 @@ export function Blog() {
                 <BlogPosts/>
                 <ButtonDark mg_bottom={'10vh'} title={'Read All Blogs'}/>
             </Container>
-            <BlogBgImg left={'0'} top={'10%'} src={'/src/image/Pattern.webp'} alt="No found"/>
+            <BlogBgImg left={'0'} top={'10%'} src={'/src/image/Pattern.webp'} alt="Post image"/>
         </BlogStyled>
     )
 

@@ -5,13 +5,15 @@ import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
 
 export function MainInfoComponent() {
     return (
-        <WrapperComponentStyled width={'50%'} alignitems={'start'}>
-            <MainTitle>Graphic Designer</MainTitle>
-            <GreetingStyled>Hello I’m<br/> <NameTitleStyled>Daniel Bryan</NameTitleStyled></GreetingStyled>
-            <DiscriptionTextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque consequat,
-                faucibus et, et. Non semper blandit vitae semper blandit. Tellus dignissim a dui turpis arcu, nulla
-                ullamcorper tincidunt.</DiscriptionTextStyled>
-            <BtnStyled>GET IN TOUCH</BtnStyled>
+        <WrapperComponentStyled width={'100%'}>
+            <WrapperComponentStyled width={'50%'} alignitems={'flex-start'}>
+                <MainTitle>Graphic Designer</MainTitle>
+                <GreetingStyled>Hello I’m<br/> <NameTitleStyled>Daniel Bryan</NameTitleStyled></GreetingStyled>
+                <DiscriptionTextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque consequat,
+                    faucibus et, et. Non semper blandit vitae semper blandit. Tellus dignissim a dui turpis arcu, nulla
+                    ullamcorper tincidunt.</DiscriptionTextStyled>
+                <BtnStyled>GET IN TOUCH</BtnStyled>
+            </WrapperComponentStyled>
         </WrapperComponentStyled>
     )
 }

@@ -1,21 +1,16 @@
 import sprite from "../../../../../public/iconsSprites.svg";
 import styled from "styled-components";
 import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
-
 type OfferItemsPropsType = IconOfferPropsType &  {
     svgid: string;
     title: string;
     description: string;
 }
 
-export const OfferItemsStyled = styled.div`
+export const OfferItemsStyled = styled.article`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    align-content: center;
-    width: 400px;
-    height: 450px;
     box-shadow: 0 2px 40px 0 rgba(187, 187, 187, 0.5);
     background-color: ${myTheme.colors.bgColorIcon};
     border-radius: 90px;

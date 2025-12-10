@@ -44,7 +44,7 @@ export function Offer() {
     return (
         <OfferSectionStyled>
             <Container>
-                <WrapperComponentStyled alignitems={'center'}>
+                <WrapperComponentStyled alignitems={'center'} >
                     <TitleComponent mgbtdescriotion={'3.75rem'} alignment={'center'}
                                     description={'Things that I can do for my clients. Just make your good trust I love to provide quality works'}
                                     title={'What I Offer'}/>
@@ -88,27 +88,47 @@ export function Offer() {
 const WrapperIcons = styled.div`
     display: flex;
     width: 100%;
+    height: 100%;
     position: relative;
-    align-items: center;
+    align-items: stretch;
+    justify-content: center;
     flex-direction: row;
     gap: 2rem;
-
+    flex-wrap: wrap;
+    
     & > svg:first-child {
         position: absolute;
         left: -100px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
     }
 
     & > svg:last-child {
         position: absolute;
         right: -100px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
     }
 
-    ${OfferItemsStyled} > svg {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 2.5rem;
-    }
+    ${OfferItemsStyled} {
+        width: 30%;
+        min-width: 350px;
+        max-height: 600px;
+        padding: 65px 0;
+        display: flex;
+        & > svg {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 2.5rem;
+        }
+        & > p {
+            flex-grow: 1;
+        }
 `
+
+
 const OfferSectionStyled = styled.section`
     display: flex;
     justify-content: center;

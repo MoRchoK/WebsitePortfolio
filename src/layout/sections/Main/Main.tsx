@@ -15,22 +15,16 @@ export function Main() {
             <Header/>
             <Container>
                 <MainInfoComponent/>
-
-
             </Container>
-
+            <ImgStyled src='/src/image/mainPhoto.webp' alt={'background image'}/>
             <CircleStyled left={"-15%"} bottom={'-15%'}/>
             <CircleStyled right={"-21%"} top={'-21%'}/>
             <CircleStyled right={"12%"} bottom={'10%'}/>
-
             <IconBg top={'25%'} left={'48%'} id={'elipse'}/>
             <IconBg bottom={'25%'} left={'53%'} id={'elipse'}/>
             <IconBg top={'35%'} right={'5%'} id={'elipse'}/>
-
-
             <IconBg bottom={'30%'} right={'10%'} id={'polygon'}/>
             <IconBg top={'40%'} left={'53%'} id={'polygon'}/>
-            <ImgStyled src='/src/image/mainPhoto.webp'/>
             <PatternIcon top={'20%'} left={'51%'}/>
             <PatternIcon bottom={'40%'} right={'13%'}/>
             <PatternIcon bottom={'53%'} right={'11%'}/>
@@ -48,7 +42,6 @@ const MainStyled = styled.main`
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 1px blue solid;
     position: relative;
 `
 
@@ -61,7 +54,7 @@ const ImgStyled = styled.img`
     right: -10%;
     bottom: 0;
     z-index: 4;
-
+    object-fit: cover;
 `
 
 

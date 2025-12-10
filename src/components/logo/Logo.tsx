@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import {myTheme} from "../Theme/Theme.styled.tsx";
 
+
 export function Logo (){
 
     return(
             <WrapperLogo>
                 <LogoTitleStyled>Daniel<LogoPeriodStyled></LogoPeriodStyled></LogoTitleStyled>
+
+
             </WrapperLogo>
     )
 }

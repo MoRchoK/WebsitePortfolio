@@ -73,8 +73,10 @@ export const GlobalStyled = createGlobalStyle`
         display: flex;
         justify-content: center;
     }
+    button {
+        cursor: pointer;
+    }
 `
-
 
 
 

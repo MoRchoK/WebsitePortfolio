@@ -12,7 +12,7 @@ export function BlogMain() {
                 amet pharetra malesuada. Suspendisse nisl ac at tortor.
             </BlogDescription>
             <WrapperComponentStyled flexdirection={'row'} gap={'1em'}>
-                <Avatar src={Logo} alt="No found"/>
+                <Avatar src={Logo} alt="Logo image"/>
                 <WrapperComponentStyled>
                     <NameUser>
                         Emma Brown
@@ -22,7 +22,7 @@ export function BlogMain() {
                     </StatusUser>
                 </WrapperComponentStyled>
             </WrapperComponentStyled>
-            <BlogBgImg opacity={0.7} left={'-15%'} top={'-80%'} src={'/src/image/bgPost.webp'} alt="No found"/>
+            <BlogBgImg opacity={0.7} left={'-15%'} top={'-80%'} src={'/src/image/bgPost.webp'} alt="background image"/>
         </WrapperComponentStyled>
     )
 
