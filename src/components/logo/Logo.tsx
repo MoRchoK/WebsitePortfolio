@@ -1,40 +1,9 @@
-import styled from "styled-components";
-import {myTheme} from "../Theme/Theme.styled.tsx";
+import {SvgIcon} from "../svgIcon/SvgIcon.tsx";
 
 
 export function Logo (){
 
     return(
-            <WrapperLogo>
-                <LogoTitleStyled>Daniel<LogoPeriodStyled></LogoPeriodStyled></LogoTitleStyled>
-
-
-            </WrapperLogo>
+                <SvgIcon height={'45px'} width={'135px'} viewBox={'"0 0 129 45"'} id={'logo'}/>
     )
 }
-
-
-
-const LogoTitleStyled = styled.span`
-    font-size: 38px;
-    color: ${myTheme.colors.PraymaryText};
-    position: relative;
-    font-family: Raleway, sans-serif;
-    font-weight: 700;
-    
-`
-
-
-const LogoPeriodStyled = styled.span`
-    background-color: ${myTheme.colors.highlighting};
-    display: inline-block;
-    height: 8px;
-    width: 8px;
-    border-radius: 50%;
-    
-`
-
-const WrapperLogo = styled.div`
-    display: flex;
-    flex-wrap: nowrap;
-`

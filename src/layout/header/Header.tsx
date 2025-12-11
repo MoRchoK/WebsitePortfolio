@@ -3,17 +3,17 @@ import {Logo} from "../../components/logo/Logo.tsx";
 import styled from "styled-components";
 import {myTheme} from "../../components/Theme/Theme.styled.tsx";
 import {Container} from "../../container/Container.ts";
-import {WrapperComponentStyled} from "../../components/wrapperComponent/WrapperComponentStyled.tsx";
+import {WrapperComponent} from "../../components/wrapperComponent/WrapperComponent.tsx";
 
 export function Header() {
     const headerItems = ['Home', 'About', 'Services', 'Store', 'Blog', 'Contact']
     return (
         <HeaderStyled>
             <Container>
-                <WrapperComponentStyled width={'100%'} flexdirection={'row'} justifycontent={'space-between'} alignitems={'center'}>
+                <WrapperComponent width={'100%'} flexdirection={'row'} justifycontent={'space-between'} alignitems={'center'}>
                 <Logo/>
-                <Menu  title={headerItems}/>
-                </WrapperComponentStyled>
+                <Menu gap={'40px'} title={headerItems}/>
+                </WrapperComponent>
             </Container>
 
         </HeaderStyled>

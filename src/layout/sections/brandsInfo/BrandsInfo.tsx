@@ -1,66 +1,66 @@
 import styled from "styled-components";
 import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
-import {TitleComponent} from "../../../components/TitleComponent/TitleComponent.tsx";
-import sprite from "../../../../public/iconsSprites.svg"
-import {Container} from "../../../container/Container.ts";
+import {TitleSection} from "../../../components/titleSection/TitleSection.tsx";
+import {SvgIcon} from "../../../components/svgIcon/SvgIcon.tsx";
+import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComponent.tsx";
 
 
 export function BrandsInfo() {
 
 
     const brandIcon = [{
-        name: 'emblem',
+        id: 'emblem',
         viewBox: '0 0 78 78',
         xmlns: 'http://www.w3.org/2000/svg'
     },
         {
-            name: 'apple',
+            id: 'apple',
             viewBox: '0 0 60 77',
             xmlns: 'http://www.w3.org/2000/svg'
         },
         {
-            name: 'squirrel',
+            id: 'squirrel',
             viewBox: '0 0 74 65',
             xmlns: 'http://www.w3.org/2000/svg'
         },
         {
-            name: 'leaf',
+            id: 'leaf',
             viewBox: '0 0 63 72',
             xmlns: 'http://www.w3.org/2000/svg'
         },
         {
-            name: 'pizza',
+            id: 'pizza',
             viewBox: '0 0 63 77',
             xmlns: 'http://www.w3.org/2000/svg'
         },
         {
-            name: 'fingerprint',
+            id: 'fingerprint',
             viewBox: '0 0 72 73 ',
             xmlns: 'http://www.w3.org/2000/svg'
         },
         {
-            name: 'cocktail',
+            id: 'cocktail',
             viewBox: '0 0 63 72',
             xmlns: 'http://www.w3.org/2000/svg'
         }, {
-            name: 'tooth',
+            id: 'tooth',
             viewBox: '0 0 56 71',
             xmlns: 'http://www.w3.org/2000/svg'
         }, {
-            name: 'brain',
+            id: 'brain',
             viewBox: '0 0 87 71',
             xmlns: 'http://www.w3.org/2000/svg'
         }, {
-            name: 'gloves',
+            id: 'gloves',
             viewBox: '0 0 84 71 ',
             xmlns: 'http://www.w3.org/2000/svg'
         }, {
-            name: 'guitar',
+            id: 'guitar',
             viewBox: '0 0 68 80',
             xmlns: 'http://www.w3.org/2000/svg'
         },
         {
-            name: 'sberbank',
+            id: 'sberbank',
             viewBox: '0 0 69 63',
             xmlns: 'http://www.w3.org/2000/svg'
         }
@@ -69,51 +69,38 @@ export function BrandsInfo() {
 
     return (
         <BrandsInfoStyled>
-            <Container>
-            <TitleComponent mgbtdescriotion={'60px'} alignment={'center'} title={'Brands I’ve Worked'}
+            <TitleSection title={'Brands I’ve Worked'}
                             description={'Things that I can do for my clients. Just make your good trust I love to provide quality works.'}/>
-            <BrandsInfoStyledWrapper>
+            <WrapperComponent flexdirection={'row'} flexwrap={'wrap'} alignitems={'center'} justifycontent={'center'} width={'1500px'}>
                 {brandIcon.map((icon, index) => (
-                    <BrandsItem maxitem={brandIcon.length} index={index} key={icon.name}
+                    <BrandsItem maxitem={brandIcon.length} index={index} key={icon.id}
                                 bgleft={Math.ceil((index + 1) % 6)}>
-                        <IconBrand
+                        <SvgIcon
+                            id={icon.id}
+                            width={'85px'}
+                            height={'85px'}
                             viewBox={icon.viewBox}
-                            width={'50px'}
-                            height={'50px'}
-                            preserveAspectRatio="xMidYMid meet"
-                        >
-                            <use href={sprite + '#' + icon.name}></use>
-                        </IconBrand>
+                        />
+
                     </BrandsItem>
                 ))}
-            </BrandsInfoStyledWrapper>
-            </Container>
+            </WrapperComponent>
         </BrandsInfoStyled>
     )
 }
 
 
-const IconBrand = styled.svg`
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
-
-
 const BrandsInfoStyled = styled.section`
     height: 100%;
+    width: 100%;
     background-color: ${myTheme.colors.BgBrandsSection};
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 130px;
-    ${Container}{
-        flex-direction: column;
-        margin-bottom: 130px
-        
-    }
+    padding: 130px 0;
+    gap: 70px;
+    
+   
 `
 
 
@@ -128,9 +115,8 @@ const BrandsItem = styled.div<BrandsItemPropsType>`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
-    height: 200px;
-    
+    width: 220px;
+    height: 220px;
     border-right: ${(props) => props.bgleft === 0 ? 'none' : '1px dashed' + `${myTheme.colors.borderGrandIcon}`};
     border-bottom: ${({maxitem, index}) => index >= maxitem - 6 ? 'none'
             : `1px dashed ${myTheme.colors.borderGrandIcon}`
@@ -139,13 +125,4 @@ const BrandsItem = styled.div<BrandsItemPropsType>`
 `
 
 
-const BrandsInfoStyledWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    align-content: start;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%;
-
-`
 

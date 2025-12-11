@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {myTheme} from "../../components/Theme/Theme.styled.tsx";
 import {TitleComponent} from "../../components/TitleComponent/TitleComponent.tsx";
 import {BtnStyled} from "../../components/btnStyled/BtnStyled.tsx";
-import {WrapperComponentStyled} from "../../components/wrapperComponent/WrapperComponentStyled.tsx";
+import {WrapperComponent} from "../../components/wrapperComponent/WrapperComponent.tsx";
 import {IconOffer} from "../sections/offer/offerItems/OfferItems.tsx";
 import sprite from "../../../public/iconsSprites.svg";
 import {IconBg} from "../../components/iconBg/IconBg.tsx";
@@ -44,7 +44,7 @@ export function Footer() {
     return (
         <FooterStyled>
             <Container>
-            <WrapperComponentStyled alignitems={'center'} justifycontent={'flex-start'}>
+            <WrapperComponent alignitems={'center'} justifycontent={'flex-start'}>
                 <TitleComponent color_description={myTheme.colors.descriptionFooterText} mgbtdescriotion={'60px'}
                                 letter_spacing={'0.015em'}
                                 alignment={'center'}
@@ -55,9 +55,9 @@ export function Footer() {
                            border_color={myTheme.colors.borderFooterBtn}>CONTACT ME</BtnStyled>
 
 
-            </WrapperComponentStyled>
+            </WrapperComponent>
                 <FooterLine/>
-            <WrapperComponentStyled height={'115px'} width={'80%'} justifycontent={'space-between'} flexdirection={'row'} alignitems={'center'}   >
+            <WrapperComponent height={'115px'} width={'80%'} justifycontent={'space-between'} flexdirection={'row'} alignitems={'center'}   >
                 <Footnote>
                     © 2021 <FootnoteBold>Templates Jungle.</FootnoteBold> All rights reserved
                 </Footnote>
@@ -78,7 +78,7 @@ export function Footer() {
                         </SocialItem>
                     ))}
                     </SocialList>
-            </WrapperComponentStyled>
+            </WrapperComponent>
             </Container>
             <IconBg stroke={myTheme.colors.bgColorIcon} left={'33%'} top={'5%'} id={'polygon'}/>
             <IconBg stroke={myTheme.colors.bgColorIcon} left={'50%'} top={'10%'} id={'polygon'}/>

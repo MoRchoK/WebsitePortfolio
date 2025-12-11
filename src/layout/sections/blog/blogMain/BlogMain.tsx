@@ -1,4 +1,4 @@
-import {WrapperComponentStyled} from "../../../../components/wrapperComponent/WrapperComponentStyled.tsx";
+import {WrapperComponent} from "../../../../components/wrapperComponent/WrapperComponent.tsx";
 import styled from "styled-components";
 import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
 import Logo from '../../../../image/Ellipse.png'
@@ -6,26 +6,25 @@ import Logo from '../../../../image/Ellipse.png'
 
 export function BlogMain() {
     return (
-        <WrapperComponentStyled alignitems={"start"} width={"60%"} marginbottom={'130px'} position={'relative'}>
+        <WrapperComponent alignitems={"start"} width={"740px"} margin_bottom={'130px'} >
             <BlogDescription>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapibus eu placerat at nisl posuere aliquet
                 amet pharetra malesuada. Suspendisse nisl ac at tortor.
             </BlogDescription>
-            <WrapperComponentStyled flexdirection={'row'} gap={'1em'}>
+            <WrapperComponent flexdirection={'row'} gap={'1em'}>
                 <Avatar src={Logo} alt="Logo image"/>
-                <WrapperComponentStyled>
+                <WrapperComponent>
                     <NameUser>
                         Emma Brown
                     </NameUser>
                     <StatusUser>
                         CEO - Squirrel Sweets
                     </StatusUser>
-                </WrapperComponentStyled>
-            </WrapperComponentStyled>
-            <BlogBgImg opacity={0.7} left={'-15%'} top={'-80%'} src={'/src/image/bgPost.webp'} alt="background image"/>
-        </WrapperComponentStyled>
+                </WrapperComponent>
+            </WrapperComponent>
+            {/*<BlogBgImg opacity={0.7} left={'-15%'} top={'-80%'} src={'/src/image/bgPost.webp'} alt="background image"/>*/}
+        </WrapperComponent>
     )
-
 }
 
 type BlogBgImgPropsType = {

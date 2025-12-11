@@ -4,23 +4,23 @@ import styled from "styled-components";
 
 type MenuPropsType = {
     title: Array<string>
+    gap?: string
 
 }
 
 export function Menu  (props: MenuPropsType){
     return(
-        <nav>
-            <MenuUl gap={'70px'}>
+        <NavStyled>
+            <MenuUl gap={props.gap}>
                 {props.title.map((item,index) => (
                     <MenuList key={index}>
                         <MenuLink href="">{item}</MenuLink>
                     </MenuList>
                 ))}
             </MenuUl>
-        </nav>
+        </NavStyled>
     )
 }
-
 
 
 
@@ -28,13 +28,7 @@ type MenuUlPropsType = {
     gap?: string;
 }
 
-type NavStyledProps = {
-    marginbottom?: string
-}
-
-export const NavStyled = styled.nav<NavStyledProps>`
-    margin-bottom: ${(props) => props.marginbottom || '0'};
-
+export const NavStyled = styled.nav`
 `
 
 export const MenuUl = styled.ul<MenuUlPropsType>`
@@ -42,7 +36,6 @@ export const MenuUl = styled.ul<MenuUlPropsType>`
     height: 100%;
     display: flex;
     gap: ${(props) => props.gap || '0px'};
-    
 `
 
 

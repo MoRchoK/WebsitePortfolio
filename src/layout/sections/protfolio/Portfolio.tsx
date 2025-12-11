@@ -1,6 +1,4 @@
-import {TitleComponent} from "../../../components/TitleComponent/TitleComponent.tsx";
 import styled from "styled-components";
-import {PortfolioMenu} from "./portfolioMenu/PortfolioMenu.tsx";
 import {BtnDarkStyled, ButtonDark} from "../../../components/buttonDark/Button.tsx";
 import bgOneImg from "../../../image/RectangleR.webp";
 import bgTwoImg from "../../../image/Rectangle89.webp";
@@ -8,26 +6,23 @@ import bgThreeImg from "../../../image/Rectangle87.webp";
 import bgFourImg from "../../../image/Rectangle79.webp";
 import bgfiveImg from "../../../image/Rectangle92.webp";
 import bgSixImg from "../../../image/Rectangle78.webp";
-import {Container} from "../../../container/Container.ts";
-import {MenuLink} from "../../../components/menu/Menu.tsx";
-import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
-import {WrapperComponentStyled} from "../../../components/wrapperComponent/WrapperComponentStyled.tsx";
+import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComponent.tsx";
+import {Title} from "../../../components/title/Title.tsx";
+import {PortfolioMenu} from "./portfolioMenu/PortfolioMenu.tsx";
 
 
 export function Portfolio() {
 
+
     return (
         <PortfolioStyles>
-            <Container>
-                <WrapperComponentStyled width={'100%'} flexdirection={'column'} alignitems={'center'}>
-                <TitleComponent alignment={'center'} mgbttitle={'55px'} title={"Portfolio"}/>
+            <WrapperComponent width={'1920px'} flexdirection={'column'} alignitems={'center'} justifycontent={'center'}>
+                <Title title={"Portfolio"}/>
                 <PortfolioMenu/>
                 <PortfolioPost/>
                 <ButtonDark title={'VIEW PORTFOLIO'}/>
-                </WrapperComponentStyled>
-            </Container>
+            </WrapperComponent>
         </PortfolioStyles>
-
     )
 }
 
@@ -36,73 +31,116 @@ const PortfolioStyles = styled.section`
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-bottom: 5%;
-    ${BtnDarkStyled} {
-        max-width: 210px;
+    padding-bottom: 150px;
+
+    h2 {
+        margin-bottom: 55px;
     }
 
     nav {
-        display: flex;
-        justify-content: center;
-
-        ${MenuLink} {
-            color: ${myTheme.colors.descriptionCard};
-        }
-
-        ${MenuLink}:hover {
-            color: ${myTheme.colors.PraymaryText};
-        }
+        height: auto;
+        margin-bottom: 65px;
     }
 
+    ${BtnDarkStyled} {
+        max-width: 210px;
+        margin-top: 60px
 
-
-
-
+    }
 `
 
 function PortfolioPost() {
-    const portfolioItems = [bgOneImg, bgSixImg, bgThreeImg, bgFourImg, bgfiveImg, bgTwoImg,]
-    let positionPost: number = 0
+    const portfolioItems = [bgOneImg, bgTwoImg,bgThreeImg,bgFourImg,bgfiveImg,bgSixImg]
+    const culoms_value: number = (portfolioItems.length>=3)? 3: portfolioItems.length
+    let iterCount: number = 1
+    let chetOrno = 1
+    let columnPosition = 0
+    const rows_count = setGridTempleteRows(portfolioItems)
+
+
+    function setGridTempleteRows(array: Array<string>) {
+        let templeteRows = ''
+
+        if (array.length % 6 === 0) {
+            for (let i = 0; i < Math.floor(array.length / 6); i++) {
+                templeteRows = templeteRows + '540px 200px 540px '
+            }
+        } else {
+            for (let i = 0; i < Math.ceil(array.length / 3); i++) {
+                templeteRows = templeteRows + '540px '
+            }
+        }
+        return templeteRows
+    }
+
     return (
-        <WrapperPrortfolio>
-            {portfolioItems.map((item, i) => {
-                if (i + 1 <= 3) {
-                    if ((i + 1) % 2 === 0) {
-                        return <PortfolioPostStyled key={i} grid_row_start={1} grid_row_end={3}
-                                                    grid_column_start={i + 1}
-                                                    backgroundimage={item}/>
+        <WrapperPrortfolio culoms_value={culoms_value} rows_count={rows_count}>
+            {portfolioItems.map((post, index) => {
+                    columnPosition++
+
+                    if (portfolioItems.length % 6 === 0) {
+                        if (columnPosition === 4) {
+                            columnPosition = 1
+                            chetOrno++
+                            if (index % 6 === 0) {
+                                iterCount = iterCount + 2
+                            } else {
+                                iterCount++
+                            }
+                        }
+                        if (chetOrno % 2 === 0) {
+                            if (columnPosition % 2 === 0) {
+                                return <PortfolioPostStyled key={index} grid_row_start={iterCount + 1}
+                                                            grid_row_end={iterCount + 2}
+                                                            grid_column_start={columnPosition} backgroundimage={post}/>
+                            } else {
+
+                                return <PortfolioPostStyled key={index} grid_row_start={iterCount}
+                                                            grid_row_end={iterCount + 2}
+                                                            grid_column_start={columnPosition} backgroundimage={post}/>
+                            }
+                        } else {
+                            if (columnPosition % 2 === 0) {
+                                return <PortfolioPostStyled key={index} grid_row_start={iterCount}
+                                                            grid_row_end={iterCount + 2}
+                                                            grid_column_start={columnPosition} backgroundimage={post}/>
+                            } else {
+                                return <PortfolioPostStyled key={index} grid_row_start={iterCount}
+                                                            grid_row_end={iterCount + 1}
+                                                            grid_column_start={columnPosition} backgroundimage={post}/>
+                            }
+                        }
                     } else {
-                        return <PortfolioPostStyled key={i} grid_row_start={1} grid_row_end={2}
-                                                    grid_column_start={i + 1}
-                                                    backgroundimage={item}/>
-                    }
-                } else {
-                    if ((i % 2) === 0) {
-                        positionPost++
-                        return <PortfolioPostStyled key={i} grid_row_start={3} grid_row_end={4}
-                                                    grid_column_start={positionPost}
-                                                    backgroundimage={item}/>
-                    } else {
-                        positionPost++
-                        return <PortfolioPostStyled key={i} grid_row_start={2} grid_row_end={4}
-                                                    grid_column_start={positionPost}
-                                                    backgroundimage={item}/>
+                        if (columnPosition === 4) {
+                            columnPosition = 1
+                            iterCount++
+                        }
+
+                        return <PortfolioPostStyled key={index} grid_row_start={iterCount}
+                                                    grid_row_end={iterCount + 1}
+                                                    grid_column_start={columnPosition} backgroundimage={post}/>
+
                     }
                 }
-            })}
+            )}
         </WrapperPrortfolio>
     )
 }
 
 
-const WrapperPrortfolio = styled.div`
+type WrapperPrortfolioPropsType = {
+    rows_count: string
+    culoms_value: number
+}
+const WrapperPrortfolio = styled.div<WrapperPrortfolioPropsType>`
     display: grid;
     width: 100%;
-    height: 900px;
-    gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    margin-bottom: 5%;
+    min-height: 550px;
+    gap: 30px;
+    grid-template-columns: repeat( ${(props) =>
+            props.culoms_value
+    }, 1fr);
+    grid-template-rows: ${props => props.rows_count}
 `
 
 type PortfolioPostStyledPropsType = {
@@ -110,7 +148,6 @@ type PortfolioPostStyledPropsType = {
     grid_row_start: number
     grid_row_end: number
     grid_column_start: number
-
 }
 
 
@@ -121,5 +158,6 @@ const PortfolioPostStyled = styled.div<PortfolioPostStyledPropsType>`
     grid-row-start: ${(props) => props.grid_row_start};
     grid-row-end: ${(props) => props.grid_row_end};
     grid-column-start: ${(props) => props.grid_column_start};
+    max-height: 800px;
 `;
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
-import {WrapperComponentStyled} from "../../../components/wrapperComponent/WrapperComponentStyled.tsx";
+import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComponent.tsx";
 import {Container} from "../../../container/Container.ts";
 
 
@@ -36,13 +36,13 @@ export function Statistic () {
         <Statisticstyled>
             <Container >
             {stats.map((item, index) => (
-                <WrapperComponentStyled width={'auto'}  alignitems={"center"}   key={index}>
+                <WrapperComponent width={'auto'} alignitems={"center"} key={index}>
                     <StatValue>{item.value}
                     </StatValue>
                     <StatText >
                         {item.text}
                     </StatText>
-                </WrapperComponentStyled>
+                </WrapperComponent>
             ))}
             </Container>
         </Statisticstyled>

@@ -1,20 +1,20 @@
-import {WrapperComponentStyled} from "../../../../components/wrapperComponent/WrapperComponentStyled.tsx";
+import {WrapperComponent} from "../../../../components/wrapperComponent/WrapperComponent.tsx";
 import {BtnStyled} from "../../../../components/btnStyled/BtnStyled.tsx";
 import styled from "styled-components";
 import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
 
 export function MainInfoComponent() {
     return (
-        <WrapperComponentStyled width={'100%'}>
-            <WrapperComponentStyled width={'50%'} alignitems={'flex-start'}>
+        <WrapperComponent width={'100%'}>
+            <WrapperComponent width={'50%'} alignitems={'flex-start'} justifycontent={'center'}>
                 <MainTitle>Graphic Designer</MainTitle>
                 <GreetingStyled>Hello I’m<br/> <NameTitleStyled>Daniel Bryan</NameTitleStyled></GreetingStyled>
                 <DiscriptionTextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque consequat,
                     faucibus et, et. Non semper blandit vitae semper blandit. Tellus dignissim a dui turpis arcu, nulla
                     ullamcorper tincidunt.</DiscriptionTextStyled>
                 <BtnStyled>GET IN TOUCH</BtnStyled>
-            </WrapperComponentStyled>
-        </WrapperComponentStyled>
+            </WrapperComponent>
+        </WrapperComponent>
     )
 }
 
