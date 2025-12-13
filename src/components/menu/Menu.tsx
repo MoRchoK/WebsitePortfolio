@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 
 
-type MenuPropsType = {
+type MenuPropsType = MenuUlPropsType & {
     title: Array<string>
-    gap?: string
-
+}
+type MenuUlPropsType = {
+    gap?: string;
 }
 
 export function Menu  (props: MenuPropsType){
@@ -22,11 +23,6 @@ export function Menu  (props: MenuPropsType){
     )
 }
 
-
-
-type MenuUlPropsType = {
-    gap?: string;
-}
 
 export const NavStyled = styled.nav`
 `

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {myTheme} from "../Theme/Theme.styled.tsx";
+import {myTheme} from "../../layout/style/Theme/Theme.styled.tsx";
 
 
 type BtnStyledPropsType = {

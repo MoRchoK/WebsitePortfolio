@@ -1,6 +1,6 @@
 import {WrapperComponent} from "../wrapperComponent/WrapperComponent.tsx";
 import {Title} from "../title/Title.tsx";
-import {myTheme} from "../Theme/Theme.styled.tsx";
+import {myTheme} from "../../layout/style/Theme/Theme.styled.tsx";
 import styled from "styled-components";
 
 

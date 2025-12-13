@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {myTheme} from "../Theme/Theme.styled.tsx";
+import {myTheme} from "../../layout/style/Theme/Theme.styled.tsx";
 import {ButtonPropsType} from "../buttonDark/Button.tsx";
 
 
@@ -7,11 +7,16 @@ import {ButtonPropsType} from "../buttonDark/Button.tsx";
 
 export function ButtonLight(props: ButtonPropsType) {
     return (
-        <ButtonLightStyled>{props.title}</ButtonLightStyled>
+        <ButtonLightStyled type={props.type}>{props.title}</ButtonLightStyled>
     )
 }
 
-const ButtonLightStyled = styled.button`
+
+type ButtonLightStyled = {
+    type?: string | undefined
+}
+
+const ButtonLightStyled = styled.button<ButtonLightStyled>`
     display: flex;
     align-items: center;
     justify-content: center;

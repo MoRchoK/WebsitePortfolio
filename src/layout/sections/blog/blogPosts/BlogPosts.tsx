@@ -3,17 +3,17 @@ import styled from "styled-components";
 import FirstPostImg from '../../../../image/Rectangle77.webp'
 import SecondPostImg from '../../../../image/Rectangle99.webp'
 import ThirdPostImg from '../../../../image/Rectangle98.webp'
-import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
+import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 
 
 export function BlogPosts() {
 
     const blogPosts = [
-       {
+        {
             title: "Why should we invest more in branding first?",
             url: FirstPostImg
         },
-         {
+        {
             title: "Top 100 most beautiful t-shirt print design",
             url: SecondPostImg
         },
@@ -24,26 +24,34 @@ export function BlogPosts() {
     ]
 
     return (
-        <WrapperComponent flexwrap={'wrap'} width={'100%'} gap={'20px'} flexdirection={'row'} justifycontent={'center'} alignitems={'center'}>
+        <WrapperComponent flexwrap={'wrap'} width={'100%'} gap={'20px'} flexdirection={'row'} justifycontent={'center'}>
             {blogPosts.map((post, index) => (
-                <WrapperComponent flexdirection={'column'} width={'385px'} key={index}>
+                <WrapperBlogCard key={index}>
                     <PostImage url={post.url}/>
-                    <PostTitle>
+                    <LinkBlog>
                         {post.title}
-                    </PostTitle>
-                </WrapperComponent>
+                    </LinkBlog>
+                </WrapperBlogCard>
             ))}
         </WrapperComponent>
     )
 }
 
-const PostTitle = styled.h3`
-    display: inline-block;
+const WrapperBlogCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 32%;
+    height: 100%;
+`
+
+const LinkBlog = styled.a`
+    display: block;
     font-size: 22px;
     color: ${myTheme.colors.PraymaryText};
     font-weight: 600;
     line-height: 142%;
     width: 100%;
+    padding: 0 10px;
 `
 
 type PostImagePropsType = {
@@ -53,7 +61,8 @@ const PostImage = styled.div<PostImagePropsType>`
     background-image: ${(props) => props.url && `url(${props.url})`};
     background-size: cover;
     background-position: center;
-    height: 280px;
+    min-height: 280px;
+    max-height: 395px;
     width: 100%;
     margin-bottom: 1.5rem;
     border-radius: 5%;

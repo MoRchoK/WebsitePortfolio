@@ -30,7 +30,10 @@ export const myTheme = {
         whteColor: "#fff",
         arrowColor: 'rgba(159, 159, 159, 0.31)',
         footerLine: '#848484',
-
-
     },
+
+    media:{
+        tablet: 'screen and (max-width: 768px)',
+        mobile: 'screen and (max-width: 576px)',
+    }
 }

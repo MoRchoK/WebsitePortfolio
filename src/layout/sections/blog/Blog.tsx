@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
+import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 import {BlogBgImg, BlogMain} from "./blogMain/BlogMain.tsx";
 import {BlogPosts} from "./blogPosts/BlogPosts.tsx";
 import {ButtonDark} from "../../../components/buttonDark/Button.tsx";
@@ -37,6 +37,9 @@ const BlogStyled = styled.section`
     height: 100%;
     width: 100%;
     background-color: ${myTheme.colors.whteColor};
+    button{
+        margin-top:60px;
+    }
 `
 
 

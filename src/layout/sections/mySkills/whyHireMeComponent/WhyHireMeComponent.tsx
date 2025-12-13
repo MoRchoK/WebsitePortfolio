@@ -1,5 +1,5 @@
 import {WrapperComponent} from "../../../../components/wrapperComponent/WrapperComponent.tsx";
-import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
+import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 import styled from "styled-components";
 import {ButtonDark} from "../../../../components/buttonDark/Button.tsx";
 import {ButtonLight} from "../../../../components/buttonLight/ButtonLight.tsx";

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
+import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 
 import {Container} from "../../../container/Container.ts";
 import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComponent.tsx";

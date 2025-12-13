@@ -11,8 +11,6 @@ type WrapperComponentPropsType = {
     height?: string,
     gap?: string,
     margin_bottom?: string,
-
-
 }
 
 
@@ -27,6 +25,4 @@ export const WrapperComponent = styled.div<WrapperComponentPropsType>`
     height: ${(props) => props.height || '100%'};
     gap: ${(props) => props.gap || '0'};
     margin-bottom: ${(props) => props.margin_bottom || '0'};
-    border: 1px red solid;
-    
 `

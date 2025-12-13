@@ -50,8 +50,8 @@ const PortfolioStyles = styled.section`
 `
 
 function PortfolioPost() {
-    const portfolioItems = [bgOneImg, bgTwoImg,bgThreeImg,bgFourImg,bgfiveImg,bgSixImg]
-    const culoms_value: number = (portfolioItems.length>=3)? 3: portfolioItems.length
+    const portfolioItems = [bgOneImg,bgTwoImg, bgThreeImg,bgFourImg,bgfiveImg,bgSixImg]
+    const culoms_value: number =  3
     let iterCount: number = 1
     let chetOrno = 1
     let columnPosition = 0
@@ -60,10 +60,18 @@ function PortfolioPost() {
 
     function setGridTempleteRows(array: Array<string>) {
         let templeteRows = ''
+    let cout =0
+        if (portfolioItems.length>= 3) {
+            for (let i = 1; i <= Math.ceil(array.length / 3); i++) {
+                if(i%2===0){
+                    templeteRows = templeteRows + ' 200px 540px '
+                    cout= cout +2
 
-        if (array.length % 6 === 0) {
-            for (let i = 0; i < Math.floor(array.length / 6); i++) {
-                templeteRows = templeteRows + '540px 200px 540px '
+                }else {
+                    templeteRows = templeteRows + ' 540px '
+                    cout= cout +1
+                    console.log(cout)
+                }
             }
         } else {
             for (let i = 0; i < Math.ceil(array.length / 3); i++) {
@@ -78,7 +86,7 @@ function PortfolioPost() {
             {portfolioItems.map((post, index) => {
                     columnPosition++
 
-                    if (portfolioItems.length % 6 === 0) {
+                    if (portfolioItems.length>= 3) {
                         if (columnPosition === 4) {
                             columnPosition = 1
                             chetOrno++

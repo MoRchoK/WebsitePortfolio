@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
+import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComponent.tsx";
 import {Container} from "../../../container/Container.ts";
 
@@ -35,8 +35,9 @@ export function Statistic () {
     return (
         <Statisticstyled>
             <Container >
+                <WrapperComponent flexdirection={'row'}   flexwrap={'wrap'} gap={'80px'} justifycontent={'center'} alignitems={'center'}>
             {stats.map((item, index) => (
-                <WrapperComponent width={'auto'} alignitems={"center"} key={index}>
+                <WrapperComponent width={'220px'} alignitems={"center"} key={index} justifycontent={'center'}  >
                     <StatValue>{item.value}
                     </StatValue>
                     <StatText >
@@ -44,6 +45,7 @@ export function Statistic () {
                     </StatText>
                 </WrapperComponent>
             ))}
+                </WrapperComponent>
             </Container>
         </Statisticstyled>
     )
@@ -55,15 +57,9 @@ const Statisticstyled = styled.section`
     justify-content: center;
     flex-direction: row;
     height: 100%;
-    padding: 120px 0;
+    padding: 150px 0;
     background-color: ${myTheme.colors.BgBrandsSection};
-
-    ${Container} {
-        display: flex;
-        gap: 100px;
-        justify-content: center;
-        align-items: center;
-    }
+    
 
 
 `

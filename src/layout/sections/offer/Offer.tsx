@@ -2,7 +2,7 @@
 import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComponent.tsx";
 import {TitleSection} from "../../../components/titleSection/TitleSection.tsx";
 import styled from "styled-components";
-import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
+import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 import {SvgIcon} from "../../../components/svgIcon/SvgIcon.tsx";
 
 
@@ -102,10 +102,10 @@ const OfferItemsStyled = styled.div`
     min-height: 200px;
     padding: 70px 45px;
     overflow: hidden;
-
     & > svg {
         flex-shrink: 0;
         margin-bottom: 40px;
+        color: ${myTheme.colors.additionalText};
     }
 `
 
@@ -117,6 +117,10 @@ const OfferItemsDesctiprion = styled.p`
     font-weight: 400;
     letter-spacing: 0.01em;
     line-height: 177%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
 `
 
 const WrapperIcons = styled.div`
@@ -130,7 +134,6 @@ const WrapperIcons = styled.div`
     padding: 70px 47px;
     border: 1px red solid;
     position: relative;
-  
     button{
         position: absolute;
         top: 50%;

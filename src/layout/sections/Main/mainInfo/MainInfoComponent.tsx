@@ -1,7 +1,9 @@
 import {WrapperComponent} from "../../../../components/wrapperComponent/WrapperComponent.tsx";
 import {BtnStyled} from "../../../../components/btnStyled/BtnStyled.tsx";
 import styled from "styled-components";
-import {myTheme} from "../../../../components/Theme/Theme.styled.tsx";
+import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
+import logo from '../../../../image/mainPhoto.webp'
+
 
 export function MainInfoComponent() {
     return (

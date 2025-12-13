@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {myTheme} from "../../../components/Theme/Theme.styled.tsx";
+import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 import {MainInfoComponent} from "./mainInfo/MainInfoComponent.tsx";
 import {Container} from "../../../container/Container.ts";
 
@@ -16,8 +16,8 @@ export function Main() {
 
 
 const MainStyled = styled.section`
+    background: no-repeat center/cover url("/src/image/BgMain.svg");
     background-color: ${myTheme.colors.BgMainSection};
-    background: no-repeat right / auto 100vh  url(/src/image/mainPhoto.webp), no-repeat center / cover url("/src/image/BgMain.svg");
     width: 100%;
     height: 100vh;
     display: flex;

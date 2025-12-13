@@ -1,23 +1,33 @@
 import styled from "styled-components";
-import {myTheme} from "../Theme/Theme.styled.tsx";
+import {myTheme} from "../../layout/style/Theme/Theme.styled.tsx";
 
 
 export function ButtonDark(props: ButtonPropsType) {
     return (
-        <BtnDarkStyled mg_bottom={props.mg_bottom} title={props.title}>{props.title}</BtnDarkStyled>)
+        <BtnDarkStyled handleClick={props.handleClick} type={props.type} mg_bottom={props.mg_bottom} title={props.title}>{props.title}</BtnDarkStyled>)
 }
-
 
 
 export type ButtonPropsType = BtnDarkPopsType & {
     title: string,
 
+
 }
 type BtnDarkPopsType = {
     mg_bottom?: string
+    type?: string
+    even?: boolean
+    handleClick?: () => void
 }
 
-export const BtnDarkStyled = styled.button<BtnDarkPopsType>`
+export const BtnDarkStyled = styled.button.attrs<BtnDarkPopsType>(({handleClick})=>({
+    onClick: (e) => {
+        e.preventDefault()
+        if(handleClick){
+            handleClick()
+        }
+    }
+}))<BtnDarkPopsType>`
     display: flex;
     align-items: center;
     justify-content: center;
