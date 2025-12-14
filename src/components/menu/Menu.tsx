@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import {myTheme} from "../../layout/style/Theme/Theme.styled.tsx";
 
 
 type MenuPropsType = MenuUlPropsType & {
@@ -45,11 +45,6 @@ type MenuLinkPropsType = {
 }
 
 export const MenuLink = styled.a<MenuLinkPropsType>`
-    color: ${(props) => props.color||'black'};
-    text-decoration: none;
-    font-family: Raleway, sans-serif;
-    font-weight: 800;
     letter-spacing: 0.01em;
-    
-    
+    color: ${myTheme.colors.PraymaryText};
 `

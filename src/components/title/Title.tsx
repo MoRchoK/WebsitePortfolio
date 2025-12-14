@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {myTheme} from "../../layout/style/Theme/Theme.styled.tsx";
+import {font} from "../../layout/style/common/Common.ts";
 
 
 type TitleProps = {
@@ -15,9 +16,8 @@ export function Title(props: TitleProps) {
 }
 
 const TitleStyled = styled.h2`
-    font-size: 48px;
+    ${font({Fmax: 48, Fmin: 34, color:myTheme.colors.Title })}
     letter-spacing: 0.01em;
-    color: ${myTheme.colors.Title};
-    line-height: 100%;
     margin-bottom: 0.4em;
+    
 `

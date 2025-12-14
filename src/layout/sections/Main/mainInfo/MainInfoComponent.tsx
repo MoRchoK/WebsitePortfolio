@@ -1,56 +1,54 @@
-import {WrapperComponent} from "../../../../components/wrapperComponent/WrapperComponent.tsx";
 import {BtnStyled} from "../../../../components/btnStyled/BtnStyled.tsx";
 import styled from "styled-components";
 import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
-import logo from '../../../../image/mainPhoto.webp'
+import {font} from "../../../style/common/Common.ts";
 
 
 export function MainInfoComponent() {
     return (
-        <WrapperComponent width={'100%'}>
-            <WrapperComponent width={'50%'} alignitems={'flex-start'} justifycontent={'center'}>
+            <WrapperMainInfo>
                 <MainTitle>Graphic Designer</MainTitle>
                 <GreetingStyled>Hello I’m<br/> <NameTitleStyled>Daniel Bryan</NameTitleStyled></GreetingStyled>
                 <DiscriptionTextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque consequat,
                     faucibus et, et. Non semper blandit vitae semper blandit. Tellus dignissim a dui turpis arcu, nulla
                     ullamcorper tincidunt.</DiscriptionTextStyled>
                 <BtnStyled>GET IN TOUCH</BtnStyled>
-            </WrapperComponent>
-        </WrapperComponent>
+            </WrapperMainInfo>
     )
 }
 
+const WrapperMainInfo = styled.div`
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    
+    @media ${myTheme.media.mobile} {
+        width: 100%;
+    }
+`
 
 const DiscriptionTextStyled = styled.p`
-    color: ${myTheme.colors.discriptionText};
+    ${font({color: myTheme.colors.discriptionText, family: 'Lato, sans-serif', weight: 400, lineHeight: 2})};
+    font-size: 16px;
     margin-bottom: 50px;
-    font-family: Lato, sans-serif;
-    font-weight: 400;
-    line-height: 2;
     letter-spacing: 0.025em;
 `
 
 const MainTitle = styled.h1`
-    color: ${myTheme.colors.additionalText};
+    ${font({  color: myTheme.colors.additionalText,  weight: 500})};
     font-size: 18px;
     margin-bottom: 23px;
-    font-family: Raleway, sans-serif;
-    font-weight: 500;
-    line-height: 100%;
-
-
 `
 
-const GreetingStyled = styled.p`
-    color: ${myTheme.colors.PraymaryText};
-    font-size: 80px;
+
+const GreetingStyled = styled.span`
+    ${font({Fmax: 80, Fmin: 40})};
     letter-spacing: -0.05em;
-    line-height: 1;
-    font-family: Raleway, sans-serif;
-    font-weight: 700;
-
+    margin-bottom: 30px;
 `
-
 
 type NameTitlePropsType = {
     color?: string,
@@ -59,8 +57,6 @@ type NameTitlePropsType = {
 
 
 const NameTitleStyled = styled.span<NameTitlePropsType>`
-    display: block;
-    color: ${myTheme.colors.highlighting};
-    font-size: 80px;
+    ${font({color: myTheme.colors.highlighting, Fmax: 80, Fmin: 40})};
     margin-bottom: 30px;
 `

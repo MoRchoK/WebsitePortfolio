@@ -4,11 +4,12 @@ import styled from "styled-components";
 import {ButtonDark} from "../../../../components/buttonDark/Button.tsx";
 import {ButtonLight} from "../../../../components/buttonLight/ButtonLight.tsx";
 import {Title} from "../../../../components/title/Title.tsx";
+import {font} from "../../../style/common/Common.ts";
 
 
 export function WhyHireMeComponent() {
     return (
-        <WrapperComponent  height={'100%'} width={'500px'}>
+        <WrapperComponent>
             <Title title='Why Hire Me ?'/>
             <MySkillsText>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapib eu placerat at nisl posuere aliquet
@@ -17,22 +18,29 @@ export function WhyHireMeComponent() {
                 pulvinar
                 cursus suspendisse risus vulputate enim pharetra eu. Tetur adipiscing elit eu placera.
             </MySkillsText>
-            <WrapperComponent flexdirection={'row'} gap={'1.5rem'}>
+            <BtnWrapper>
                 <ButtonDark title={'Hire Me'}></ButtonDark>
                 <ButtonLight title='Download CV'></ButtonLight>
-            </WrapperComponent>
+            </BtnWrapper>
         </WrapperComponent>
     )
 }
 
 
+
+export const BtnWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1.5rem;
+`
+
 const MySkillsText = styled.p`
-    color: ${myTheme.colors.discriptionText};
-    margin-bottom: 2.5rem;
-    font-family: Lato, sans-serif;
-    font-weight: 400;
+    ${font({color:myTheme.colors.discriptionText, family:'Lato, sans-serif', weight: 400,  lineHeight: 1.85, Fmax: 16, Fmin: 14})};
+    width: 100%;
+    margin-bottom: 2.5em;
     letter-spacing: 0.01em;
-    line-height: 185%;
+    
 `
 
 

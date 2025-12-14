@@ -2,10 +2,11 @@ import {WrapperComponent} from "../../../../components/wrapperComponent/WrapperC
 import styled from "styled-components";
 import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 import {Title} from "../../../../components/title/Title.tsx";
+import {font} from "../../../style/common/Common.ts";
 
 export function StatSkills() {
     return (
-        <WrapperComponent height={'100%'} width={'500px'}>
+        <WrapperComponent height={'100%'} width={'100%'}>
             <Title title='My Skills'/>
             <WrapperComponent>
                 <StatSkillComponent title={'Adobe Photoshop'} percent={'96%'}/>
@@ -52,9 +53,7 @@ type InfoAboutSkillPropsType = {
 
 export function InfoAboutSkill(props: InfoAboutSkillPropsType) {
     const NameSkillStyled = styled.span`
-        font-size: 16px;
-        font-weight: 500;
-        color: ${myTheme.colors.PraymaryText};
+        ${font({weight: 500, Fmax: 16, Fmin: 14})}
         margin-bottom: 0.6rem;
         letter-spacing: 0.02em;
     `

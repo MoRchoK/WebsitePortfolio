@@ -15,9 +15,9 @@ function App() {
         <AppStyled >
             <Header/>
             <Main/>
-            {/*<MySkills/>*/}
-            {/*<Offer/>*/}
-            {/*<Portfolio/>*/}
+            <MySkills/>
+            <Offer/>
+            <Portfolio/>
             {/*<BrandsInfo/>*/}
             {/*<Blog/>*/}
             {/*<Statistic/>*/}

@@ -2,6 +2,7 @@ import {WrapperComponent} from "../wrapperComponent/WrapperComponent.tsx";
 import {Title} from "../title/Title.tsx";
 import {myTheme} from "../../layout/style/Theme/Theme.styled.tsx";
 import styled from "styled-components";
+import {font} from "../../layout/style/common/Common.ts";
 
 
 
@@ -13,13 +14,10 @@ type TitleDescriptionProps = {
 }
 
 export const TitleDescription = styled.p<TitleDescriptionProps>`
-    color: ${myTheme.colors.discriptionText};
+    ${font({color:myTheme.colors.discriptionText, family: 'Lato, sans-serif', lineHeight: 1.85, weight:400})}
     text-align: center;
     width: 60%;
     font-size: ${(props)=> props.font_size_description || '16px'};
-    line-height: 185%;
-    font-family: Lato, sans-serif;
-    font-weight: 400;
     letter-spacing: 0.02em;
     max-width: 500px;
 `

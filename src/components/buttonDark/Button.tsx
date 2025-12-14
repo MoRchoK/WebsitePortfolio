@@ -39,6 +39,10 @@ export const BtnDarkStyled = styled.button.attrs<BtnDarkPopsType>(({handleClick}
     font-family: Raleway, sans-serif;
     font-weight: 500;
     letter-spacing: 0.03em;
+    white-space: nowrap;
 
+    @media ${myTheme.media.mobile} {
+        padding: 0.5em 1em;
+    }
 `
 

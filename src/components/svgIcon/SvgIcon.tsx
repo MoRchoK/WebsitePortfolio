@@ -1,6 +1,5 @@
 import sprite from "../../../public/iconsSprites.svg";
 import styled from "styled-components";
-import {myTheme} from "../../layout/style/Theme/Theme.styled.tsx";
 
 
 type IconPropsType = {
@@ -33,8 +32,5 @@ const Icon = styled.svg<IconPropsType>`
     fill: ${(props) => props.fill || 'currentColor'};
     width: ${(props) => props.width};
     height: ${(props) => props.height};
-
-    @media ${myTheme.media.tablet} {
-        transform: scale(0.8);
-    }
+    
 `

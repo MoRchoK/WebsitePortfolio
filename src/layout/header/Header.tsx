@@ -5,9 +5,10 @@ import {myTheme} from "../style/Theme/Theme.styled.tsx";
 import {Container} from "../../container/Container.ts";
 import {WrapperComponent} from "../../components/wrapperComponent/WrapperComponent.tsx";
 import {useState} from "react";
+import {font} from "../style/common/Common.ts";
 
 export function Header() {
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useState(false)
     const headerItems = ['Home', 'About', 'Services', 'Store', 'Blog', 'Contact']
     return (
         <HeaderStyled>
@@ -18,11 +19,11 @@ export function Header() {
                     <MenuDesktop>
                         <Menu gap={'40px'} title={headerItems}/>
                     </MenuDesktop>
-                    <BurgerButton isActive={isActive} onClick={() => setIsActive(!isActive)}>
+                    <BurgerButton $is_active={isActive} onClick={() => setIsActive(!isActive)}>
                         <span></span>
                     </BurgerButton>
                 </WrapperComponent>
-                <MenuMobile isActive={isActive}>
+                <MenuMobile $is_active={isActive}>
                     <Menu gap={'20px'} title={headerItems}/>
                 </MenuMobile>
             </Container>
@@ -31,12 +32,13 @@ export function Header() {
 }
 
 const MenuDesktop = styled.div`
+    a {
+        font-size: 16px;
+    }
     @media ${myTheme.media.tablet} {
         display: none;
     }
 `
-
-
 const MenuMobile = styled.div<BurgerButtonProps>`
     display: none;
     position: fixed;
@@ -49,11 +51,6 @@ const MenuMobile = styled.div<BurgerButtonProps>`
     justify-content: center;
     align-items: center;
 
-    nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
     ul {
         flex-direction: column;
         justify-content: center;
@@ -61,24 +58,17 @@ const MenuMobile = styled.div<BurgerButtonProps>`
         li:hover {
             color: ${myTheme.colors.highlighting};
         }
-
         a {
-            font-size: 42px;
-            line-height: 55px;
-            color: ${myTheme.colors.PraymaryText};
-            font-weight: 400;
-            text-decoration: none;
+            ${font({weight: 400, Fmax:42, Fmin: 42})}
         }
-
     }
-
-    ${props => props.isActive && css<BurgerButtonProps>`
+    ${props => props.$is_active && css<BurgerButtonProps>`
         display: flex;
     `}
 `
 
 type BurgerButtonProps = {
-    isActive: boolean;
+    $is_active: boolean;
 }
 
 export const BurgerButton = styled.button<BurgerButtonProps>`
@@ -90,14 +80,12 @@ export const BurgerButton = styled.button<BurgerButtonProps>`
     justify-content: center;
     align-items: center;
     z-index: 10000;
-
     span {
         position: absolute;
         width: 36px;
         height: 3px;
         background-color: ${myTheme.colors.PraymaryText};
         transition: .2s;
-
         &::after {
             content: '';
             position: absolute;
@@ -107,7 +95,6 @@ export const BurgerButton = styled.button<BurgerButtonProps>`
             background-color: ${myTheme.colors.PraymaryText};
             transform: translate(16px, 10px)
         }
-
         &::before {
             content: '';
             position: absolute;
@@ -118,13 +105,13 @@ export const BurgerButton = styled.button<BurgerButtonProps>`
             transform: translateY(-10px)
         }
     }
-
-    ${(props) => props.isActive && css<BurgerButtonProps>`
+    ${(props) => props.$is_active && css<BurgerButtonProps>`
         span {
-            transform: rotate(-45deg);
+            transform: rotate(45deg);
 
             &::before {
-                transform: rotate(90deg);
+                transform: translateY(0)
+                rotate(-90deg);
             }
 
             &::after {
@@ -147,14 +134,8 @@ const HeaderStyled = styled.header`
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     top: 0;
     z-index: 100;
-
-    a:hover {
-        color: ${myTheme.colors.highlighting};
-    }
-
     @media ${myTheme.media.tablet} {
         height: 10%;
-
     }
 
 
