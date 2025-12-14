@@ -10,6 +10,7 @@ import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComp
 import {Title} from "../../../components/title/Title.tsx";
 import {PortfolioMenu} from "./portfolioMenu/PortfolioMenu.tsx";
 import {myTheme} from "../../style/Theme/Theme.styled.tsx";
+import {font} from "../../style/common/Common.ts";
 
 export function Portfolio() {
 
@@ -36,18 +37,17 @@ const PortfolioStyles = styled.section`
     h2 {
         margin-bottom: 55px;
     }
-
+    a {
+        ${font({Fmax: 20, Fmin: 16})}
+    }
     nav {
         height: auto;
         margin-bottom: 65px;
     }
-
     ${BtnDarkStyled} {
         max-width: 210px;
         margin-top: 60px
-
     }
-
     @media ${myTheme.media.large} {
         padding-bottom: 100px;
     }
@@ -144,31 +144,34 @@ function PortfolioPost() {
                         if (chetOrno % 2 === 0) {
                             if (columnPosition % 2 === 0) {
                                 return (
-
                                     <PortfolioPostStyled key={index} grid_row_start={iterCount + 1}
                                                          grid_row_end={iterCount + 2}
                                                          grid_column_start={columnPosition}>
                                         <img src={post.img} alt={post.title}/>
                                     </PortfolioPostStyled>
 
-
                                 )
-
                             } else {
 
                                 return <PortfolioPostStyled key={index} grid_row_start={iterCount}
                                                             grid_row_end={iterCount + 2}
-                                                            grid_column_start={columnPosition} backgroundimage={post}/>
+                                                            grid_column_start={columnPosition}>
+                                    <img src={post.img} alt={post.title}/>
+                                </PortfolioPostStyled>
                             }
                         } else {
                             if (columnPosition % 2 === 0) {
                                 return <PortfolioPostStyled key={index} grid_row_start={iterCount}
                                                             grid_row_end={iterCount + 2}
-                                                            grid_column_start={columnPosition} backgroundimage={post}/>
+                                                            grid_column_start={columnPosition}>
+                                    <img src={post.img} alt={post.title}/>
+                                </PortfolioPostStyled>
                             } else {
                                 return <PortfolioPostStyled key={index} grid_row_start={iterCount}
                                                             grid_row_end={iterCount + 1}
-                                                            grid_column_start={columnPosition} backgroundimage={post}/>
+                                                            grid_column_start={columnPosition}>
+                                    <img src={post.img} alt={post.title}/>
+                                </PortfolioPostStyled>
                             }
                         }
                     } else {
@@ -176,10 +179,11 @@ function PortfolioPost() {
                             columnPosition = 1
                             iterCount++
                         }
-
                         return <PortfolioPostStyled key={index} grid_row_start={iterCount}
                                                     grid_row_end={iterCount + 1}
-                                                    grid_column_start={columnPosition} backgroundimage={post}/>
+                                                    grid_column_start={columnPosition}>
+                            <img src={post.img} alt={post.title}/>
+                        </PortfolioPostStyled>
 
                     }
                 }
@@ -229,9 +233,8 @@ type PortfolioPostStyledPropsType = {
 
 
 const PortfolioPostStyled = styled.div<PortfolioPostStyledPropsType>`
-    background-image: url(${(props) => props.backgroundimage});
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    height: 100%;
     grid-row-start: ${(props) => props.grid_row_start};
     grid-row-end: ${(props) => props.grid_row_end};
     grid-column-start: ${(props) => props.grid_column_start};
@@ -241,6 +244,12 @@ const PortfolioPostStyled = styled.div<PortfolioPostStyledPropsType>`
         grid-row-start: auto ;
         grid-row-end: auto;
         grid-column-start: auto;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 `;
 
