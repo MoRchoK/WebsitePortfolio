@@ -2,12 +2,8 @@ import styled from "styled-components";
 import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 import {TitleSection} from "../../../components/titleSection/TitleSection.tsx";
 import {SvgIcon} from "../../../components/svgIcon/SvgIcon.tsx";
-import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComponent.tsx";
-
 
 export function BrandsInfo() {
-
-
     const brandIcon = [{
         id: 'emblem',
         viewBox: '0 0 78 78',
@@ -66,12 +62,11 @@ export function BrandsInfo() {
         }
     ]
 
-
     return (
         <BrandsInfoStyled>
             <TitleSection title={'Brands I’ve Worked'}
                             description={'Things that I can do for my clients. Just make your good trust I love to provide quality works.'}/>
-            <WrapperComponent flexdirection={'row'} flexwrap={'wrap'} alignitems={'center'} justifycontent={'center'} width={'1500px'}>
+            <WrapperBrands>
                 {brandIcon.map((icon, index) => (
                     <BrandsItem maxitem={brandIcon.length} index={index} key={icon.id}
                                 bgleft={Math.ceil((index + 1) % 6)}>
@@ -84,10 +79,76 @@ export function BrandsInfo() {
 
                     </BrandsItem>
                 ))}
-            </WrapperComponent>
+            </WrapperBrands>
         </BrandsInfoStyled>
     )
 }
+
+
+const WrapperBrands = styled.div`
+    display: grid;
+    max-width: 1500px;
+    width: 100%;
+    grid-template-columns: repeat(6, 1fr);
+
+    & > :nth-child(n) {
+        border-right: 1px dashed ${myTheme.colors.borderGrandIcon};
+        border-bottom: 1px dashed ${myTheme.colors.borderGrandIcon};
+    }
+
+    & > :nth-child(6n) {
+        border-right: none;
+    }
+
+    & > :nth-last-child(-n+6) {
+        border-bottom: none;
+    }
+
+    @media ${myTheme.media.extra_large} {
+        grid-template-columns: repeat(4, 1fr);
+        & > :nth-child(n) {
+            border-right: 1px dashed ${myTheme.colors.borderGrandIcon};
+            border-bottom: 1px dashed ${myTheme.colors.borderGrandIcon};
+        }
+
+        & > :nth-child(4n) {
+            border-right: none;
+        }
+
+        & > :nth-last-child(-n + 4) {
+            border-bottom: none;
+        }
+    }
+    
+    @media ${myTheme.media.large} {
+        grid-template-columns: repeat(3, 1fr);
+        & > :nth-child(n) {
+            border-right: 1px dashed ${myTheme.colors.borderGrandIcon};
+            border-bottom: 1px dashed ${myTheme.colors.borderGrandIcon};
+        }
+        & > :nth-child(3n) {
+            border-right: none;
+        }
+        & > :nth-last-child(-n + 3) {
+            border-bottom: none;
+        }
+    }
+
+
+    @media ${myTheme.media.large} {
+        grid-template-columns: repeat(2, 1fr);
+        & > :nth-child(n) {
+            border-right: 1px dashed ${myTheme.colors.borderGrandIcon};
+            border-bottom: 1px dashed ${myTheme.colors.borderGrandIcon};
+        }
+        & > :nth-child(2n) {
+            border-right: none;
+        }
+        & > :nth-last-child(-n + 2) {
+            border-bottom: none;
+        }
+    }
+`
 
 
 const BrandsInfoStyled = styled.section`
@@ -99,11 +160,7 @@ const BrandsInfoStyled = styled.section`
     align-items: center;
     padding: 130px 0;
     gap: 70px;
-    
-   
 `
-
-
 type BrandsItemPropsType = {
     bgleft: number
     maxitem: number
@@ -115,13 +172,8 @@ const BrandsItem = styled.div<BrandsItemPropsType>`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 220px;
-    height: 220px;
-    border-right: ${(props) => props.bgleft === 0 ? 'none' : '1px dashed' + `${myTheme.colors.borderGrandIcon}`};
-    border-bottom: ${({maxitem, index}) => index >= maxitem - 6 ? 'none'
-            : `1px dashed ${myTheme.colors.borderGrandIcon}`
-    };
-
+    width: 100%;
+    height: 210px;
 `
 
 

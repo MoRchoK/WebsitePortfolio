@@ -6,9 +6,6 @@ import {Portfolio} from "./layout/sections/protfolio/Portfolio.tsx";
 import {BrandsInfo} from "./layout/sections/brandsInfo/BrandsInfo.tsx";
 import {Header} from "./layout/header/Header.tsx";
 import {Main} from "./layout/sections/Main/Main.tsx";
-import {Blog} from "./layout/sections/blog/Blog.tsx";
-import {Statistic} from "./layout/sections/statistic/Statistic.tsx";
-import {Footer} from "./layout/footer/Footer.tsx";
 
 function App() {
     return (
@@ -18,7 +15,7 @@ function App() {
             <MySkills/>
             <Offer/>
             <Portfolio/>
-            {/*<BrandsInfo/>*/}
+            <BrandsInfo/>
             {/*<Blog/>*/}
             {/*<Statistic/>*/}
             {/*<Footer/>*/}
