@@ -28,7 +28,6 @@ export function Blog() {
 }
 
 
-
 const BlogStyled = styled.section`
     padding: 150px 0;
     display: flex;
@@ -40,6 +39,7 @@ const BlogStyled = styled.section`
     button{
         margin-top:60px;
     }
+    
 `
 
 

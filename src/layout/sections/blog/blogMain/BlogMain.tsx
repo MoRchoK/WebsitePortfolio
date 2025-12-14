@@ -2,11 +2,12 @@ import {WrapperComponent} from "../../../../components/wrapperComponent/WrapperC
 import styled from "styled-components";
 import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 import Logo from '../../../../image/Ellipse.png'
+import {font} from "../../../style/common/Common.ts";
 
 
 export function BlogMain() {
     return (
-        <WrapperComponent alignitems={"start"} width={"740px"} margin_bottom={'130px'} >
+        <WrapperBlogMain >
             <BlogDescription>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapibus eu placerat at nisl posuere aliquet
                 amet pharetra malesuada. Suspendisse nisl ac at tortor.
@@ -23,9 +24,30 @@ export function BlogMain() {
                 </WrapperComponent>
             </WrapperComponent>
             {/*<BlogBgImg opacity={0.7} left={'-15%'} top={'-80%'} src={'/src/image/bgPost.webp'} alt="background image"/>*/}
-        </WrapperComponent>
+        </WrapperBlogMain>
     )
 }
+
+
+
+const WrapperBlogMain = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-width: 740px;
+    width: 100%;
+    margin-bottom: 130px;
+    align-items: start;
+    
+    @media ${myTheme.media.large}{
+        max-width: 50%;
+    }
+    @media ${myTheme.media.tablet}{
+        max-width: 60%;
+    }
+    @media ${myTheme.media.mobile}{
+        max-width: 80%;
+    }
+`
 
 type BlogBgImgPropsType = {
     left?: string;
@@ -43,11 +65,9 @@ export const BlogBgImg = styled.img<BlogBgImgPropsType>`
 
 
 const NameUser = styled.span`
-    font-size: 20px;
+    ${font({Fmax: 20, Fmin:18})}
     color: ${(props) => props.theme.colors.primary};
     margin-bottom: 0.4rem;
-    font-weight: 700;
-    line-height: 100%;
 
 `
 const StatusUser = styled.span`
@@ -63,11 +83,8 @@ const Avatar = styled.img`
 `
 
 const BlogDescription = styled.p`
+    ${font({weight: 500, lineHeight: 1.7, Fmax: 28, Fmin: 18, color: myTheme.colors.descriptionPostText, family: 'Lato, sans-serif'})}
     margin-bottom: 2rem;
-    font-size: 28px;
-    color: ${myTheme.colors.descriptionPostText};
-    font-family: Lato, sans-serif;
-    font-weight: 500;
-    line-height: 170%;
     letter-spacing: -0.02em;
+    
 `

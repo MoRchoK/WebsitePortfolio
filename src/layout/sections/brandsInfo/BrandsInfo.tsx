@@ -135,8 +135,9 @@ const WrapperBrands = styled.div`
     }
 
 
-    @media ${myTheme.media.large} {
+    @media ${myTheme.media.mobile} {
         grid-template-columns: repeat(2, 1fr);
+        
         & > :nth-child(n) {
             border-right: 1px dashed ${myTheme.colors.borderGrandIcon};
             border-bottom: 1px dashed ${myTheme.colors.borderGrandIcon};
@@ -174,6 +175,13 @@ const BrandsItem = styled.div<BrandsItemPropsType>`
     justify-content: center;
     width: 100%;
     height: 210px;
+    @media ${myTheme.media.mobile} {
+        &>svg{
+            width: 70px;
+            height: 70px;
+        }
+    }
+    
 `
 
 

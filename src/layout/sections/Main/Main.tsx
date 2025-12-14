@@ -3,7 +3,6 @@ import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 import {MainInfoComponent} from "./mainInfo/MainInfoComponent.tsx";
 import {Container} from "../../../container/Container.ts";
 
-
 export function Main() {
     return (
         <MainStyled>
@@ -23,6 +22,8 @@ const MainStyled = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    
 `
 
 
