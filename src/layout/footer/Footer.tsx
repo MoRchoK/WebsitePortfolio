@@ -7,12 +7,11 @@ import {SvgIcon} from "../../components/svgIcon/SvgIcon.tsx";
 import {TitleSection} from "../../components/titleSection/TitleSection.tsx";
 import {ModalContact} from "../../components/modalContact/ModalContact.tsx";
 import {useState} from "react";
+import {font} from "../style/common/Common.ts";
 
 
 export function Footer() {
-
-    const [isActive, setIsActive] = useState(false)
-
+    const [isActive, setIsActive] = useState(true)
     const logo = [
         {
             name: 'facebook',
@@ -43,85 +42,78 @@ export function Footer() {
     return (
         <FooterStyled>
             <Container>
-                <WrapperComponent alignitems={'center'} justifycontent={'flex-start'}>
-                    <TitleSection
-                        margin_bottom={'60px'}
-                        description={'I’m available for freelance work. Have any projects in your mind? Just feel free to contact me'}
-                        title={'Let’s work together'}/>
-                    <BtnStyled
-                        onClick={() => {setIsActive(true)}}
-                        bg_color={'transparent '} margin_bottom={'100px'}
-                        border_color={myTheme.colors.borderFooterBtn}>CONTACT ME</BtnStyled>
+                <WrapperComponent className={'WrapperFooterMain'}>
+                    <WrapperComponent className={'FooterMainInfo'} alignitems={'center'} justifycontent={'flex-start'}>
+                        <TitleSection
+                            margin_bottom={'60px'}
+                            description={'I’m available for freelance work. Have any projects in your mind? Just feel free to contact me'}
+                            title={'Let’s work together'}/>
+                        <BtnStyled
+                            as={'button'}
+                            onClick={() => {
+                                setIsActive(true)
+                            }}
+                            bg_color={'transparent '} margin_bottom={'100px'}
+                            border_color={myTheme.colors.borderFooterBtn}>CONTACT ME</BtnStyled>
+                    </WrapperComponent>
+                    <WrapperComponent className={'WrapperFooterDown'} flexdirection={'row'} alignitems={'center'} >
+                        <Footnote>
+                            © 2021 <FooterAccent>Templates Jungle.</FooterAccent> All rights reserved
+                        </Footnote>
+                        <SocialList>
+                            {logo.map((icon, index) => (
+                                <SocialItem key={index}>
+                                    <SocialLink>
+                                        <SvgIcon
+                                            id={icon.name}
+                                            height={'24px'}
+                                            width={'24px'}
+                                            viewBox={icon.viewBox}
+                                        >
+                                        </SvgIcon>
+                                    </SocialLink>
+                                </SocialItem>
+                            ))}
+                        </SocialList>
+                        <ModalContact handleClick={() => setIsActive(false)} isOpen={isActive}/>
+                    </WrapperComponent>
                 </WrapperComponent>
-
-                <WrapperFooter>
-                    <Footnote>
-                        © 2021 <FooterAccent>Templates Jungle.</FooterAccent> All rights reserved
-                    </Footnote>
-                    <SocialList>
-                        {logo.map((icon, index) => (
-                            <SocialItem key={index}>
-                                <SocialLink>
-                                    <SvgIcon
-                                        id={icon.name}
-                                        height={'24px'}
-                                        width={'24px'}
-                                        viewBox={icon.viewBox}
-                                    >
-                                    </SvgIcon>
-                                </SocialLink>
-                            </SocialItem>
-                        ))}
-                    </SocialList>
-                </WrapperFooter>
             </Container>
-                <ModalContact handleClick={()=>setIsActive(false)} isOpen={isActive}/>
         </FooterStyled>
     )
 }
-
-
-const WrapperFooter = styled.div`
-    padding: 0 60px;
-    position: relative;
-    min-height: 115px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  
-    &::before{
-        content: '';
-        position: absolute;
-        justify-self: center;
-        left: -5%;
-        align-self: center;
-        bottom: 115px;
-        background-color: ${myTheme.colors.footerLine};
-        height: 1px;
-        width: 110%;
-       
-        
-    }
-`
 
 const SocialList = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px
+    gap: 20px;
+    @media ${myTheme.media.tablet} {
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
 `
 const SocialItem = styled.li`
-   
+    @media ${myTheme.media.mobile} {
+        width: 24px;
+        svg{
+            width: 24px;
+        }
+    }
 `
-
 
 const SocialLink = styled.a`
     cursor: pointer;
     color: ${myTheme.colors.borderFooterBtn};
     &:hover {
         color: ${myTheme.colors.highlighting};
+    }
+    @media ${myTheme.media.mobile} {
+        svg{
+            width: 20px;
+        }
     }
 `
 
@@ -132,29 +124,61 @@ const FooterStyled = styled.footer`
     justify-content: center;
     height: 100%;
     background-color: ${myTheme.colors.secondarySection};
-    padding-top: 130px;
-    h2{
-        font-style: normal;
-        font-weight: 700;
-        font-size: 72px;
-        line-height: 85px;
-        letter-spacing: 0.015em;
-        p{
-            width: 460px;
+    padding: 130px 50px 0;
+    .WrapperFooterMain {
+        position: relative;
+        width: 100%;
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: 115px;
+            z-index: 9999999;
+            left: -45px;
+            background-color: ${myTheme.colors.footerLine};
+            height: 1px;
+            width: calc(100% + 90px);
+        }
+
+        @media ${myTheme.media.mobile} {
+            button{
+               padding: 1em 2em;
+            }
         }
     }
- 
     
+    h2 {
+        ${font({Fmax: 72, Fmin: 40, lineHeight: 0.8})}
+        letter-spacing: 0.015em;
+        text-align: center;
+    }
+    .WrapperFooterDown {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 60px;
+        min-height: 115px;
+        @media ${myTheme.media.tablet} {
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        @media ${myTheme.media.mobile} {
+            padding: 0;
+        }
+    }
 `
 const Footnote = styled.small`
+    ${font({weight: 400, family: ' Lato, sans-serif', color: myTheme.colors.descriptionFooterText})}
     position: relative;
-    color: ${myTheme.colors.descriptionFooterText};
-    font-family: Lato, sans-serif;
-    font-weight: 400;
-    line-height: 100%;
     font-size: 14px;
-    border: 1px red solid;
+    text-align: center;
+    @media ${myTheme.media.tablet} {
+        width: 100%;
+        justify-content: space-around;
+    }
 `
+
 const FooterAccent = styled.span`
     color: ${myTheme.colors.PraymaryText};
 `

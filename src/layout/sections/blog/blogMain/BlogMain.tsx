@@ -7,7 +7,7 @@ import {font} from "../../../style/common/Common.ts";
 
 export function BlogMain() {
     return (
-        <WrapperBlogMain >
+        <WrapperComponent className={'WrapperBlogMain'} flexdirection={'column'} width={'740px'} alignitems={'flex-start'} >
             <BlogDescription>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapibus eu placerat at nisl posuere aliquet
                 amet pharetra malesuada. Suspendisse nisl ac at tortor.
@@ -24,30 +24,12 @@ export function BlogMain() {
                 </WrapperComponent>
             </WrapperComponent>
             {/*<BlogBgImg opacity={0.7} left={'-15%'} top={'-80%'} src={'/src/image/bgPost.webp'} alt="background image"/>*/}
-        </WrapperBlogMain>
+        </WrapperComponent>
     )
 }
 
 
 
-const WrapperBlogMain = styled.div`
-    display: flex;
-    flex-direction: column;
-    max-width: 740px;
-    width: 100%;
-    margin-bottom: 130px;
-    align-items: start;
-    
-    @media ${myTheme.media.large}{
-        max-width: 50%;
-    }
-    @media ${myTheme.media.tablet}{
-        max-width: 60%;
-    }
-    @media ${myTheme.media.mobile}{
-        max-width: 80%;
-    }
-`
 
 type BlogBgImgPropsType = {
     left?: string;

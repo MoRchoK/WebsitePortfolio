@@ -55,6 +55,7 @@ export const GlobalStyled = createGlobalStyle`
         font-weight: 700;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        min-width: 360px;
     }
 
 

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComponent.tsx";
 import {Container} from "../../../container/Container.ts";
+import {font} from "../../style/common/Common.ts";
 
 
 
@@ -35,9 +36,9 @@ export function Statistic () {
     return (
         <Statisticstyled>
             <Container >
-                <WrapperComponent flexdirection={'row'}   flexwrap={'wrap'} gap={'80px'} justifycontent={'center'} alignitems={'center'}>
+                <WrapperComponent className={'WrapperStatistic'} flexdirection={'row'}  gap={'80px'} justifycontent={'center'} alignitems={'center'}>
             {stats.map((item, index) => (
-                <WrapperComponent width={'220px'} alignitems={"center"} key={index} justifycontent={'center'}  >
+                <WrapperComponent className={'WrapperItem'} width={'220px'} alignitems={"center"} key={index} justifycontent={'center'}  >
                     <StatValue>{item.value}
                     </StatValue>
                     <StatText >
@@ -60,23 +61,27 @@ const Statisticstyled = styled.section`
     padding: 150px 0;
     background-color: ${myTheme.colors.BgBrandsSection};
     
-
-
+    
+    @media ${myTheme.media.large} {
+        .WrapperStatistic{
+            flex-wrap: wrap;
+        }
+        .WrapperItem{
+            max-width: 280px;
+            width: 100%;
+        }
+    }
 `
 const StatValue = styled.span`
-    font-size: 105px;
-    color: ${myTheme.colors.statValueText};
-    font-weight: 700;
+    ${font({Fmax: 105, Fmin:90, color: myTheme.colors.statValueText})}
     letter-spacing: -0.04em;
-    line-height: 100%;
     margin-bottom: 10px;
+    white-space: nowrap;
 `
 const StatText = styled.span`
-    font-size: 18px;
-    color: ${myTheme.colors.descriptionPostText};
-    font-weight: 600;
+    ${font({Fmax: 18, Fmin:16, weight:600, color: myTheme.colors.descriptionPostText})}
     letter-spacing: 0.01em;
-    line-height: 100%;
+    white-space: nowrap;
 `
 
 

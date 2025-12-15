@@ -29,7 +29,7 @@ export function Blog() {
 
 
 const BlogStyled = styled.section`
-    padding: 150px 0;
+    padding: 300px 0 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,6 +38,20 @@ const BlogStyled = styled.section`
     background-color: ${myTheme.colors.whteColor};
     button{
         margin-top:60px;
+    }
+    
+    .WrapperBlogMain {
+        margin-bottom: 130px;
+
+        @media ${myTheme.media.large}{
+            max-width: 50%;
+        }
+        @media ${myTheme.media.tablet}{
+            max-width: 60%;
+        }
+        @media ${myTheme.media.mobile}{
+            max-width: 80%;
+        }
     }
     
 `
