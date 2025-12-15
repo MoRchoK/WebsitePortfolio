@@ -51,7 +51,6 @@ const PortfolioStyles = styled.section`
         ul {
             gap: 20px;
         }
-
         ${BtnDarkStyled} {
             padding: 1em 1.5em;
             font-size: 14px;

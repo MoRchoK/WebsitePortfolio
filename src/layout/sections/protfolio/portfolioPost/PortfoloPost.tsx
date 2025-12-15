@@ -6,8 +6,7 @@ import bgfiveImg from "../../../../image/Rectangle92.webp";
 import bgSixImg from "../../../../image/Rectangle78.webp";
 import styled from "styled-components";
 import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
-
-
+import {font} from "../../../style/common/Common.ts";
 
 
 export function PortfolioPost() {
@@ -93,15 +92,15 @@ export function PortfolioPost() {
                                                          grid_row_end={iterCount + 2}
                                                          grid_column_start={columnPosition}>
                                         <img src={post.img} alt={post.title}/>
+                                        <OverleyPost title={post.title}/>
                                     </PortfolioPostStyled>
-
                                 )
                             } else {
-
                                 return <PortfolioPostStyled key={index} grid_row_start={iterCount}
                                                             grid_row_end={iterCount + 2}
                                                             grid_column_start={columnPosition}>
                                     <img src={post.img} alt={post.title}/>
+                                    <OverleyPost title={post.title}/>
                                 </PortfolioPostStyled>
                             }
                         } else {
@@ -110,12 +109,14 @@ export function PortfolioPost() {
                                                             grid_row_end={iterCount + 2}
                                                             grid_column_start={columnPosition}>
                                     <img src={post.img} alt={post.title}/>
+                                    <OverleyPost title={post.title}/>
                                 </PortfolioPostStyled>
                             } else {
                                 return <PortfolioPostStyled key={index} grid_row_start={iterCount}
                                                             grid_row_end={iterCount + 1}
                                                             grid_column_start={columnPosition}>
                                     <img src={post.img} alt={post.title}/>
+                                    <OverleyPost title={post.title}/>
                                 </PortfolioPostStyled>
                             }
                         }
@@ -128,6 +129,7 @@ export function PortfolioPost() {
                                                     grid_row_end={iterCount + 1}
                                                     grid_column_start={columnPosition}>
                             <img src={post.img} alt={post.title}/>
+                            <OverleyPost title={post.title}/>
                         </PortfolioPostStyled>
 
                     }
@@ -136,6 +138,45 @@ export function PortfolioPost() {
         </WrapperPrortfolio>
     )
 }
+
+
+function OverleyPost({title}: {title: string}) {
+
+    return (
+        <WrapperOverlay>
+            <OverlayTitle>{title}</OverlayTitle>
+            <OverlayDescription>Package Design</OverlayDescription>
+        </WrapperOverlay>
+
+    )
+}
+
+const WrapperOverlay = styled.div`
+    display: none;
+    position: absolute;
+    bottom: 100px;
+    left: 60px;
+    flex-direction: column;
+    gap: 35px;
+    &::before {
+        content: '➝';
+        position: absolute;
+        right: -130px;
+        transform: scale(1.3);
+        color: ${myTheme.colors.BgMainSection}
+    }
+`
+
+const OverlayTitle = styled.h4`
+    ${font({color: myTheme.colors.BgMainSection, Fmax:26, Fmin: 20})}
+    text-transform: capitalize;
+`
+
+const OverlayDescription = styled.span`
+    ${font({color: myTheme.colors.BgMainSection, weight: 400})};
+    font-size: 16px;
+    padding-left: 5px;
+`
 
 
 type WrapperPrortfolioPropsType = {
@@ -148,14 +189,14 @@ const WrapperPrortfolio = styled.div<WrapperPrortfolioPropsType>`
     min-height: 200px;
     gap: 30px;
     grid-template-columns: repeat( ${(props) =>
-    props.culoms_value
-}, 1fr);
+            props.culoms_value
+    }, 1fr);
     grid-template-rows: ${props => props.rows_count};
 
     @media ${myTheme.media.large} {
         grid-template-columns: repeat( ${(props) =>
-    props.culoms_value === 3 ? props.culoms_value - 1 : props.culoms_value
-}, 1fr);
+                props.culoms_value === 3 ? props.culoms_value - 1 : props.culoms_value
+        }, 1fr);
         grid-template-rows: 540px;
         grid-auto-rows: 540px;
     }
@@ -184,7 +225,21 @@ const PortfolioPostStyled = styled.div<PortfolioPostStyledPropsType>`
     grid-row-end: ${(props) => props.grid_row_end};
     grid-column-start: ${(props) => props.grid_column_start};
     max-height: 800px;
+    position: relative;
 
+    &:hover {
+        &::before {
+            content: '';
+            background-color: ${myTheme.colors.bgHoverPortfolioPost};
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        
+        ${WrapperOverlay}{
+            display: flex;
+        }
+    }
     @media ${myTheme.media.large} {
         grid-row-start: auto ;
         grid-row-end: auto;

@@ -19,6 +19,7 @@ export const myTheme = {
         bgColorIcon: 'rgba(253, 253, 253, 1)',
         bgIconMain: '#FF7676',
         strokeSecondSection: '#F0F0F0',
+        bgHoverPortfolioPost: 'rgba(21, 21, 21, .71)',
 
 
         borderColorBtnMain: "#9E9E9E",

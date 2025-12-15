@@ -11,7 +11,7 @@ import {font} from "../style/common/Common.ts";
 
 
 export function Footer() {
-    const [isActive, setIsActive] = useState(true)
+    const [isActive, setIsActive] = useState(false)
     const logo = [
         {
             name: 'facebook',

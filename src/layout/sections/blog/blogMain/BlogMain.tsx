@@ -23,27 +23,10 @@ export function BlogMain() {
                     </StatusUser>
                 </WrapperComponent>
             </WrapperComponent>
-            {/*<BlogBgImg opacity={0.7} left={'-15%'} top={'-80%'} src={'/src/image/bgPost.webp'} alt="background image"/>*/}
         </WrapperComponent>
     )
 }
 
-
-
-
-type BlogBgImgPropsType = {
-    left?: string;
-    top?: string;
-    opacity?: number;
-}
-
-export const BlogBgImg = styled.img<BlogBgImgPropsType>`
-    position: absolute;
-    z-index: -1;
-    left: ${(props) => props.left || '0'};
-    top: ${(props) => props.top || '0'};
-    opacity: ${(props) => props.opacity || 1};
-`
 
 
 const NameUser = styled.span`

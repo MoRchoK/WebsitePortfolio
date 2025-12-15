@@ -137,7 +137,7 @@ const WrapperInput = styled.div`
     }
 
     label {
-        ${font({Fmax: 24, Fmin: 12, family: 'Lato, sans-serif'})}
+        ${font({Fmax: 20, Fmin: 12, family: 'Lato, sans-serif'})}
         position: absolute;
         left: 5px;
         transition: .1s;
