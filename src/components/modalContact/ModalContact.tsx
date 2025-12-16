@@ -2,7 +2,7 @@ import styled, {css} from "styled-components";
 import {myTheme} from "../../layout/style/Theme/Theme.styled.tsx";
 import {ButtonLight} from "../buttonLight/ButtonLight.tsx";
 import {WrapperComponent} from "../wrapperComponent/WrapperComponent.tsx";
-import {ButtonDark} from "../buttonDark/Button.tsx";
+import {BtnDark} from "../buttonDark/ButtonDark.tsx";
 import {font} from "../../layout/style/common/Common.ts";
 
 
@@ -26,8 +26,8 @@ export function ModalContact(props:WrapperModal) {
                     <label htmlFor={'Message'}>Your Message</label>
                 </WrapperInput>
                 <WrapperComponent className={'WrapperBtnModal'} flexdirection={'row'} justifycontent={'center'} gap={'30px'}>
-                    <ButtonLight title={'Submit'} type="submit"/>
-                    <ButtonDark  handleClick={props.handleClick} title={'Cancel'}/>
+                    <ButtonLight type="submit">Submit</ButtonLight>
+                    <BtnDark onClick={props.handle_click}>Cancel</BtnDark>
                 </WrapperComponent>
             </Form>
         </WrapperModal>
@@ -38,8 +38,7 @@ export function ModalContact(props:WrapperModal) {
 
 type WrapperModal = {
     isOpen: boolean;
-    handleClick?: () => void;
-
+    handle_click?: () => void;
 }
 
 const WrapperModal = styled.div<WrapperModal>`
@@ -51,7 +50,6 @@ const WrapperModal = styled.div<WrapperModal>`
     left: 0;
     right: 0;
     bottom: 0;
-   
     background-color: ${myTheme.colors.BgHeader};
     border: none;
     z-index: 9999999;
@@ -84,7 +82,6 @@ export const Form = styled.form`
         width: 100%;
         max-height: 40px;
     }
-    
     @media ${myTheme.media.large} {
         width: 80vw;
     }

@@ -20,6 +20,7 @@ export const myTheme = {
         bgIconMain: '#FF7676',
         strokeSecondSection: '#F0F0F0',
         bgHoverPortfolioPost: 'rgba(21, 21, 21, .71)',
+        inactiveItem: '#EBEBEB',
 
 
         borderColorBtnMain: "#9E9E9E",

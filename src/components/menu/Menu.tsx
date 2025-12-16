@@ -4,6 +4,7 @@ import {myTheme} from "../../layout/style/Theme/Theme.styled.tsx";
 
 type MenuPropsType = MenuUlPropsType & {
     title: Array<string>
+    className?: string
 }
 type MenuUlPropsType = {
     gap?: string;
@@ -29,16 +30,13 @@ export const NavStyled = styled.nav`
 
 export const MenuUl = styled.ul<MenuUlPropsType>`
     width: 100%;
-    height: 100%;
     display: flex;
-    gap: ${(props) => props.gap || '0px'};
+    gap: ${(props) => props.gap};
 `
-
 
 export const MenuList = styled.li`
     list-style: none;
 `
-
 
 type MenuLinkPropsType = {
     color?: string;

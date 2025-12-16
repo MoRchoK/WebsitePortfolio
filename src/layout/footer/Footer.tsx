@@ -39,6 +39,12 @@ export function Footer() {
         }]
 
 
+function handleClick  (e){
+    e.preventDefault()
+    setIsActive(false)
+}
+
+
     return (
         <FooterStyled>
             <Container>
@@ -75,7 +81,7 @@ export function Footer() {
                                 </SocialItem>
                             ))}
                         </SocialList>
-                        <ModalContact handleClick={() => setIsActive(false)} isOpen={isActive}/>
+                        <ModalContact handle_click={(e)=>handleClick(e)} isOpen={isActive}/>
                     </WrapperComponent>
                 </WrapperComponent>
             </Container>

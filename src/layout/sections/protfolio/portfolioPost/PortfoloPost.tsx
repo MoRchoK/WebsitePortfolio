@@ -1,9 +1,9 @@
-import bgOneImg from "../../../../image/RectangleR.webp";
-import bgTwoImg from "../../../../image/Rectangle89.webp";
-import bgThreeImg from "../../../../image/Rectangle87.webp";
-import bgFourImg from "../../../../image/Rectangle79.webp";
-import bgfiveImg from "../../../../image/Rectangle92.webp";
-import bgSixImg from "../../../../image/Rectangle78.webp";
+import bgOneImg from "../../../../assets/image/RectangleR.webp";
+import bgTwoImg from "../../../../assets/image/Rectangle89.webp";
+import bgThreeImg from "../../../../assets/image/Rectangle87.webp";
+import bgFourImg from "../../../../assets/image/Rectangle79.webp";
+import bgfiveImg from "../../../../assets/image/Rectangle92.webp";
+import bgSixImg from "../../../../assets/image/Rectangle78.webp";
 import styled from "styled-components";
 import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 import {font} from "../../../style/common/Common.ts";
@@ -158,6 +158,12 @@ const WrapperOverlay = styled.div`
     left: 60px;
     flex-direction: column;
     gap: 35px;
+    
+`
+
+const OverlayTitle = styled.h4`
+    ${font({color: myTheme.colors.BgMainSection, Fmax:26, Fmin: 20})}
+    text-transform: capitalize;
     &::before {
         content: '➝';
         position: absolute;
@@ -167,17 +173,11 @@ const WrapperOverlay = styled.div`
     }
 `
 
-const OverlayTitle = styled.h4`
-    ${font({color: myTheme.colors.BgMainSection, Fmax:26, Fmin: 20})}
-    text-transform: capitalize;
-`
-
 const OverlayDescription = styled.span`
     ${font({color: myTheme.colors.BgMainSection, weight: 400})};
     font-size: 16px;
     padding-left: 5px;
 `
-
 
 type WrapperPrortfolioPropsType = {
     rows_count: string
@@ -203,20 +203,14 @@ const WrapperPrortfolio = styled.div<WrapperPrortfolioPropsType>`
 
     @media ${myTheme.media.tablet} {
         grid-template-columns: repeat( 1, 1fr);
-        grid-template-rows: 540px;
-        grid-auto-rows: 540px;
     }
-
-
 `
-
 type PortfolioPostStyledPropsType = {
     backgroundimage?: string
     grid_row_start: number
     grid_row_end: number
     grid_column_start: number
 }
-
 
 const PortfolioPostStyled = styled.div<PortfolioPostStyledPropsType>`
     width: 100%;
@@ -226,7 +220,6 @@ const PortfolioPostStyled = styled.div<PortfolioPostStyledPropsType>`
     grid-column-start: ${(props) => props.grid_column_start};
     max-height: 800px;
     position: relative;
-
     &:hover {
         &::before {
             content: '';
@@ -235,7 +228,6 @@ const PortfolioPostStyled = styled.div<PortfolioPostStyledPropsType>`
             height: 100%;
             position: absolute;
         }
-        
         ${WrapperOverlay}{
             display: flex;
         }
@@ -245,7 +237,6 @@ const PortfolioPostStyled = styled.div<PortfolioPostStyledPropsType>`
         grid-row-end: auto;
         grid-column-start: auto;
     }
-
     img {
         width: 100%;
         height: 100%;

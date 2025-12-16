@@ -5,63 +5,86 @@ import {Title} from "../../../../components/title/Title.tsx";
 import {font} from "../../../style/common/Common.ts";
 
 export function StatSkills() {
+
+    const skills = [
+        {
+            title: 'Adobe Photoshop',
+            percent: '96%'
+        },
+        {
+            title: 'Adobe Illustrator',
+            percent: '92%'
+        },
+        {
+            title: 'Adobe After Effect',
+            percent: '85%'
+        },
+        {
+            title: 'Adobe InDesign',
+            percent: '94%'
+        },
+    ]
     return (
-        <WrapperComponent height={'100%'} width={'100%'}>
-            <Title title='My Skills'/>
-            <WrapperComponent>
-                <StatSkillComponent title={'Adobe Photoshop'} percent={'96%'}/>
-                <StatSkillComponent title={'Adobe Illustrator'} percent={'92%'}/>
-                <StatSkillComponent title={'Adobe After Effect'} percent={'85%'}/>
-                <StatSkillComponent title={'Adobe InDesign'} percent={'94%'}/>
+        <StatSkillsStyled>
+            <WrapperComponent flexdirection={'column'}>
+                <Title title='My Skills'/>
+                <WrapperComponent flexdirection={'column'}>
+                    {skills.map((skill, index) => (
+                        <SkillProgress key={index} title={skill.title} percent={skill.percent}/>
+                    ))}
+                </WrapperComponent>
             </WrapperComponent>
-        </WrapperComponent>
+        </StatSkillsStyled>
     )
 }
 
-type StatSkillComponentPropsType = {
+type TextSkillPropsType = SkillProgressPropsType & {
     title: string,
+}
+
+type SkillProgressPropsType = {
     percent: string,
 }
 
-function StatSkillComponent(props: StatSkillComponentPropsType) {
-    return (
-        <WrapperComponent>
-            <InfoAboutSkill title={props.title} percent={props.percent}/>
-            <SkillStayled percent={props.percent}/>
-        </WrapperComponent>
-    )
-}
-
-type SkillStayledPropsType = {
-    percent: string,
-}
-
-const SkillStayled = styled.div<SkillStayledPropsType>`
-    background-color: ${myTheme.colors.highlighting};
-    height: 3px;
-    width: ${(props) => props.percent};
-    margin-bottom: 40px;
-
+const StatSkillsStyled = styled.div`
+    max-width: 500px;
+    width: 100%;
 `
 
-
-type InfoAboutSkillPropsType = {
-    title: string,
-    percent: string
-}
-
-
-export function InfoAboutSkill(props: InfoAboutSkillPropsType) {
-    const NameSkillStyled = styled.span`
-        ${font({weight: 500, Fmax: 16, Fmin: 14})}
-        margin-bottom: 0.6rem;
-        letter-spacing: 0.02em;
-    `
+function SkillProgress(props: TextSkillPropsType) {
     return (
-        <WrapperComponent flexdirection={'row'} justifycontent={'space-between'} width={props.percent}>
-            <NameSkillStyled>{props.title}</NameSkillStyled>
-            <NameSkillStyled>{props.percent}</NameSkillStyled>
-        </WrapperComponent>
-
+        <SkillProgressStyled percent={props.percent}>
+            <TextSkill title={props.title} percent={props.percent}/>
+            <SkillsProgress/>
+        </SkillProgressStyled>
     )
 }
+
+const SkillProgressStyled = styled.div<SkillProgressPropsType>`
+    width: ${(props => props.percent)};
+`
+
+const SkillsProgress = styled.div`
+    background-color: ${myTheme.colors.highlighting};
+    height: 3px;
+    margin-bottom: 40px;
+`
+
+export function TextSkill(props: TextSkillPropsType) {
+    const Text = styled.span`
+        ${font({weight: 500, Fmax: 16, Fmin: 14, letterSpacing: '0.02em'})}
+        margin-bottom: 0.6rem;
+    `
+    return (
+        <TextSkillStyled>
+            <WrapperComponent flexdirection={'row'} justifycontent={'space-between'}>
+                <Text>{props.title}</Text>
+                <Text>{props.percent}</Text>
+            </WrapperComponent>
+        </TextSkillStyled>
+    )
+}
+
+const TextSkillStyled = styled.div`
+    margin-bottom: 10px;
+`

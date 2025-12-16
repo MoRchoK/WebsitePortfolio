@@ -19,8 +19,8 @@ function App() {
             <Portfolio/>
             <BrandsInfo/>
             <Blog/>
-            <Statistic/>
-            <Footer/>
+            {/*<Statistic/>*/}
+            {/*<Footer/>*/}
         </AppStyled>
     )
 }

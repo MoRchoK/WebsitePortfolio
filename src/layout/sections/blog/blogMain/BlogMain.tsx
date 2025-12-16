@@ -1,7 +1,7 @@
 import {WrapperComponent} from "../../../../components/wrapperComponent/WrapperComponent.tsx";
 import styled from "styled-components";
 import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
-import Logo from '../../../../image/Ellipse.png'
+import Logo from '../../../../assets/image/Ellipse.png'
 import {font} from "../../../style/common/Common.ts";
 
 

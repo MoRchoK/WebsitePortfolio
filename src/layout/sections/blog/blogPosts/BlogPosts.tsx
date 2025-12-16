@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import FirstPostImg from '../../../../image/Rectangle77.webp'
-import SecondPostImg from '../../../../image/Rectangle99.webp'
-import ThirdPostImg from '../../../../image/Rectangle98.webp'
+import FirstPostImg from '../../../../assets/image/Rectangle77.webp'
+import SecondPostImg from '../../../../assets/image/Rectangle99.webp'
+import ThirdPostImg from '../../../../assets/image/Rectangle98.webp'
 import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 import {font} from "../../../style/common/Common.ts";
 

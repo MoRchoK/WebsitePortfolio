@@ -16,8 +16,6 @@ export function Title(props: TitleProps) {
 }
 
 const TitleStyled = styled.h2`
-    ${font({Fmax: 48, Fmin: 34, color:myTheme.colors.Title })}
-    letter-spacing: 0.01em;
-    margin-bottom: 0.4em;
-    
+    ${font({Fmax: 48, Fmin: 34, color:myTheme.colors.Title, letterSpacing: '0.01em' })};
+    text-align: center;
 `

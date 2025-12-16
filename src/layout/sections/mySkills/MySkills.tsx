@@ -10,7 +10,7 @@ export function MySkills() {
     return (
         <MySkillsSectionStyled>
             <Container>
-                <WrapperComponent gap={'150px'}  flexdirection={'row'} justifycontent={'space-between'}>
+                <WrapperComponent  flexdirection={'row'} justifycontent={'space-between'}>
                     <WhyHireMeComponent/>
                     <StatSkills/>
                 </WrapperComponent>
@@ -20,24 +20,16 @@ export function MySkills() {
 }
 const MySkillsSectionStyled = styled.section`
     display: flex;
-    min-height: 300px;
     height: 100%;
     align-items: center;
     justify-content: center;
     background-color: ${myTheme.colors.secondarySection};
-    gap: 160px;
-    position: relative;
     padding: 130px 0;
     h2 {
         margin-bottom: 40px;
     }
-    @media ${myTheme.media.extra_large} {
-        ${Container} > ${WrapperComponent} {
-            gap: 50px;
-        }
-    }
+   
     @media ${myTheme.media.large} {
-
         ${Container} > ${WrapperComponent} {
             flex-direction: column;
             align-items: center;

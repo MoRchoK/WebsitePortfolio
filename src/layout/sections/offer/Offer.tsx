@@ -1,13 +1,14 @@
-
 import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComponent.tsx";
 import {TitleSection} from "../../../components/titleSection/TitleSection.tsx";
 import styled from "styled-components";
 import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 import {SvgIcon} from "../../../components/svgIcon/SvgIcon.tsx";
 import {font} from "../../style/common/Common.ts";
+import {useState} from "react";
 
 
 export function Offer() {
+    const [activeOfferItem, setActiveOfferItem] = useState(0)
     type icon = {
         id: string,
         title: string,
@@ -31,7 +32,8 @@ export function Offer() {
             $is_stroke: true,
             title: "T-Shirt Design",
             viewBox: "3 3 58 58",
-            description: 'Lorem ipsum dolor sit amet, cetur adipiscing elisit amet, consectetur adipit, cetur adipiscing et, cetur aditur adipiscing elcing elisit amet, piscing elcing elisit amet, c'},
+            description: 'Lorem ipsum dolor sit amet, cetur adipiscing elisit amet, consectetur adipit, cetur adipiscing et, cetur aditur adipiscing elcing elisit amet, piscing elcing elisit amet, c'
+        },
         {
             id: "box",
             $is_fill: false,
@@ -41,76 +43,76 @@ export function Offer() {
             description: 'Lorem ipsum dolor sit amet, sit ametOrsit ametur adipiscing elit. Orsit ametmet, consectetur adipiscing elisit amet, consectetur adipiscing elici eget mi elit cursus donec amet sed sagittis'
         },
     ]
-
     return (
         <OfferSectionStyled>
-                <WrapperComponent alignitems={'center'}>
-                    <TitleSection
-                        description={'Things that I can do for my clients. Just make your good trust I love to provide quality works'}
-                        title={'What I Offer'}/>
-                    <WrapperIcons  >
-                        <BtnArrowLeft>
-                            <ArrowIcon id={'leftArrow'}/>
-                        </BtnArrowLeft>
-                        {icon.map((item) => (
-                            <OfferItemsStyled key={item.id}>
-                                <SvgIcon
-                                    key={item.id}
-                                    id={item.id}
-                                    width={'85px'}
-                                    height={'85px'}
-                                    viewBox={item.viewBox}
-                                    fill={item.$is_fill ? myTheme.colors.additionalText : 'transparent'}
-                                    stroke={item.$is_stroke ? myTheme.colors.additionalText : 'transparent'}
-                                />
-                                <CartTitle>{item.title}</CartTitle>
-                                <OfferItemsDesctiprion>
-                                    {item.description}
-                                </OfferItemsDesctiprion>
-                            </OfferItemsStyled>
-                        ))}
-                        <BtnArrowRight>
-                            <ArrowIcon id={'rightArrow'}/>
-                        </BtnArrowRight>
-                    </WrapperIcons>
-                </WrapperComponent>
+            <WrapperComponent flexdirection={'column'} alignitems={'center'}>
+                <TitleSection
+                    width={'440px'}
+                    description={'Things that I can do for my clients. Just make your good trust I love to provide quality works'}
+                    title={'What I Offer'}/>
+                <WrapperIcons>
+                    <BtnArrowLeft onClick={()=>setActiveOfferItem(activeOfferItem-1)} disabled={activeOfferItem ===0}>
+                        <ArrowIcon id={'leftArrow'} opacity={activeOfferItem === 0? 0.3: 1}/>
+                    </BtnArrowLeft>
+                    {icon.map((item, index) => (
+                        <OfferItemsStyled key={item.id} $isActive={index === activeOfferItem}>
+                            <SvgIcon
+                                key={item.id}
+                                id={item.id}
+                                width={'85px'}
+                                height={'85px'}
+                                viewBox={item.viewBox}
+                                fill={item.$is_fill ? myTheme.colors.additionalText : 'transparent'}
+                                stroke={item.$is_stroke ? myTheme.colors.additionalText : 'transparent'}
+                            />
+                            <CartTitle>{item.title}</CartTitle>
+                            <OfferItemsDesctiprion>
+                                {item.description}s
+                            </OfferItemsDesctiprion>
+                        </OfferItemsStyled>
+                    ))}
+                    <BtnArrowRight onClick={()=>setActiveOfferItem(activeOfferItem+1)} disabled={activeOfferItem === (icon.length-1)}>
+                        <ArrowIcon opacity={activeOfferItem === 2? 0.3: 1} id={'rightArrow'}/>
+                    </BtnArrowRight>
+                </WrapperIcons>
+            </WrapperComponent>
         </OfferSectionStyled>
     )
 }
 
 
 const CartTitle = styled.h3`
-    ${font({Fmax: 25, Fmin: 20, weight:600})}
-    letter-spacing: 0.01em;
+    ${font({Fmax: 25, Fmin: 20, weight: 600, letterSpacing: '0.01em'})}
     margin-bottom: 15px;
     text-align: center;
 `
 
-const OfferItemsStyled = styled.div`
+
+type OfferItemsPropsType = {
+    $isActive: boolean;
+}
+const OfferItemsStyled = styled.div<OfferItemsPropsType>`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 40px 0 rgba(187, 187, 187, 0.5);
+    box-shadow: ${(props) =>props.$isActive? "0 2px 40px 0 rgba(187, 187, 187, 0.5)": 'none' };
     background-color: ${myTheme.colors.bgColorIcon};
     border-radius: 90px;
-    max-width: 500px;
     min-width: 150px;
-    min-height: 200px;
-    max-height: 400px;
+    max-width: 500px;
     padding: 70px 45px;
     overflow: hidden;
     flex-basis: 400px;
-
     & > svg {
         flex-shrink: 0;
         margin-bottom: 40px;
         color: ${myTheme.colors.additionalText};
     }
-
     @media ${myTheme.media.large} {
-        justify-content: center;
-        max-width: 500px;
+        max-width: 600px;
+        max-height: 600px;
+        height: 100%;
         width: 100%;
     }
     @media ${myTheme.media.mobile} {
@@ -133,7 +135,7 @@ const OfferItemsDesctiprion = styled.p`
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
-    
+
 `
 export const BtnArrowRight = styled.button`
     right: -50px;
@@ -141,6 +143,8 @@ export const BtnArrowRight = styled.button`
         right: 40%;
     }
 `
+
+
 export const BtnArrowLeft = styled.button`
     left: -50px;
     flex-shrink: 0;
@@ -153,11 +157,9 @@ const WrapperIcons = styled.div`
     display: flex;
     flex-direction: row;
     max-width: 1550px;
-    min-height: 200px;
-    height: 100%;
     justify-content: center;
     gap: 30px;
-    padding: 70px 47px;
+    padding: 70px 50px;
     position: relative;
     button {
         position: absolute;
@@ -184,45 +186,35 @@ const WrapperIcons = styled.div`
         flex-direction: column;
         align-items: center;
         width: 80%;
-        gap: 30px;
+        gap: 50px;
         button {
             bottom: auto;
             top: 50%;
             left: auto;
         }
-       ${BtnArrowRight}{
-            right: 0;
+        ${BtnArrowRight} {
+            right: -50px;
             transform: translateY(50px) rotate(90deg)
         }
-        ${BtnArrowLeft}{
-            right: 0;
+        ${BtnArrowLeft} {
+            right: -50px;
             transform: translateY(-50px) rotate(90deg)
         }
     }
-    @media ${myTheme.media.tablet} {
-        ${BtnArrowRight}{
-            right: -50px;
-        }
-        ${BtnArrowLeft}{
-            right: -50px;
-        }
-    }
-    @media ${myTheme.media.mobile} {
-        padding: 20px 0;
-        }
-    
 `
 
 type ArrowIconProps = {
     id: string,
+    opacity?: number,
 }
 
 function ArrowIcon(props: ArrowIconProps) {
     return (
-        <SvgIcon fill={'black'} stroke={'black'} width={'50px'} height={'50px'} id={props.id}
+        <SvgIcon fill={myTheme.colors.discriptionText} stroke={myTheme.colors.discriptionText} opacity={props.opacity} width={'50px'} height={'50px'} id={props.id}
                  viewBox={"0 0 53 35"}/>
     )
 }
+
 const OfferSectionStyled = styled.section`
     display: flex;
     justify-content: center;
@@ -230,12 +222,11 @@ const OfferSectionStyled = styled.section`
     height: 100%;
     background-color: ${myTheme.colors.whteColor};
     padding: 150px 0;
-    
     @media ${myTheme.media.mobile} {
         padding-right: 50px;
     }
-    
-    
-    
+
+
+
 `
 

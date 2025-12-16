@@ -2,52 +2,43 @@ import {BtnStyled} from "../../../../components/btnStyled/BtnStyled.tsx";
 import styled from "styled-components";
 import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 import {font} from "../../../style/common/Common.ts";
+import {WrapperComponent} from "../../../../components/wrapperComponent/WrapperComponent.tsx";
 
 
 export function MainInfoComponent() {
     return (
-            <WrapperMainInfo>
-                <MainTitle>Graphic Designer</MainTitle>
-                <GreetingStyled>Hello I’m<br/> <NameTitleStyled>Daniel Bryan</NameTitleStyled></GreetingStyled>
-                <DiscriptionTextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque consequat,
-                    faucibus et, et. Non semper blandit vitae semper blandit. Tellus dignissim a dui turpis arcu, nulla
-                    ullamcorper tincidunt.</DiscriptionTextStyled>
-                <BtnStyled>GET IN TOUCH</BtnStyled>
-            </WrapperMainInfo>
+        <WrapperComponent flexdirection={"column"} justifycontent={"center"} alignitems={"flex-start"}>
+            <MainTitle>Graphic Designer</MainTitle>
+            <WrapperComponent flexdirection={"column"} alignitems={"flex-start"}>
+                <GreetingStyled>Hello I’m</GreetingStyled>
+                <NameTitleStyled>Daniel Bryan</NameTitleStyled>
+            </WrapperComponent>
+            <DiscriptionTextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque consequat,
+                faucibus et, et. Non semper blandit vitae semper blandit. Tellus dignissim a dui turpis arcu, nulla
+                ullamcorper tincidunt.</DiscriptionTextStyled>
+            <BtnStyled>GET IN TOUCH</BtnStyled>
+        </WrapperComponent>
     )
 }
 
-const WrapperMainInfo = styled.div`
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
-    height: 100%;
-    
-    @media ${myTheme.media.mobile} {
-        width: 100%;
-    }
+const MainTitle = styled.h1`
+    ${font({color: myTheme.colors.additionalText, weight: 500})};
+    font-size: 18px;
+    max-width: 514px;
+    margin-bottom: 25px;
 `
 
 const DiscriptionTextStyled = styled.p`
-    ${font({color: myTheme.colors.discriptionText, family: 'Lato, sans-serif', weight: 400, lineHeight: 2})};
+    ${font({color: myTheme.colors.discriptionText, family: 'Lato, sans-serif', weight: 400, lineHeight: 2, letterSpacing: '0.025em'})};
     font-size: 16px;
     margin-bottom: 50px;
-    letter-spacing: 0.025em;
+    max-width: 514px;
+    height: 100%;
+    
 `
-
-const MainTitle = styled.h1`
-    ${font({  color: myTheme.colors.additionalText,  weight: 500})};
-    font-size: 18px;
-    margin-bottom: 23px;
-`
-
-
 const GreetingStyled = styled.span`
-    ${font({Fmax: 80, Fmin: 40})};
-    letter-spacing: -0.05em;
-    margin-bottom: 30px;
+    ${font({Fmax: 80, Fmin: 40 , letterSpacing: '-0.05em'})};
+    max-width: 514px;
 `
 
 type NameTitlePropsType = {
@@ -55,8 +46,10 @@ type NameTitlePropsType = {
     text?: string,
 }
 
-
 const NameTitleStyled = styled.span<NameTitlePropsType>`
     ${font({color: myTheme.colors.highlighting, Fmax: 80, Fmin: 40})};
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    max-width: 514px;
 `
+
+

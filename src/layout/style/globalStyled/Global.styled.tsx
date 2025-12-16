@@ -58,7 +58,12 @@ export const GlobalStyled = createGlobalStyle`
         min-width: 360px;
     }
 
-
+    section{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
     a {
         text-decoration: none;
     }

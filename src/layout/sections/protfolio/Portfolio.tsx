@@ -1,22 +1,21 @@
 import styled from "styled-components";
-import {BtnDarkStyled, ButtonDark} from "../../../components/buttonDark/Button.tsx";
+import {BtnDark} from "../../../components/buttonDark/ButtonDark.tsx";
 import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComponent.tsx";
 import {Title} from "../../../components/title/Title.tsx";
-import {PortfolioMenu} from "./portfolioMenu/PortfolioMenu.tsx";
 import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 import {font} from "../../style/common/Common.ts";
 import {PortfolioPost} from "./portfolioPost/PortfoloPost.tsx";
+import {Menu} from "../../../components/menu/Menu.tsx";
 
 export function Portfolio() {
-
-
+    const portfilioItems = ['All', 'Branding', 'Shirt', 'Pakage', 'Poster']
     return (
         <PortfolioStyles>
-            <WrapperComponent width={'1920px'} flexdirection={'column'} alignitems={'center'} justifycontent={'center'}>
+            <WrapperComponent flexdirection={'column'} alignitems={'center'} justifycontent={'center'}>
                 <Title title={"Portfolio"}/>
-                <PortfolioMenu/>
+                <Menu title={portfilioItems} gap={'50px'}/>
                 <PortfolioPost/>
-                <ButtonDark title={'VIEW PORTFOLIO'}/>
+                <BtnDark>VIEW PORTFOLIO</BtnDark>
             </WrapperComponent>
         </PortfolioStyles>
     )
@@ -32,17 +31,21 @@ const PortfolioStyles = styled.section`
     h2 {
         margin-bottom: 55px;
     }
+
     a {
         ${font({Fmax: 20, Fmin: 16})}
     }
+
     nav {
         height: auto;
         margin-bottom: 65px;
     }
-    ${BtnDarkStyled} {
+
+    ${BtnDark} {
         max-width: 210px;
         margin-top: 60px
     }
+
     @media ${myTheme.media.large} {
         padding-bottom: 100px;
     }
@@ -51,7 +54,8 @@ const PortfolioStyles = styled.section`
         ul {
             gap: 20px;
         }
-        ${BtnDarkStyled} {
+
+        ${BtnDark} {
             padding: 1em 1.5em;
             font-size: 14px;
             margin-top: 30px

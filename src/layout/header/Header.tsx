@@ -13,17 +13,16 @@ export function Header() {
     return (
         <HeaderStyled>
             <Container>
-                <WrapperComponent width={'100%'} flexdirection={'row'} justifycontent={'space-between'}
-                                  alignitems={'center'}>
+                <WrapperComponent justifycontent={'space-between'} alignitems={'center'}>
                     <Logo/>
                     <MenuDesktop>
                         <Menu gap={'40px'} title={headerItems}/>
                     </MenuDesktop>
-                    <BurgerButton $is_active={isActive} onClick={() => setIsActive(!isActive)}>
+                    <BurgerButton $isActive={isActive} onClick={() => setIsActive(!isActive)}>
                         <span></span>
                     </BurgerButton>
                 </WrapperComponent>
-                <MenuMobile $is_active={isActive}>
+                <MenuMobile $isActive={isActive}>
                     <Menu gap={'20px'} title={headerItems}/>
                 </MenuMobile>
             </Container>
@@ -34,6 +33,9 @@ export function Header() {
 const MenuDesktop = styled.div`
     a {
         font-size: 16px;
+        &:hover {
+            color: ${myTheme.colors.highlighting};
+        }
     }
     @media ${myTheme.media.tablet} {
         display: none;
@@ -50,25 +52,20 @@ const MenuMobile = styled.div<BurgerButtonProps>`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     ul {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        li:hover {
-            color: ${myTheme.colors.highlighting};
-        }
         a {
-            ${font({weight: 400, Fmax:42, Fmin: 42})}
+            ${font({weight: 400, Fmax: 42, Fmin: 42})}
         }
     }
-    ${props => props.$is_active && css<BurgerButtonProps>`
+    ${props => props.$isActive && css<BurgerButtonProps>`
         display: flex;
     `}
 `
-
 type BurgerButtonProps = {
-    $is_active: boolean;
+    $isActive: boolean;
 }
 
 export const BurgerButton = styled.button<BurgerButtonProps>`
@@ -105,15 +102,13 @@ export const BurgerButton = styled.button<BurgerButtonProps>`
             transform: translateY(-10px)
         }
     }
-    ${(props) => props.$is_active && css<BurgerButtonProps>`
+
+    ${(props) => props.$isActive && css<BurgerButtonProps>`
         span {
             transform: rotate(45deg);
-
             &::before {
-                transform: translateY(0)
-                rotate(-90deg);
+                transform: translateY(0) rotate(-90deg);
             }
-
             &::after {
                 display: none;
             }
@@ -127,12 +122,14 @@ const HeaderStyled = styled.header`
     display: flex;
     justify-content: space-around;
     height: 130px;
-    width: 100%;
+    min-width: 360px;
     align-items: center;
     background-color: ${myTheme.colors.BgHeader};
     position: absolute;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     @media ${myTheme.media.tablet} {
         height: 10%;

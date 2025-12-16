@@ -64,12 +64,13 @@ export function BrandsInfo() {
 
     return (
         <BrandsInfoStyled>
-            <TitleSection title={'Brands I’ve Worked'}
-                            description={'Things that I can do for my clients. Just make your good trust I love to provide quality works.'}/>
+            <TitleSection
+                width={'500px'}
+                title={'Brands I’ve Worked'}
+                description={'Things that I can do for my clients. Just make your good trust I love to provide quality works.'}/>
             <WrapperBrands>
-                {brandIcon.map((icon, index) => (
-                    <BrandsItem maxitem={brandIcon.length} index={index} key={icon.id}
-                                bgleft={Math.ceil((index + 1) % 6)}>
+                {brandIcon.map((icon) => (
+                    <BrandsItem key={icon.id}>
                         <SvgIcon
                             id={icon.id}
                             width={'85px'}
@@ -137,7 +138,6 @@ const WrapperBrands = styled.div`
 
     @media ${myTheme.media.mobile} {
         grid-template-columns: repeat(2, 1fr);
-        
         & > :nth-child(n) {
             border-right: 1px dashed ${myTheme.colors.borderGrandIcon};
             border-bottom: 1px dashed ${myTheme.colors.borderGrandIcon};
@@ -153,28 +153,19 @@ const WrapperBrands = styled.div`
 
 
 const BrandsInfoStyled = styled.section`
-    height: 100%;
-    width: 100%;
     background-color: ${myTheme.colors.BgBrandsSection};
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 130px 0;
-    gap: 70px;
+    padding: 135px 15px;
+    gap: 80px;
 `
-type BrandsItemPropsType = {
-    bgleft: number
-    maxitem: number
-    index: number
 
-}
 
-const BrandsItem = styled.div<BrandsItemPropsType>`
+const BrandsItem = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 210px;
+    min-height: 210px;
     @media ${myTheme.media.mobile} {
         &>svg{
             width: 70px;
