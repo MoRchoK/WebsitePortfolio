@@ -1,4 +1,4 @@
-import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComponent.tsx";
+import {Wrapper} from "../../../components/wrapperComponent/Wrapper.tsx";
 import {TitleSection} from "../../../components/titleSection/TitleSection.tsx";
 import styled from "styled-components";
 import {myTheme} from "../../style/Theme/Theme.styled.tsx";
@@ -45,7 +45,7 @@ export function Offer() {
     ]
     return (
         <OfferSectionStyled>
-            <WrapperComponent flexdirection={'column'} alignitems={'center'}>
+            <Wrapper flexdirection={'column'} alignitems={'center'}>
                 <TitleSection
                     width={'440px'}
                     description={'Things that I can do for my clients. Just make your good trust I love to provide quality works'}
@@ -75,7 +75,7 @@ export function Offer() {
                         <ArrowIcon opacity={activeOfferItem === 2? 0.3: 1} id={'rightArrow'}/>
                     </BtnArrowRight>
                 </WrapperIcons>
-            </WrapperComponent>
+            </Wrapper>
         </OfferSectionStyled>
     )
 }
@@ -216,10 +216,6 @@ function ArrowIcon(props: ArrowIconProps) {
 }
 
 const OfferSectionStyled = styled.section`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
     background-color: ${myTheme.colors.whteColor};
     padding: 150px 0;
     @media ${myTheme.media.mobile} {

@@ -5,9 +5,10 @@ import {Portfolio} from "./layout/sections/protfolio/Portfolio.tsx";
 import {BrandsInfo} from "./layout/sections/brandsInfo/BrandsInfo.tsx";
 import {Header} from "./layout/header/Header.tsx";
 import {Main} from "./layout/sections/Main/Main.tsx";
-import {Blog} from "./layout/sections/blog/Blog.tsx";
+import {BlogPosts} from "./layout/sections/blogPosts/BlogPosts.tsx";
 import {Statistic} from "./layout/sections/statistic/Statistic.tsx";
 import {Footer} from "./layout/footer/Footer.tsx";
+import {BlogMain} from "./layout/sections/blogMain/BlogMain.tsx";
 
 function App() {
     return (
@@ -18,9 +19,10 @@ function App() {
             <Offer/>
             <Portfolio/>
             <BrandsInfo/>
-            <Blog/>
-            {/*<Statistic/>*/}
-            {/*<Footer/>*/}
+            <BlogMain/>
+            <BlogPosts/>
+            <Statistic/>
+            <Footer/>
         </AppStyled>
     )
 }
@@ -28,6 +30,8 @@ function App() {
 
 
 export default App
+
+
 const AppStyled = styled.div`
 `
 

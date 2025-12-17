@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {BtnDark} from "../../../components/buttonDark/ButtonDark.tsx";
-import {WrapperComponent} from "../../../components/wrapperComponent/WrapperComponent.tsx";
+import {Wrapper} from "../../../components/wrapperComponent/Wrapper.tsx";
 import {Title} from "../../../components/title/Title.tsx";
 import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 import {font} from "../../style/common/Common.ts";
@@ -11,12 +11,12 @@ export function Portfolio() {
     const portfilioItems = ['All', 'Branding', 'Shirt', 'Pakage', 'Poster']
     return (
         <PortfolioStyles>
-            <WrapperComponent flexdirection={'column'} alignitems={'center'} justifycontent={'center'}>
+            <Wrapper flexdirection={'column'} alignitems={'center'} justifycontent={'center'}>
                 <Title title={"Portfolio"}/>
                 <Menu title={portfilioItems} gap={'50px'}/>
                 <PortfolioPost/>
                 <BtnDark>VIEW PORTFOLIO</BtnDark>
-            </WrapperComponent>
+            </Wrapper>
         </PortfolioStyles>
     )
 }

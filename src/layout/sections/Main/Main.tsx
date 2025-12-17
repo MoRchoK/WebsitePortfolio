@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import {myTheme} from "../../style/Theme/Theme.styled.tsx";
-import {MainInfoComponent} from "./mainInfo/MainInfoComponent.tsx";
+import {MainInfo} from "./mainInfo/MainInfo.tsx";
 import {Container} from "../../../container/Container.ts";
 
 export function Main() {
     return (
         <MainStyled>
             <Container>
-                <MainInfoComponent/>
+                <MainInfo/>
             </Container>
         </MainStyled>
     )

@@ -1,4 +1,4 @@
-import {WrapperComponent} from "../../../../components/wrapperComponent/WrapperComponent.tsx";
+import {Wrapper} from "../../../../components/wrapperComponent/Wrapper.tsx";
 import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 import styled from "styled-components";
 import {Title} from "../../../../components/title/Title.tsx";
@@ -10,7 +10,7 @@ import {ButtonLight} from "../../../../components/buttonLight/ButtonLight.tsx";
 export function WhyHireMeComponent() {
     return (
         <WhyHireMeComponentStyled>
-            <WrapperComponent flexdirection={'column'} justifycontent={'flex-start'}>
+            <Wrapper flexdirection={'column'} justifycontent={'flex-start'}>
                 <Title title='Why Hire Me ?'/>
                 <MySkillsText>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapib eu placerat at nisl posuere aliquet
@@ -23,7 +23,7 @@ export function WhyHireMeComponent() {
                     <BtnDark as={'a'}>Hire Me</BtnDark>
                     <ButtonLight type={'submit'}>Download CV</ButtonLight>
                 </BtnWrapper>
-            </WrapperComponent>
+            </Wrapper>
         </WhyHireMeComponentStyled>
     )
 }

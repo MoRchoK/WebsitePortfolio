@@ -1,4 +1,4 @@
-import {WrapperComponent} from "../../../../components/wrapperComponent/WrapperComponent.tsx";
+import {Wrapper} from "../../../../components/wrapperComponent/Wrapper.tsx";
 import styled from "styled-components";
 import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 import {Title} from "../../../../components/title/Title.tsx";
@@ -26,14 +26,14 @@ export function StatSkills() {
     ]
     return (
         <StatSkillsStyled>
-            <WrapperComponent flexdirection={'column'}>
+            <Wrapper flexdirection={'column'}>
                 <Title title='My Skills'/>
-                <WrapperComponent flexdirection={'column'}>
+                <Wrapper flexdirection={'column'}>
                     {skills.map((skill, index) => (
                         <SkillProgress key={index} title={skill.title} percent={skill.percent}/>
                     ))}
-                </WrapperComponent>
-            </WrapperComponent>
+                </Wrapper>
+            </Wrapper>
         </StatSkillsStyled>
     )
 }
@@ -77,10 +77,10 @@ export function TextSkill(props: TextSkillPropsType) {
     `
     return (
         <TextSkillStyled>
-            <WrapperComponent flexdirection={'row'} justifycontent={'space-between'}>
+            <Wrapper flexdirection={'row'} justifycontent={'space-between'}>
                 <Text>{props.title}</Text>
                 <Text>{props.percent}</Text>
-            </WrapperComponent>
+            </Wrapper>
         </TextSkillStyled>
     )
 }

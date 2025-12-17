@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {myTheme} from "../style/Theme/Theme.styled.tsx";
 import {BtnStyled} from "../../components/btnStyled/BtnStyled.tsx";
-import {WrapperComponent} from "../../components/wrapperComponent/WrapperComponent.tsx";
+import {Wrapper} from "../../components/wrapperComponent/Wrapper.tsx";
 import {Container} from "../../container/Container.ts";
 import {SvgIcon} from "../../components/svgIcon/SvgIcon.tsx";
 import {TitleSection} from "../../components/titleSection/TitleSection.tsx";
@@ -38,20 +38,12 @@ export function Footer() {
             viewBox: "0 0 1024 1024"
         }]
 
-
-function handleClick  (e){
-    e.preventDefault()
-    setIsActive(false)
-}
-
-
     return (
         <FooterStyled>
             <Container>
-                <WrapperComponent className={'WrapperFooterMain'}>
-                    <WrapperComponent className={'FooterMainInfo'} alignitems={'center'} justifycontent={'flex-start'}>
+                <WrapperFooterMain className={'WrapperFooterMain'}>
+                    <Wrapper flexdirection={'column'} alignitems={'center'} justifycontent={'center'}>
                         <TitleSection
-                            margin_bottom={'60px'}
                             description={'I’m available for freelance work. Have any projects in your mind? Just feel free to contact me'}
                             title={'Let’s work together'}/>
                         <BtnStyled
@@ -59,10 +51,9 @@ function handleClick  (e){
                             onClick={() => {
                                 setIsActive(true)
                             }}
-                            bg_color={'transparent '} margin_bottom={'100px'}
-                            border_color={myTheme.colors.borderFooterBtn}>CONTACT ME</BtnStyled>
-                    </WrapperComponent>
-                    <WrapperComponent className={'WrapperFooterDown'} flexdirection={'row'} alignitems={'center'} >
+                            >CONTACT ME</BtnStyled>
+                    </Wrapper>
+                    <FooterDown>
                         <Footnote>
                             © 2021 <FooterAccent>Templates Jungle.</FooterAccent> All rights reserved
                         </Footnote>
@@ -81,13 +72,53 @@ function handleClick  (e){
                                 </SocialItem>
                             ))}
                         </SocialList>
-                        <ModalContact handle_click={(e)=>handleClick(e)} isOpen={isActive}/>
-                    </WrapperComponent>
-                </WrapperComponent>
+                    </FooterDown>
+                </WrapperFooterMain>
             </Container>
+            <ModalContact $setIsActive={setIsActive} $isOpen={isActive}/>
         </FooterStyled>
     )
 }
+const WrapperFooterMain = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    h2 {
+        ${font({Fmax: 72, Fmin: 40, lineHeight: 0.8, letterSpacing: '0.015em'})}
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    p{
+        margin-bottom: 60px;
+        max-width: 460px;
+        width: 100%;
+    }
+    button{
+        margin-bottom: 60px;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 115px;
+        z-index: 2;
+        left: -45px;
+        background-color: ${myTheme.colors.footerLine};
+        height: 1px;
+        width: calc(100% + 90px);
+        @media ${myTheme.media.mobile} {
+            left:-10px;
+            width: calc(100% + 20px);
+        }
+    }
+    @media ${myTheme.media.mobile} {
+        button{
+            padding: 1em 2em;
+        }
+    }
+`
 
 const SocialList = styled.ul`
     display: flex;
@@ -122,69 +153,46 @@ const SocialLink = styled.a`
         }
     }
 `
+const FooterDown = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 60px;
+    width: 100%;
+    min-height: 115px;
+    @media ${myTheme.media.tablet} {
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    @media ${myTheme.media.mobile} {
+        padding: 0;
+    }
+`
 
 const FooterStyled = styled.footer`
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
     background-color: ${myTheme.colors.secondarySection};
     padding: 130px 50px 0;
-    .WrapperFooterMain {
-        position: relative;
-        width: 100%;
-        &:before {
-            content: '';
-            position: absolute;
-            bottom: 115px;
-            z-index: 9999999;
-            left: -45px;
-            background-color: ${myTheme.colors.footerLine};
-            height: 1px;
-            width: calc(100% + 90px);
-        }
 
-        @media ${myTheme.media.mobile} {
-            button{
-               padding: 1em 2em;
-            }
-        }
-    }
-    
-    h2 {
-        ${font({Fmax: 72, Fmin: 40, lineHeight: 0.8})}
-        letter-spacing: 0.015em;
-        text-align: center;
-    }
-    .WrapperFooterDown {
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0 60px;
-        min-height: 115px;
-        @media ${myTheme.media.tablet} {
-            justify-content: center;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        @media ${myTheme.media.mobile} {
-            padding: 0;
-        }
+    @media ${myTheme.media.mobile} {
+        padding: 130px 20px 0;
     }
 `
 const Footnote = styled.small`
     ${font({weight: 400, family: ' Lato, sans-serif', color: myTheme.colors.descriptionFooterText})}
-    position: relative;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     @media ${myTheme.media.tablet} {
         width: 100%;
-        justify-content: space-around;
+        justify-content: center;
     }
 `
-
 const FooterAccent = styled.span`
     color: ${myTheme.colors.PraymaryText};
 `

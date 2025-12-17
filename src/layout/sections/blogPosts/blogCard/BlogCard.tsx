@@ -6,7 +6,7 @@ import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 import {font} from "../../../style/common/Common.ts";
 
 
-export function BlogPosts() {
+export function BlogCard() {
 
     const blogPosts = [
         {
@@ -23,20 +23,21 @@ export function BlogPosts() {
         }
     ]
     return (
-        <WrapperBlogPosts>
-            {blogPosts.map((post, index) => (
-                <WrapperBlogCard key={index}>
-                    <PostImage url={post.url}/>
-                    <LinkBlog>
-                        {post.title}
-                    </LinkBlog>
-                </WrapperBlogCard>
-            ))}
-        </WrapperBlogPosts>
+        <BlogCardStyled>
+                {blogPosts.map((post, index) => (
+                    <WrapperBlogCard key={index}>
+                        <PostImage url={post.url}/>
+                        <LinkBlog>
+                            {post.title}
+                        </LinkBlog>
+                    </WrapperBlogCard>
+                ))}
+        </BlogCardStyled>
     )
 }
 
-const WrapperBlogPosts = styled.div`
+const BlogCardStyled = styled.div`
+    margin-top: 65px;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -48,7 +49,6 @@ const WrapperBlogPosts = styled.div`
         gap: 50px;
     }
 `
-
 
 const WrapperBlogCard = styled.div`
     display: flex;
@@ -66,11 +66,11 @@ const WrapperBlogCard = styled.div`
     @media ${myTheme.media.mobile} {
         width: 80%;
     }
-    
+
 `
 
 const LinkBlog = styled.a`
-    ${font({weight: 600, Fmax: 22, Fmin:18, lineHeight: 1.4})}
+    ${font({weight: 600, Fmax: 22, Fmin: 18, lineHeight: 1.4})}
     width: 100%;
     padding: 0 10px;
 `

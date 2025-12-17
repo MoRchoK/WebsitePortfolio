@@ -3,7 +3,7 @@ import {Logo} from "../../components/logo/Logo.tsx";
 import styled, {css} from "styled-components";
 import {myTheme} from "../style/Theme/Theme.styled.tsx";
 import {Container} from "../../container/Container.ts";
-import {WrapperComponent} from "../../components/wrapperComponent/WrapperComponent.tsx";
+import {Wrapper} from "../../components/wrapperComponent/Wrapper.tsx";
 import {useState} from "react";
 import {font} from "../style/common/Common.ts";
 
@@ -13,7 +13,7 @@ export function Header() {
     return (
         <HeaderStyled>
             <Container>
-                <WrapperComponent justifycontent={'space-between'} alignitems={'center'}>
+                <Wrapper justifycontent={'space-between'} alignitems={'center'}>
                     <Logo/>
                     <MenuDesktop>
                         <Menu gap={'40px'} title={headerItems}/>
@@ -21,7 +21,7 @@ export function Header() {
                     <BurgerButton $isActive={isActive} onClick={() => setIsActive(!isActive)}>
                         <span></span>
                     </BurgerButton>
-                </WrapperComponent>
+                </Wrapper>
                 <MenuMobile $isActive={isActive}>
                     <Menu gap={'20px'} title={headerItems}/>
                 </MenuMobile>
@@ -120,10 +120,9 @@ export const BurgerButton = styled.button<BurgerButtonProps>`
 
 const HeaderStyled = styled.header`
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     height: 130px;
     min-width: 360px;
-    align-items: center;
     background-color: ${myTheme.colors.BgHeader};
     position: absolute;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);

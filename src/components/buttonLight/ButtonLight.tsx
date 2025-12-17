@@ -18,14 +18,13 @@ import {font} from "../../layout/style/common/Common.ts";
 // }
 
 export const ButtonLight = styled.button`
-    ${font({weight:500, Fmax: 16, Fmin:14})}
+    ${font({weight:500, Fmax: 16, Fmin:14, letterSpacing: '0.03em'})}
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: transparent;
     padding: 1em 1.5em;
     border: ${myTheme.colors.borderBtnGray} 2px solid;
-    letter-spacing: 0.03em;
     white-space: nowrap;
     
 `
