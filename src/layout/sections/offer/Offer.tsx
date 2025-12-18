@@ -20,11 +20,11 @@ export function Offer() {
     const icon: Array<icon> = [
         {
             id: "brush",
-            title: "Brush",
+            title: "Branding Design",
             viewBox: "0 0 64 64",
             $is_fill: true,
             $is_stroke: false,
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci eget mi elit cursus donec amet sed sagittis.'
+            description: 'Lorem ipsum dolor sit amet, conssrci eget mi elit cursus donec amet sed sagittis.'
         },
         {
             id: "Tshirt",
@@ -135,10 +135,11 @@ const OfferItemsDesctiprion = styled.p`
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
+    flex-grow: 1;
 
 `
 export const BtnArrowRight = styled.button`
-    right: -50px;
+    right: -85px;
     @media screen and (max-width: 1550px) {
         right: 40%;
     }
@@ -146,7 +147,7 @@ export const BtnArrowRight = styled.button`
 
 
 export const BtnArrowLeft = styled.button`
-    left: -50px;
+    left: -85px;
     flex-shrink: 0;
     @media screen and (max-width: 1550px) {
         left: 40%;
@@ -217,7 +218,7 @@ function ArrowIcon(props: ArrowIconProps) {
 
 const OfferSectionStyled = styled.section`
     background-color: ${myTheme.colors.whteColor};
-    padding: 150px 0;
+    padding: 150px 0 80px;
     @media ${myTheme.media.mobile} {
         padding-right: 50px;
     }

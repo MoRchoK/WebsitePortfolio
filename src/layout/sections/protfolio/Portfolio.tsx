@@ -43,6 +43,8 @@ const PortfolioStyles = styled.section`
 
     ${BtnDark} {
         max-width: 210px;
+        width: 100%;
+        height: 56px;
         margin-top: 60px
     }
 
@@ -58,7 +60,7 @@ const PortfolioStyles = styled.section`
         ${BtnDark} {
             padding: 1em 1.5em;
             font-size: 14px;
-            margin-top: 30px
+            margin-top: 30px;
         }
     }
 `

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 import {Container} from "../../../container/Container.ts";
 import {Wrapper} from "../../../components/wrapperComponent/Wrapper.tsx";
-import {BtnWrapper, WhyHireMeComponent} from "./whyHireMeComponent/WhyHireMeComponent.tsx";
+import {WhyHireMeComponent} from "./whyHireMeComponent/WhyHireMeComponent.tsx";
 import {StatSkills} from "./statSkills/StatSkills.tsx";
 
 
@@ -24,7 +24,7 @@ const MySkillsSectionStyled = styled.section`
     align-items: center;
     justify-content: center;
     background-color: ${myTheme.colors.secondarySection};
-    padding: 130px 0;
+    padding: 130px 0 150px;
     h2 {
         text-align: left;
         margin-bottom: 40px;
@@ -43,9 +43,6 @@ const MySkillsSectionStyled = styled.section`
                 text-align: center;
             }
             
-            ${BtnWrapper}{
-                justify-content: center;
-            }
         }
     }
 `

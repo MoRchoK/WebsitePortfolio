@@ -13,7 +13,9 @@ export const BtnDark = styled.button`
     ${font({weight:500, Fmax: 16, Fmin:14, color: myTheme.colors.whteColor})}
     letter-spacing: 0.03em;
     white-space: nowrap;
-
+    max-width: 210px;
+    width: 100%;
+    height: 56px;
    
 `
 

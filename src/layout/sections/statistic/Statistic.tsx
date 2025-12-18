@@ -76,7 +76,7 @@ const StatisticItems = styled.div`
 `
 
 const StatisticStyled = styled.section`
-    padding: 150px 0;
+    padding: 130px 0;
     background-color: ${myTheme.colors.BgBrandsSection};
     }
 `

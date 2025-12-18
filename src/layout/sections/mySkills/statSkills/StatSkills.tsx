@@ -28,7 +28,7 @@ export function StatSkills() {
         <StatSkillsStyled>
             <Wrapper flexdirection={'column'}>
                 <Title title='My Skills'/>
-                <Wrapper flexdirection={'column'}>
+                <Wrapper flexdirection={'column'} gap={'40px'}>
                     {skills.map((skill, index) => (
                         <SkillProgress key={index} title={skill.title} percent={skill.percent}/>
                     ))}
@@ -37,6 +37,8 @@ export function StatSkills() {
         </StatSkillsStyled>
     )
 }
+
+
 
 type TextSkillPropsType = SkillProgressPropsType & {
     title: string,
@@ -47,7 +49,7 @@ type SkillProgressPropsType = {
 }
 
 const StatSkillsStyled = styled.div`
-    max-width: 500px;
+    max-width: 540px;
     width: 100%;
 `
 
@@ -67,13 +69,13 @@ const SkillProgressStyled = styled.div<SkillProgressPropsType>`
 const SkillsProgress = styled.div`
     background-color: ${myTheme.colors.highlighting};
     height: 3px;
-    margin-bottom: 40px;
+   
 `
 
 export function TextSkill(props: TextSkillPropsType) {
     const Text = styled.span`
         ${font({weight: 500, Fmax: 16, Fmin: 14, letterSpacing: '0.02em'})}
-        margin-bottom: 0.6rem;
+        margin-bottom: 5px;
     `
     return (
         <TextSkillStyled>

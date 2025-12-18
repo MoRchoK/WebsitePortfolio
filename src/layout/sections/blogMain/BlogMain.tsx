@@ -68,6 +68,7 @@ const PostMain = styled.div`
     max-width: 740px;
     width: 100%;
     z-index: 1;
+    transform: translateX(55px);
 
     &::before {
         content: '';
@@ -121,8 +122,9 @@ const BlogDescription = styled.p`
         Fmin: 18,
         color: myTheme.colors.descriptionPostText,
         family: 'Lato, sans-serif',
-        letterSpacing: '-0.02em',
-    })}
-    margin-bottom: 2rem;
+        letterSpacing: '0.02em',
+    })};
+    font-style: italic;
+    margin-bottom: 35px;
     z-index: 100;
-`
+    `

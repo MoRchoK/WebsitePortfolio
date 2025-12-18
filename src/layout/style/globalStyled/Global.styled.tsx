@@ -39,7 +39,13 @@ export const GlobalStyled = createGlobalStyle`
         font-weight: 600;
         font-display: swap;
     }
-
+    @font-face {
+        font-family: Lato;
+        src: url(/src/assets/fonts/Lato-MediumItalic.ttf) format('truetype');
+        font-weight: 500;
+        font-style: italic;
+        font-display: swap;
+    }
     *, *::before, *::after {
         box-sizing: border-box;
         margin: 0;

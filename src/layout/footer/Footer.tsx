@@ -63,8 +63,6 @@ export function Footer() {
                                     <SocialLink>
                                         <SvgIcon
                                             id={icon.name}
-                                            height={'24px'}
-                                            width={'24px'}
                                             viewBox={icon.viewBox}
                                         >
                                         </SvgIcon>
@@ -87,7 +85,7 @@ const WrapperFooterMain = styled.div`
     position: relative;
     width: 100%;
     h2 {
-        ${font({Fmax: 72, Fmin: 40, lineHeight: 0.8, letterSpacing: '0.015em'})}
+        ${font({Fmax: 72, Fmin: 40, lineHeight: 0.8, letterSpacing: '0.01em'})}
         text-align: center;
         margin-bottom: 30px;
     }
@@ -97,7 +95,7 @@ const WrapperFooterMain = styled.div`
         width: 100%;
     }
     button{
-        margin-bottom: 60px;
+        margin-bottom: 100px;
     }
     &:before {
         content: '';
@@ -124,7 +122,7 @@ const SocialList = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     @media ${myTheme.media.tablet} {
         width: 100%;
         justify-content: space-between;
@@ -133,11 +131,9 @@ const SocialList = styled.ul`
 
 `
 const SocialItem = styled.li`
-    @media ${myTheme.media.mobile} {
-        width: 24px;
-        svg{
-            width: 24px;
-        }
+    width: 20px;
+    svg{
+        width: 20px;
     }
 `
 
@@ -175,7 +171,7 @@ const FooterStyled = styled.footer`
     align-items: center;
     justify-content: center;
     background-color: ${myTheme.colors.secondarySection};
-    padding: 130px 50px 0;
+    padding: 170px 50px 0;
 
     @media ${myTheme.media.mobile} {
         padding: 130px 20px 0;

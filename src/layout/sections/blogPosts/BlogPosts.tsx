@@ -18,7 +18,7 @@ export function BlogPosts() {
                         description={'Things that I can do for my clients. Just make your good trust I love to provide quality works.'}
                         />
                     <BlogCard/>
-                    <BtnDark mg_bottom={'10vh'}>Read All Blogs</BtnDark>
+                    <BtnDark>Read All Blogs</BtnDark>
                 </Wrapper>
             </Container>
         </BlogPostsStyled>
@@ -27,10 +27,11 @@ export function BlogPosts() {
 
 
 const BlogPostsStyled = styled.section`
-    padding: 60px 0 150px;
+    padding: 100px 0 150px;
     background-color: ${myTheme.colors.whteColor};
     button {
         margin-top: 60px;
+       
     }
 `
 

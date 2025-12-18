@@ -15,13 +15,13 @@ export function WhyHireMeComponent() {
                 <MySkillsText>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapib eu placerat at nisl posuere aliquet
                     amet
-                    pharetra malesuada. Spendisse nisl ac at tortor. Sit faucibus suspendisse risus. Vulputate
+                    pharetra malesuada. Spendisse nisl ac at tortor. Sit faucibus suspendisse risus. <span>Vulputate
                     pulvinar
-                    cursus suspendisse risus vulputate enim pharetra eu. Tetur adipiscing elit eu placera.
+                    cursus suspendisse risus vulputate enim pharetra eu. Tetur adipiscing elit eu placera.</span>
                 </MySkillsText>
                 <BtnWrapper>
                     <BtnDark as={'a'}>Hire Me</BtnDark>
-                    <ButtonLight type={'submit'}>Download CV</ButtonLight>
+                    <ButtonLight>Download CV</ButtonLight>
                 </BtnWrapper>
             </Wrapper>
         </WhyHireMeComponentStyled>
@@ -38,7 +38,19 @@ export const BtnWrapper = styled.div`
     flex-direction: row;
     justify-content: flex-start;
     gap: 25px;
+    height: 56px;
     
+    ${BtnDark}{
+        max-width: 140px;
+        width: 100%;
+        height: 100%;
+    }
+
+    ${ButtonLight}{
+        max-width: 206px;
+        width: 100%;
+        height: 100%;
+    }
     @media ${myTheme.media.large} {
         justify-content: center;
     }
@@ -56,6 +68,12 @@ const MySkillsText = styled.p`
     })};
     margin-bottom: 2.5em;
     max-width: 500px;
+    
+    &> span{
+        display: block;
+        margin-top: 15px;
+    }
+    
 `
 
 
