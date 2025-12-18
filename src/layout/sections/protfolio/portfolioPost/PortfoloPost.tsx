@@ -7,41 +7,90 @@ import bgSixImg from "../../../../assets/image/Rectangle78.webp";
 import styled from "styled-components";
 import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 import {font} from "../../../style/common/Common.ts";
+import {TabItemsType} from "../Portfolio.tsx";
 
 
-export function PortfolioPost() {
+
+type PortfolioPostPropsType = {
+    activeTab: TabItemsType;
+}
+
+export function PortfolioPost(props: PortfolioPostPropsType) {
     const portfolioItems = [bgOneImg, bgTwoImg, bgThreeImg, bgFourImg, bgfiveImg, bgSixImg]
 
     const portfolioPosts: Array<portfolioPostsType> = [
         {
             img: bgOneImg,
             title: 'Ultra Jot Coffee',
+             type: 'Branding'
         },
         {
             img: bgTwoImg,
             title: 'Juice Bottle',
+             type: 'Pakage'
         },
         {
             img: bgThreeImg,
             title: 'Wedding Ring',
+             type: 'Shirt'
         },
         {
             img: bgFourImg,
             title: 'natural cosmetics',
+             type: 'Poster'
         },
         {
             img: bgfiveImg,
             title: 'designer chair',
+            type: 'Branding'
         },
         {
             img: bgSixImg,
             title: 'sports shoes',
+            type: 'Poster'
+        },
+        {
+            img: bgTwoImg,
+            title: 'Juice Bottle',
+            type: 'Shirt'
+        },
+        {
+            img: bgThreeImg,
+            title: 'Wedding Ring',
+            type: 'Shirt'
+        },
+        {
+            img: bgFourImg,
+            title: 'natural cosmetics',
+            type: 'Pakage'
+        },
+        {
+            img: bgfiveImg,
+            title: 'designer chair',
+            type: 'Branding'
+        },
+        {
+            img: bgSixImg,
+            title: 'sports shoes',
+            type: 'Pakage'
+        },
+        {
+            img: bgSixImg,
+            title: 'sports shoes',
+            type: 'Pakage'
         },
     ]
+
+
+    const portfolioPostsActive = portfolioPosts.filter((item) =>
+        props.activeTab === 'All'? item.type: item.type === props.activeTab
+    )
+
 
     type portfolioPostsType = {
         img: string,
         title: string,
+        type: TabItemsType
     }
 
     const culoms_value: number = 3
@@ -73,7 +122,7 @@ export function PortfolioPost() {
 
     return (
         <WrapperPrortfolio culoms_value={culoms_value} rows_count={rows_count}>
-            {portfolioPosts.map((post, index) => {
+            {portfolioPostsActive.map((post, index) => {
                     columnPosition++
                     if (portfolioItems.length >= 3) {
                         if (columnPosition === 4) {

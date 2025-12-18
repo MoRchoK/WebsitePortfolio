@@ -3,23 +3,32 @@ import {BtnDark} from "../../../components/buttonDark/ButtonDark.tsx";
 import {Wrapper} from "../../../components/wrapperComponent/Wrapper.tsx";
 import {Title} from "../../../components/title/Title.tsx";
 import {myTheme} from "../../style/Theme/Theme.styled.tsx";
-import {font} from "../../style/common/Common.ts";
 import {PortfolioPost} from "./portfolioPost/PortfoloPost.tsx";
+import {useState} from "react";
 import {Menu} from "../../../components/menu/Menu.tsx";
 
+
+export type TabItemsType = 'All' | 'Branding' | 'Shirt' | 'Pakage' | 'Poster'
+
 export function Portfolio() {
-    const portfilioItems = ['All', 'Branding', 'Shirt', 'Pakage', 'Poster']
+
+    const TabItems: Array<TabItemsType> = ['All', 'Branding', 'Shirt', 'Pakage', 'Poster']
+    const [activeItem, setActiveItem] = useState<TabItemsType>('All')
+
     return (
         <PortfolioStyles>
             <Wrapper flexdirection={'column'} alignitems={'center'} justifycontent={'center'}>
                 <Title title={"Portfolio"}/>
-                <Menu title={portfilioItems} gap={'50px'}/>
-                <PortfolioPost/>
+                <Menu $setActiveItem={(item:TabItemsType)=>setActiveItem(item)} title={TabItems} $activeItem={activeItem} gap={'50px'} tagName={'button'} />
+                <PortfolioPost activeTab={activeItem}/>
                 <BtnDark>VIEW PORTFOLIO</BtnDark>
             </Wrapper>
         </PortfolioStyles>
     )
 }
+
+
+
 
 
 const PortfolioStyles = styled.section`
@@ -32,13 +41,15 @@ const PortfolioStyles = styled.section`
         margin-bottom: 55px;
     }
 
-    a {
-        ${font({Fmax: 20, Fmin: 16})}
-    }
 
     nav {
         height: auto;
         margin-bottom: 65px;
+
+        li {
+
+        }
+
     }
 
     ${BtnDark} {
