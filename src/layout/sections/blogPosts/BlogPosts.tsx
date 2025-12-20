@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import {myTheme} from "../../style/Theme/Theme.styled.tsx";
+import {S} from "./blogPosts_styled/blogPosts_styled.ts";
 import {BlogCard} from "./blogCard/BlogCard.tsx";
 import {BtnDark} from "../../../components/buttonDark/ButtonDark.tsx";
 import {Container} from "../../../container/Container.ts";
@@ -7,9 +6,9 @@ import {TitleSection} from "../../../components/titleSection/TitleSection.tsx";
 import {Wrapper} from "../../../components/wrapperComponent/Wrapper.tsx";
 
 
-export function BlogPosts() {
+export const BlogPosts: React.FC = ()=> {
     return (
-        <BlogPostsStyled>
+        <S.BlogPostsSection>
             <Container>
                 <Wrapper flexdirection={'column'} justifycontent={'center'}  alignitems={"center"} >
                     <TitleSection
@@ -21,19 +20,11 @@ export function BlogPosts() {
                     <BtnDark>Read All Blogs</BtnDark>
                 </Wrapper>
             </Container>
-        </BlogPostsStyled>
+        </S.BlogPostsSection>
     )
 }
 
 
-const BlogPostsStyled = styled.section`
-    padding: 100px 0 150px;
-    background-color: ${myTheme.colors.whteColor};
-    button {
-        margin-top: 60px;
-       
-    }
-`
 
 
 

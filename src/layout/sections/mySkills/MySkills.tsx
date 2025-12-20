@@ -1,51 +1,24 @@
-import styled from "styled-components";
-import {myTheme} from "../../style/Theme/Theme.styled.tsx";
+import {S} from "../mySkills/skills_styled/Skills_Styled.ts";
 import {Container} from "../../../container/Container.ts";
-import {Wrapper} from "../../../components/wrapperComponent/Wrapper.tsx";
 import {WhyHireMeComponent} from "./whyHireMeComponent/WhyHireMeComponent.tsx";
 import {StatSkills} from "./statSkills/StatSkills.tsx";
 
 
 export function MySkills() {
     return (
-        <MySkillsSectionStyled>
+        <S.MySkillsSection>
             <Container>
-                <Wrapper flexdirection={'row'} gap={'20px'} justifycontent={'space-between'}>
+                <S.WrapperSkills flexdirection={'row'} gap={'20px'} justifycontent={'space-between'}>
                     <WhyHireMeComponent/>
                     <StatSkills/>
-                </Wrapper>
+                </S.WrapperSkills>
             </Container>
-        </MySkillsSectionStyled>
+        </S.MySkillsSection>
     )
 }
-const MySkillsSectionStyled = styled.section`
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    background-color: ${myTheme.colors.secondarySection};
-    padding: 130px 0 150px;
-    h2 {
-        text-align: left;
-        margin-bottom: 40px;
-    }
-   
-    @media ${myTheme.media.large} {
-        ${Container} > ${Wrapper} {
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 100px;
-            h2 {
-                align-self: center;
-            }
-            p{
-                text-align: center;
-            }
-            
-        }
-    }
-`
+
+
+
 
 
 

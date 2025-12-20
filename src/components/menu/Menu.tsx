@@ -1,65 +1,26 @@
-import styled, {css} from "styled-components";
-import {myTheme} from "../../layout/style/Theme/Theme.styled.tsx";
-import {font} from "../../layout/style/common/Common.ts";
+import {MenuUlPropsType, S} from "../../layout/header/header_styled/Header_Styled.ts";
 import {TabItemsType} from "../../layout/sections/protfolio/Portfolio.tsx";
 
-
 type MenuPropsType = MenuUlPropsType & {
-    title: Array<string> | Array<TabItemsType>
+    title: Array<string>
     $activeItem?: string
     $colorActive?: string
     tagName?:   'button'
     $setActiveItem?: (item:TabItemsType) => void
 
 }
-type MenuUlPropsType = {
-    gap?: string;
-}
 
-export function Menu  (props: MenuPropsType){
-        return(
-        <NavStyled>
-            <MenuUl gap={props.gap}>
+
+export const Menu:React.FC<MenuPropsType> = (props:MenuPropsType)=>{
+    return (
+        <S.NavStyled>
+            <S.MenuUl gap={props.gap}>
                 {props.title.map((item,index) => (
-                    <MenuList key={index}>
-                        <MenuLink onClick={()=> props.$setActiveItem(item)} as={props.tagName} $active={item===props.$activeItem}>{item}</MenuLink>
-                    </MenuList>
+                    <S.MenuList key={index}>
+                        <S.MenuLink onClick={()=> props.$setActiveItem? props.$setActiveItem(item): ''} as={props.tagName} $active={item===props.$activeItem}>{item}</S.MenuLink>
+                    </S.MenuList>
                 ))}
-            </MenuUl>
-        </NavStyled>
+            </S.MenuUl>
+        </S.NavStyled>
     )
 }
-
-
-export const NavStyled = styled.nav`
-`
-
-export const MenuUl = styled.ul<MenuUlPropsType>`
-    width: 100%;
-    display: flex;
-    gap: ${(props) => props.gap};
-`
-
-export const MenuList = styled.li`
-    list-style: none;
-   
-`
-
-type MenuLinkPropsType = {
-    color?: string;
-    $active: boolean;
-    $colorActive?: string;
-    tagName?: 'button';
-}
-
-export const MenuLink = styled.a<MenuLinkPropsType>`
-    cursor: pointer;
-    ${font({Fmax: 20, Fmin: 16, weight: 500, color: myTheme.colors.descriptionCard, letterSpacing: '0.01em'})};
-    &:hover {
-        color: ${myTheme.colors.PraymaryText};
-    }
-    ${(props) => props.$active && css<MenuLinkPropsType>`
-        color: ${myTheme.colors.PraymaryText};
-    `}
-
-`

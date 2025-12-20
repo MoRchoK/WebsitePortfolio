@@ -1,179 +1,91 @@
-import styled from "styled-components";
-import {myTheme} from "../../style/Theme/Theme.styled.tsx";
+import {S} from "./brands_styled/Brands_Styled.ts";
 import {TitleSection} from "../../../components/titleSection/TitleSection.tsx";
 import {SvgIcon} from "../../../components/svgIcon/SvgIcon.tsx";
+import * as React from "react";
 
-export function BrandsInfo() {
-    const brandIcon = [{
-        id: 'emblem',
-        viewBox: '0 0 78 78',
+const brandIcon = [{
+    id: 'emblem',
+    viewBox: '0 0 78 78',
+    xmlns: 'http://www.w3.org/2000/svg'
+},
+    {
+        id: 'apple',
+        viewBox: '0 0 60 77',
         xmlns: 'http://www.w3.org/2000/svg'
     },
-        {
-            id: 'apple',
-            viewBox: '0 0 60 77',
-            xmlns: 'http://www.w3.org/2000/svg'
-        },
-        {
-            id: 'squirrel',
-            viewBox: '0 0 74 65',
-            xmlns: 'http://www.w3.org/2000/svg'
-        },
-        {
-            id: 'leaf',
-            viewBox: '0 0 63 72',
-            xmlns: 'http://www.w3.org/2000/svg'
-        },
-        {
-            id: 'pizza',
-            viewBox: '0 0 63 77',
-            xmlns: 'http://www.w3.org/2000/svg'
-        },
-        {
-            id: 'fingerprint',
-            viewBox: '0 0 72 73 ',
-            xmlns: 'http://www.w3.org/2000/svg'
-        },
-        {
-            id: 'cocktail',
-            viewBox: '0 0 63 72',
-            xmlns: 'http://www.w3.org/2000/svg'
-        }, {
-            id: 'tooth',
-            viewBox: '0 0 56 71',
-            xmlns: 'http://www.w3.org/2000/svg'
-        }, {
-            id: 'brain',
-            viewBox: '0 0 87 71',
-            xmlns: 'http://www.w3.org/2000/svg'
-        }, {
-            id: 'gloves',
-            viewBox: '0 0 84 71 ',
-            xmlns: 'http://www.w3.org/2000/svg'
-        }, {
-            id: 'guitar',
-            viewBox: '0 0 68 80',
-            xmlns: 'http://www.w3.org/2000/svg'
-        },
-        {
-            id: 'sberbank',
-            viewBox: '0 0 69 63',
-            xmlns: 'http://www.w3.org/2000/svg'
-        }
-    ]
+    {
+        id: 'squirrel',
+        viewBox: '0 0 74 65',
+        xmlns: 'http://www.w3.org/2000/svg'
+    },
+    {
+        id: 'leaf',
+        viewBox: '0 0 63 72',
+        xmlns: 'http://www.w3.org/2000/svg'
+    },
+    {
+        id: 'pizza',
+        viewBox: '0 0 63 77',
+        xmlns: 'http://www.w3.org/2000/svg'
+    },
+    {
+        id: 'fingerprint',
+        viewBox: '0 0 72 73 ',
+        xmlns: 'http://www.w3.org/2000/svg'
+    },
+    {
+        id: 'cocktail',
+        viewBox: '0 0 63 72',
+        xmlns: 'http://www.w3.org/2000/svg'
+    }, {
+        id: 'tooth',
+        viewBox: '0 0 56 71',
+        xmlns: 'http://www.w3.org/2000/svg'
+    }, {
+        id: 'brain',
+        viewBox: '0 0 87 71',
+        xmlns: 'http://www.w3.org/2000/svg'
+    }, {
+        id: 'gloves',
+        viewBox: '0 0 84 71 ',
+        xmlns: 'http://www.w3.org/2000/svg'
+    }, {
+        id: 'guitar',
+        viewBox: '0 0 68 80',
+        xmlns: 'http://www.w3.org/2000/svg'
+    },
+    {
+        id: 'sberbank',
+        viewBox: '0 0 69 63',
+        xmlns: 'http://www.w3.org/2000/svg'
+    }
+]
 
+
+export const BrandsInfo: React.FC = () => {
     return (
-        <BrandsInfoStyled>
+        <S.BrandsSection>
             <TitleSection
                 width={'500px'}
                 title={'Brands I’ve Worked'}
                 description={'Things that I can do for my clients. Just make your good trust I love to provide quality works.'}/>
-            <WrapperBrands>
+            <S.WrapperBrands>
                 {brandIcon.map((icon) => (
-                    <BrandsItem key={icon.id}>
+                    <S.BrandsItem alignitems={'center'} justifycontent={'center'} key={icon.id}>
                         <SvgIcon
                             id={icon.id}
                             width={'85px'}
                             height={'85px'}
                             viewBox={icon.viewBox}
                         />
-
-                    </BrandsItem>
+                    </S.BrandsItem>
                 ))}
-            </WrapperBrands>
-        </BrandsInfoStyled>
+            </S.WrapperBrands>
+        </S.BrandsSection>
     )
 }
 
 
-const WrapperBrands = styled.div`
-    display: grid;
-    max-width: 1500px;
-    width: 100%;
-    grid-template-columns: repeat(6, 1fr);
-
-    & > :nth-child(n) {
-        border-right: 1px dashed ${myTheme.colors.borderGrandIcon};
-        border-bottom: 1px dashed ${myTheme.colors.borderGrandIcon};
-    }
-
-    & > :nth-child(6n) {
-        border-right: none;
-    }
-
-    & > :nth-last-child(-n+6) {
-        border-bottom: none;
-    }
-
-    @media ${myTheme.media.extra_large} {
-        grid-template-columns: repeat(4, 1fr);
-        & > :nth-child(n) {
-            border-right: 1px dashed ${myTheme.colors.borderGrandIcon};
-            border-bottom: 1px dashed ${myTheme.colors.borderGrandIcon};
-        }
-
-        & > :nth-child(4n) {
-            border-right: none;
-        }
-
-        & > :nth-last-child(-n + 4) {
-            border-bottom: none;
-        }
-    }
-    
-    @media ${myTheme.media.large} {
-        grid-template-columns: repeat(3, 1fr);
-        & > :nth-child(n) {
-            border-right: 1px dashed ${myTheme.colors.borderGrandIcon};
-            border-bottom: 1px dashed ${myTheme.colors.borderGrandIcon};
-        }
-        & > :nth-child(3n) {
-            border-right: none;
-        }
-        & > :nth-last-child(-n + 3) {
-            border-bottom: none;
-        }
-    }
-
-
-    @media ${myTheme.media.mobile} {
-        grid-template-columns: repeat(2, 1fr);
-        & > :nth-child(n) {
-            border-right: 1px dashed ${myTheme.colors.borderGrandIcon};
-            border-bottom: 1px dashed ${myTheme.colors.borderGrandIcon};
-        }
-        & > :nth-child(2n) {
-            border-right: none;
-        }
-        & > :nth-last-child(-n + 2) {
-            border-bottom: none;
-        }
-    }
-`
-
-
-const BrandsInfoStyled = styled.section`
-    background-color: ${myTheme.colors.BgBrandsSection};
-    flex-direction: column;
-    padding: 145px 15px;
-    gap: 80px;
-`
-
-
-const BrandsItem = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 210px;
-    @media ${myTheme.media.mobile} {
-        &>svg{
-            width: 70px;
-            height: 70px;
-        }
-    }
-    
-`
 
 
 
