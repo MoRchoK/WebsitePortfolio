@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 import 'react-alice-carousel/lib/alice-carousel.css';
 import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 import {font} from "../../../style/common/Common.ts";
@@ -22,7 +21,6 @@ export function OfferSlider(props: OfferSliderPropsType): JSX.Element {
             <BtnArrowLeft onClick={()=>props.setActiveOfferItem(props.activeOfferItem-1)} disabled={props.activeOfferItem ===0}>
                 <ArrowIcon id={'leftArrow'} opacity={props.activeOfferItem === 0? 0.3: 1}/>
             </BtnArrowLeft>
-
             {props.icon.map((item, index) => (
                 <OfferItemsStyled key={item.id} $isActive={index === props.activeOfferItem}>
                     <SvgIcon
@@ -66,54 +64,9 @@ export const BtnArrowLeft = styled.button`
     }
 `
 
-const WrapperIcons = styled.div`
-    display: flex;
-    flex-direction: row;
-    max-width: 1550px;
-    justify-content: center;
-    gap: 30px;
-    padding: 70px 50px;
+export const WrapperIcons = styled.div`
+    width: 100%;
     position: relative;
-    button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    @media screen and (max-width: 1550px) {
-        button {
-            bottom: 0;
-            top: auto;
-            transform: none;
-        }
-    }
-    @media ${myTheme.media.extra_large} {
-        padding: 70px 20px;
-        gap: 20px;
-        button {
-            bottom: 0;
-            top: auto;
-            transform: none;
-        }
-    }
-    @media ${myTheme.media.large} {
-        flex-direction: column;
-        align-items: center;
-        width: 80%;
-        gap: 50px;
-        button {
-            bottom: auto;
-            top: 50%;
-            left: auto;
-        }
-        ${BtnArrowRight} {
-            right: -50px;
-            transform: translateY(50px) rotate(90deg)
-        }
-        ${BtnArrowLeft} {
-            right: -50px;
-            transform: translateY(-50px) rotate(90deg)
-        }
-    }
 `
 
 type ArrowIconProps = {
@@ -129,7 +82,7 @@ function ArrowIcon(props: ArrowIconProps) {
 }
 
 
-const CartTitle = styled.h3`
+export const CartTitle = styled.h3`
     ${font({Fmax: 25, Fmin: 20, weight: 600, letterSpacing: '0.01em'})}
     margin-bottom: 15px;
     text-align: center;
@@ -139,7 +92,7 @@ const CartTitle = styled.h3`
 type OfferItemsPropsType = {
     $isActive: boolean;
 }
-const OfferItemsStyled = styled.div<OfferItemsPropsType>`
+export const OfferItemsStyled = styled.div<OfferItemsPropsType>`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -147,11 +100,10 @@ const OfferItemsStyled = styled.div<OfferItemsPropsType>`
     box-shadow: ${(props) =>props.$isActive? "0 2px 40px 0 rgba(187, 187, 187, 0.5)": 'none' };
     background-color: ${myTheme.colors.bgColorIcon};
     border-radius: 90px;
-    min-width: 150px;
-    max-width: 500px;
+    height: 100%;
+    width: 100%;
     padding: 70px 45px;
     overflow: hidden;
-    flex-basis: 400px;
     & > svg {
         flex-shrink: 0;
         margin-bottom: 40px;
@@ -171,7 +123,7 @@ const OfferItemsStyled = styled.div<OfferItemsPropsType>`
         }
     }
 `
-const OfferItemsDesctiprion = styled.p`
+export const OfferItemsDesctiprion = styled.p`
     font-size: 16px;
     color: ${myTheme.colors.descriptionCard};
     text-align: center;
