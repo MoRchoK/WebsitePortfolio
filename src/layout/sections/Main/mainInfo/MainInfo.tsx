@@ -1,12 +1,23 @@
 import {BtnStyled} from "../../../../components/btnStyled/BtnStyled.tsx";
 import {S} from "./../main_styled/Main_Styled.tsx";
 import {Wrapper} from "../../../../components/wrapperComponent/Wrapper.tsx";
+import Typewriter from 'typewriter-effect';
+
 
 
 export function MainInfo() {
     return (
-        <S.MainInfoWrapper>
-                <S.MainTitle>Graphic Designer</S.MainTitle>
+        <S.MainInfoWrapper >
+                <S.MainTitle>
+                    <Typewriter
+                        options={{
+                            strings: ['Graphic Designer', 'Frontend Developer' ],
+                            autoStart: true,
+                            loop: true,
+                            delay: 50,
+                            deleteSpeed: 50
+                        }}/>
+                    </S.MainTitle>
                 <Wrapper flexdirection={"column"} alignitems={"flex-start"}>
                     <S.GreetingStyled>Hello I’m</S.GreetingStyled>
                     <S.NameTitleStyled>Daniel Bryan</S.NameTitleStyled>

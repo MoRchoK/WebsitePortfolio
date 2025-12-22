@@ -3,9 +3,10 @@ import {myTheme} from "../../../style/Theme/Theme.styled.tsx";
 import {font} from "../../../style/common/Common.ts";
 
 const OfferSection = styled.section`
-    background-color: ${myTheme.colors.whteColor};
+    background-color: ${myTheme.colors.BgLightSection};
     padding: 100px 0;
-
+    position: relative;
+    z-index: 1;
 `
 
 
@@ -28,14 +29,19 @@ const OfferItems = styled.div<OfferItemsPropsType>`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: ${(props) => props.$isActive ? "0 2px 40px 0 rgba(187, 187, 187, 0.5)" : 'none'};
+    box-shadow: ${(props) => props.$isActive ? "0 2px 20px 0 rgba(187, 187, 187, 0.5)" : 'none'};
     background-color: ${myTheme.colors.bgColorIcon};
     border-radius: 90px;
     height: 100%;
     width: 100%;
     padding: 70px 45px;
     overflow: hidden;
-
+    user-select: none;
+    cursor: pointer;
+    &:active{
+        cursor: grab;
+    }
+   
     & > svg {
         flex-shrink: 0;
         margin-bottom: 40px;

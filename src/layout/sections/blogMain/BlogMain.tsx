@@ -2,14 +2,16 @@ import Logo from '../../../assets/image/Ellipse.png'
 import {Wrapper} from "../../../components/wrapperComponent/Wrapper.tsx";
 import {S} from "./blogMain_styled/blogMain_styled.ts";
 import {Container} from "../../../container/Container.ts";
+import {Fade} from "react-awesome-reveal";
 
 
-export const  BlogMain: React.FC = () =>  {
+export const BlogMain: React.FC = () => {
     return (
-        <S.BlogMainSection>
+        <S.BlogMainSection id={'blog'}>
             <Container>
                 <Wrapper justifycontent={'center'}>
-                    <S.PostMain>
+                    <Fade>
+                        <S.PostMain>
                             <S.BlogDescription>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dapibus eu placerat at nisl
                                 posuere
@@ -27,7 +29,8 @@ export const  BlogMain: React.FC = () =>  {
                                     </S.StatusUser>
                                 </Wrapper>
                             </Wrapper>
-                    </S.PostMain>
+                        </S.PostMain>
+                    </Fade>
                 </Wrapper>
             </Container>
         </S.BlogMainSection>

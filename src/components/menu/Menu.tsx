@@ -1,14 +1,16 @@
 import {MenuUlPropsType, S} from "../../layout/header/header_styled/Header_Styled.ts";
-import {TabItemsType} from "../../layout/sections/protfolio/Portfolio.tsx";
 
 type MenuPropsType = MenuUlPropsType & {
     title: Array<string>
     $activeItem?: string
     $colorActive?: string
     tagName?:   'button'
-    $setActiveItem?: (item:TabItemsType) => void
+    $setActiveItem?: (item: string) => void
 
 }
+
+
+
 
 
 export const Menu:React.FC<MenuPropsType> = (props:MenuPropsType)=>{

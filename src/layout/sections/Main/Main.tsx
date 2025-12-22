@@ -4,7 +4,7 @@ import {Container} from "../../../container/Container.ts";
 
 export function Main() {
     return (
-        <S.MainStyled>
+        <S.MainStyled id={'home'}>
             <Container>
                 <MainInfo/>
             </Container>

@@ -3,10 +3,14 @@ import {BtnDark} from "../../../../components/buttonDark/ButtonDark.tsx";
 import styled from "styled-components";
 import {font} from "../../../style/common/Common.ts";
 import {Wrapper} from "../../../../components/wrapperComponent/Wrapper.tsx";
+import {motion} from "framer-motion";
 
 // Portfolio Section
 const PortfolioSection = styled.section`
-    padding: 55px 0 150px;
+    padding: 55px 0 150px; 
+    position: relative;
+    z-index: 1;
+    background-color: ${myTheme.colors.BgLightSection};
     h2 {
         margin-bottom: 55px;
     }
@@ -75,11 +79,12 @@ type WrapperPrortfolioPropsType = {
 const WrapperPrortfolio = styled.div<WrapperPrortfolioPropsType>`
     position: relative;
     display: grid;
-    max-width: 1500px;
+    max-width: 1920px;
     width: 100%;
     min-height: 200px;
     gap: 30px;
-    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-columns: repeat( ${(props)=>props.column_count
+}, 1fr) ;
     grid-template-rows: ${props =>  props.rows_count};
     
     @media ${myTheme.media.large} {
@@ -93,15 +98,12 @@ const WrapperPrortfolio = styled.div<WrapperPrortfolioPropsType>`
     }
 `
 type PortfolioPostStyledPropsType = {
-    backgroundimage?: string
     grid_row_start: number
     grid_row_end: number
     grid_column_start: number
 }
 
-const PortfolioPost = styled.div<PortfolioPostStyledPropsType>`
-    width: 100%;
-    height: 100%;
+const PortfolioPost = styled(motion.div)<PortfolioPostStyledPropsType>`
     grid-row-start: ${(props) => props.grid_row_start};
     grid-row-end: ${(props) => props.grid_row_end};
     grid-column-start: ${(props) => props.grid_column_start};

@@ -1,26 +1,28 @@
 @import "../../../../../node_modules/react-alice-carousel/lib/alice-carousel.css";
 
 
+
+
 .alice-carousel__stage-item {
     margin-right: 60px;
     max-width: calc((1300px - (60px * 3)) / 3);
     width: 100% !important;
-    height: 400px;
+    height: 400px ;
     @media screen and (max-width: 1310px) {
         max-width: calc((100% - 60px) / 2);
     }
     @media screen and (max-width: 768px) {
         max-width: 100%;
     }
+
 }
 
 .alice-carousel__stage {
     padding: 60px 30px;
 }
 
-
 .alice-carousel {
-
+   ;
     position: relative;
     height: 100%;
     max-width: 1300px;

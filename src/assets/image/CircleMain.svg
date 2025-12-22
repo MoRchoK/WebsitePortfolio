@@ -1,0 +1,49 @@
+
+
+
+
+
+
+
+
+
+<!--<svg width="160" height="160" viewBox="-100 -150 1920 898" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--<style>-->
+<!--    .marching-circle {-->
+<!--    animation: march 1s linear infinite;-->
+<!--    }-->
+<!--    #circleMain1 { animation-duration: 2s; }-->
+<!--    #circleMain2 { animation-duration: 3s; animation-direction: reverse; }-->
+<!--    #circleMain3 { animation-duration: 2.5s; }-->
+
+<!--    @keyframes march {-->
+<!--    from { stroke-dashoffset: 0; }-->
+<!--    to { stroke-dashoffset: 2.5; } /* ровно dash + gap = 1.25 + 1.25 */-->
+<!--    }-->
+<!--</style>-->
+<!--    <circle-->
+<!--            class="marching-circle"-->
+<!--            id="circleMain1"-->
+<!--            cx="1288" cy="583" r="293"-->
+<!--            stroke="#E63946"-->
+<!--            stroke-width="8"-->
+<!--            pathLength="100"-->
+<!--            stroke-dasharray="1.25 1.25"/>-->
+<!--    <circle-->
+<!--            class="marching-circle"-->
+<!--            id="circleMain3"-->
+<!--            cx="61" cy="741" r="293"-->
+<!--            stroke="#E63946"-->
+<!--            stroke-width="8"-->
+<!--            pathLength="100"-->
+<!--            stroke-dasharray="1.25 1.25"/>-->
+
+<!--<circle-->
+<!--        class="marching-circle"-->
+<!--        id="circleMain3"-->
+<!--        cx="61" cy="741" r="293"-->
+<!--        stroke="#E63946"-->
+<!--        stroke-width="8"-->
+<!--        pathLength="100"-->
+<!--        stroke-dasharray="1.25 1.25"/>-->
+<!--</svg>-->

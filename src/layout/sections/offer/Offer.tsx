@@ -7,8 +7,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import './offerCard/offerSlider.css';
 import {OfferCard} from "./offerCard/offerCard.tsx";
 import {NextBtn, PrevBtn} from "./btnArrowOffer/BtnArrowOffer.tsx";
-
-
+import * as React from "react";
 
 
 export type icon = {
@@ -57,12 +56,13 @@ const icon: Array<icon> = [
 
 
 
-export function Offer() {
+export const Offer:React.FC = () => {
     const [activeOfferItem, setActiveOfferItem] = useState(0)
 
     const newOffer = icon.map((item, index) => (
-        <OfferCard index={index} item={item} activeOfferItem={activeOfferItem}/>))
-
+        <OfferCard index={index} item={item} setActiveOfferItem={setActiveOfferItem} activeOfferItem={activeOfferItem}/>
+        )
+    )
     const responsive = {
         0: {
             items: 1,
@@ -75,7 +75,7 @@ export function Offer() {
         },
     }
     return (
-        <S.OfferSection>
+        <S.OfferSection id={'services'}>
             <Wrapper flexdirection={'column'} alignitems={'center'}>
                 <TitleSection
                     width={'440px'}

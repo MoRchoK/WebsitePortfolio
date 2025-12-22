@@ -64,6 +64,10 @@ export const GlobalStyled = createGlobalStyle`
         min-width: 360px;
     }
 
+    
+   
+    
+    
     section{
         display: flex;
         width: 100%;

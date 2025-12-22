@@ -10,6 +10,8 @@ const Footer = styled.footer`
     justify-content: center;
     background-color: ${myTheme.colors.secondarySection};
     padding: 170px 50px 0;
+    position: relative;
+    z-index: 1;
 
     @media ${myTheme.media.mobile} {
         padding: 130px 20px 0;

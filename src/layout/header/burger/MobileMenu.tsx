@@ -4,16 +4,13 @@ import * as React from "react";
 
 import {MenuMobileList} from "../menuHeader/MenuMobileList/menuMobile.tsx";
 
-
-
-
 type BurgerPropsType = {
     $isActive: boolean
     $setIsActive: (isActive: boolean) => void
-    headerMenuItems: Array<string>
 }
 
-export const MobileMenu: React.FC<BurgerPropsType> = ({$isActive, $setIsActive, headerMenuItems}:BurgerPropsType)=>{
+export const MobileMenu: React.FC<BurgerPropsType> = ({$isActive, $setIsActive}:BurgerPropsType)=>{
+    const headerMenuItems: Array<string> = ['Home','About', 'Services','Store', 'Blog', 'Contact' ]
     return (
         <S.WrapperMobileMenu>
             <S.BurgerButton $isActive={$isActive} onClick={() => $setIsActive(!$isActive)}>

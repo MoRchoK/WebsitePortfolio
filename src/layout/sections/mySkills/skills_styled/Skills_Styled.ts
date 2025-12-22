@@ -25,6 +25,8 @@ const WrapperSkills = styled(Wrapper)`
 
 const MySkillsSection = styled.section`
     display: flex;
+    position: relative;
+    z-index: 1;
     height: 100%;
     align-items: center;
     justify-content: center;

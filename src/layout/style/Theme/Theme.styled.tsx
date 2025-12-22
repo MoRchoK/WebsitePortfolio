@@ -10,9 +10,9 @@ export const myTheme = {
         descriptionPostText: "#535353",
         statValueText: "#DDDDDD",
         descriptionFooterText: "#929292",
-
+        BgLightSection: '#FFFFFF',
         BgMainSection: "#F9F9F9",
-        BgHeader: "rgba(249, 249, 249, 0.5);",
+        BgHeader: "rgba(249, 249, 249, 0.5)",
         secondarySection: "#E5E9ED",
         additionalSection: "#DCDCDC",
         BgBrandsSection: "#FAFAFA",
@@ -21,20 +21,16 @@ export const myTheme = {
         strokeSecondSection: '#F0F0F0',
         bgHoverPortfolioPost: 'rgba(21, 21, 21, .71)',
         inactiveItem: '#EBEBEB',
-
-
         borderColorBtnMain: "#9E9E9E",
         borderBtnGray: "#E1E1E1",
         borderGrandIcon: '#DCDCDC',
         borderFooterBtn: '#5A5A5A',
-
-
         whteColor: "#fff",
         arrowColor: 'rgba(159, 159, 159, 0.31)',
         footerLine: '#848484',
     },
 
-    media:{
+    media: {
         mobile: 'screen and (max-width: 576px)',
         tablet: 'screen and (max-width: 768px)',
         large: 'screen and (max-width: 992px)',

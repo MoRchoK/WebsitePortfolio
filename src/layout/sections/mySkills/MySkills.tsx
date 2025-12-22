@@ -6,7 +6,7 @@ import {StatSkills} from "./statSkills/StatSkills.tsx";
 
 export function MySkills() {
     return (
-        <S.MySkillsSection>
+        <S.MySkillsSection id={'about'}>
             <Container>
                 <S.WrapperSkills flexdirection={'row'} gap={'20px'} justifycontent={'space-between'}>
                     <WhyHireMeComponent/>

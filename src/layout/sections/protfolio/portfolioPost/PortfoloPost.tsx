@@ -6,8 +6,7 @@ import bgfiveImg from "../../../../assets/image/Rectangle92.webp";
 import bgSixImg from "../../../../assets/image/Rectangle78.webp";
 import {S} from "../portfolio_styled/Portfolio_Styled.ts";
 import {OverleyPost} from "./overleyPost/OverleyPost.tsx";
-
-
+import {AnimatePresence} from 'framer-motion';
 
 
 type PortfolioPostPropsType = {
@@ -54,19 +53,16 @@ const portfolioPosts: Array<portfolioPostsType> = [
 ]
 
 
-
 export function PortfolioPost(props: PortfolioPostPropsType) {
-
     const portfolioPostsActive = portfolioPosts.filter((item) =>
-        props.activeTab === 'All'? item.type: item.type === props.activeTab
+        props.activeTab === 'All' ? item.type : item.type === props.activeTab
     )
-
     let iterCount: number = 1
     let chetOrno = 1
     let columnPosition = 0
     const rows_count = setGridTempleteRows(portfolioPostsActive)
 
-    function setGridTempleteRows(array:Array<portfolioPostsType>) {
+    function setGridTempleteRows(array: Array<portfolioPostsType>) {
         let templeteRows = ''
         if (array.length >= 3) {
             for (let i = 1; i <= Math.ceil(array.length / 3); i++) {
@@ -83,10 +79,14 @@ export function PortfolioPost(props: PortfolioPostPropsType) {
         }
         return templeteRows
     }
+
     return (
-        <S.WrapperPrortfolio column_count={portfolioPostsActive.length>2? 3: portfolioPostsActive.length} rows_count={rows_count}>
-            {portfolioPostsActive.map((post, index) => {
-                    columnPosition++
+
+        <S.WrapperPrortfolio column_count={portfolioPostsActive.length > 2 ? 3 : portfolioPostsActive.length}
+                             rows_count={rows_count}>
+            <AnimatePresence>
+                {portfolioPostsActive.map((post, index) => {
+                        columnPosition++
                         if (columnPosition === 4) {
                             columnPosition = 1
                             chetOrno++
@@ -99,40 +99,66 @@ export function PortfolioPost(props: PortfolioPostPropsType) {
                         if (chetOrno % 2 === 0) {
                             if (columnPosition % 2 === 0) {
                                 return (
-                                    <S.PortfolioPost key={index} grid_row_start={iterCount + 1}
-                                                         grid_row_end={iterCount + 2}
-                                                         grid_column_start={columnPosition}>
+                                    <S.PortfolioPost
+                                                     grid_row_start={iterCount + 1}
+                                                     grid_row_end={iterCount + 2}
+                                                     key={index}
+                                                     layout
+                                                     initial={{opacity: 0}}
+                                                     animate={{opacity: 1}}
+                                                     exit={{opacity: 0}}
+                                                     grid_column_start={columnPosition}>
                                         <img src={post.img} alt={post.title}/>
                                         <OverleyPost title={post.title}/>
                                     </S.PortfolioPost>
                                 )
                             } else {
-                                return <S.PortfolioPost key={index} grid_row_start={iterCount}
-                                                            grid_row_end={iterCount + 2}
-                                                            grid_column_start={columnPosition}>
-                                    <img src={post.img} alt={post.title}/>
-                                    <OverleyPost title={post.title}/>
-                                </S.PortfolioPost>
+                                return (
+                                    <S.PortfolioPost grid_row_start={iterCount}
+                                                     layout
+                                                     key={index}
+                                                     initial={{opacity: 0}}
+                                                     animate={{opacity: 1}}
+                                                     exit={{opacity: 0}}
+                                                     grid_row_end={iterCount + 2}
+                                                     grid_column_start={columnPosition}>
+                                        <img src={post.img} alt={post.title}/>
+                                        <OverleyPost title={post.title}/>
+                                    </S.PortfolioPost>)
                             }
                         } else {
                             if (columnPosition % 2 === 0) {
-                                return <S.PortfolioPost key={index} grid_row_start={iterCount}
-                                                            grid_row_end={iterCount + 2}
-                                                            grid_column_start={columnPosition}>
-                                    <img src={post.img} alt={post.title}/>
-                                    <OverleyPost title={post.title}/>
-                                </S.PortfolioPost>
+                                return (
+                                    <S.PortfolioPost
+                                        layout
+                                        key={index}
+                                        initial={{opacity: 0}}
+                                        animate={{opacity: 1}}
+                                        exit={{opacity: 0}}
+                                        grid_row_start={iterCount}
+                                        grid_row_end={iterCount + 2}
+                                        grid_column_start={columnPosition}>
+                                        <img src={post.img} alt={post.title}/>
+                                        <OverleyPost title={post.title}/>
+                                    </S.PortfolioPost>)
                             } else {
-                                return <S.PortfolioPost key={index} grid_row_start={iterCount}
-                                                            grid_row_end={iterCount + 1}
-                                                            grid_column_start={columnPosition}>
-                                    <img src={post.img} alt={post.title}/>
-                                    <OverleyPost title={post.title}/>
-                                </S.PortfolioPost>
+                                return (
+                                    <S.PortfolioPost grid_row_start={iterCount}
+                                                     layout
+                                                     key={index}
+                                                     initial={{opacity: 0}}
+                                                     animate={{opacity: 1}}
+                                                     exit={{opacity: 0}}
+                                                     grid_row_end={iterCount + 1}
+                                                     grid_column_start={columnPosition}>
+                                        <img src={post.img} alt={post.title}/>
+                                        <OverleyPost title={post.title}/>
+                                    </S.PortfolioPost>)
                             }
                         }
-                }
-            )}
+                    }
+                )}
+            </AnimatePresence>
         </S.WrapperPrortfolio>
     )
 }

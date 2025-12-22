@@ -1,6 +1,7 @@
 import {myTheme} from "../../style/Theme/Theme.styled.tsx";
 import styled, {css} from "styled-components";
 import {font} from "../../style/common/Common.ts";
+import {Wrapper} from "../../../components/wrapperComponent/Wrapper.tsx";
 
 
 //Header
@@ -11,16 +12,23 @@ const Header = styled.header`
     height: 130px;
     min-width: 360px;
     background-color: ${myTheme.colors.BgHeader};
-    position: absolute;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
+    a{
+        cursor: pointer;
+    }
     @media ${myTheme.media.tablet} {
         height: 10%;
     }
     `
+
+const HeaderWrapper = styled(Wrapper)`
+    position: relative;
+`
 
 
 //Menu
@@ -56,7 +64,6 @@ const MenuLink = styled.a<MenuLinkPropsType>`
 
 `
 
-
 //Menu Desktop
 const MenuDesktop = styled.div`
     a {
@@ -65,6 +72,9 @@ const MenuDesktop = styled.div`
         &:hover {
             color: ${myTheme.colors.highlighting};
         }
+    }
+    .active{
+        color: ${myTheme.colors.highlighting}
     }
     @media ${myTheme.media.tablet} {
         display: none;
@@ -170,4 +180,5 @@ export const S = {
     MenuLink,
     BurgerButton,
     WrapperMobileMenu,
+    HeaderWrapper
 }

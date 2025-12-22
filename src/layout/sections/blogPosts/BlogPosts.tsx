@@ -6,6 +6,7 @@ import {TitleSection} from "../../../components/titleSection/TitleSection.tsx";
 import {Wrapper} from "../../../components/wrapperComponent/Wrapper.tsx";
 
 
+
 export const BlogPosts: React.FC = ()=> {
     return (
         <S.BlogPostsSection>

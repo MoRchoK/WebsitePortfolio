@@ -73,8 +73,11 @@ const WrapperBrands = styled.div`
 const BrandsSection = styled.section`
     background-color: ${myTheme.colors.BgBrandsSection};
     flex-direction: column;
+    position: relative;
+    z-index: 1;
     padding: 145px 15px;
     gap: 80px;
+    
 `
 
 

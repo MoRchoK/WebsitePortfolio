@@ -2,6 +2,7 @@ import FirstPostImg from '../../../../assets/image/Rectangle77.webp'
 import SecondPostImg from '../../../../assets/image/Rectangle99.webp'
 import ThirdPostImg from '../../../../assets/image/Rectangle98.webp'
 import {S} from "../blogPosts_styled/blogPosts_styled.ts";
+import {Fade} from "react-awesome-reveal";
 
 
 const blogPosts = [
@@ -22,6 +23,9 @@ const blogPosts = [
 export function BlogCard() {
     return (
         <S.BlogCard alignitems={'center'} justifycontent={'center'} gap={'20px'}>
+            <Fade
+                triggerOnce={false}
+            >
                 {blogPosts.map((post, index) => (
                     <S.WrapperBlogCard flexdirection={'column'} key={index}>
                         <S.PostImage url={post.url}/>
@@ -30,6 +34,7 @@ export function BlogCard() {
                         </S.LinkBlog>
                     </S.WrapperBlogCard>
                 ))}
+            </Fade>
         </S.BlogCard>
     )
 }

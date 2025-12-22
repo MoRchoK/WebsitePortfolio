@@ -2,6 +2,7 @@ import {S} from "./brands_styled/Brands_Styled.ts";
 import {TitleSection} from "../../../components/titleSection/TitleSection.tsx";
 import {SvgIcon} from "../../../components/svgIcon/SvgIcon.tsx";
 import * as React from "react";
+import { Fade } from "react-awesome-reveal";
 
 const brandIcon = [{
     id: 'emblem',
@@ -70,6 +71,10 @@ export const BrandsInfo: React.FC = () => {
                 title={'Brands I’ve Worked'}
                 description={'Things that I can do for my clients. Just make your good trust I love to provide quality works.'}/>
             <S.WrapperBrands>
+                <Fade
+                    damping={0.1}
+                    delay={0.1}
+                    cascade>
                 {brandIcon.map((icon) => (
                     <S.BrandsItem alignitems={'center'} justifycontent={'center'} key={icon.id}>
                         <SvgIcon
@@ -80,6 +85,8 @@ export const BrandsInfo: React.FC = () => {
                         />
                     </S.BrandsItem>
                 ))}
+
+                </Fade>
             </S.WrapperBrands>
         </S.BrandsSection>
     )

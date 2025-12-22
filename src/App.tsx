@@ -8,22 +8,24 @@ import {BlogMain} from "./layout/sections/blogMain/BlogMain.tsx";
 import {BlogPosts} from "./layout/sections/blogPosts/BlogPosts.tsx";
 import {Statistic} from "./layout/sections/statistic/Statistic.tsx";
 import {Footer} from "./layout/footer/Footer.tsx";
+import {Particle} from "./components/particle/Particle.tsx";
 
 
 function App() {
     return (
-        <div >
-            <Header/>
-            <Main/>
-            <MySkills/>
-            <Offer/>
-            <Portfolio/>
-            <BrandsInfo/>
-            <BlogMain/>
-            <BlogPosts/>
-            <Statistic/>
-            <Footer/>
-        </div>
+            <div>
+                <Header/>
+                <Main/>
+                <MySkills/>
+                <Offer />
+                <Portfolio/>
+                <BrandsInfo/>
+                <BlogMain/>
+                <BlogPosts/>
+                <Statistic/>
+                <Footer/>
+                <Particle/>
+            </div>
     )
 }
 

@@ -7,6 +7,8 @@ import {font} from "../../../style/common/Common.ts";
 const BlogPostsSection = styled.section`
     padding: 100px 0 150px;
     background-color: ${myTheme.colors.whteColor};
+    position: relative;
+    z-index: 1;
     button {
         margin-top: 60px;
     }

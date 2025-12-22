@@ -38,12 +38,10 @@ const socialItems: Array<socialItemsType> = [
         viewBox: "0 0 1024 1024"
     }]
 
-
-
 export const Footer: React.FC = () => {
     const [isActive, setIsActive] = useState(false)
     return (
-        <S.Footer>
+        <S.Footer id={'contact'}>
             <Container>
                 <S.WrapperFooter  flexdirection={'column'} alignitems={'center'} justifycontent={'center'}>
                     <FooterMain setIsActive={setIsActive} />

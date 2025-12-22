@@ -5,25 +5,25 @@ import {font} from "../../../style/common/Common.ts";
 
 
 const MainStyled = styled.section`
-    //background: no-repeat 200px/cover url("/src/assets/image/mainPhoto.webp"), no-repeat center/cover url("/src/assets/image/BgMain.svg");
+    background: no-repeat right bottom/120vh url("/src/assets/image/iamDanial.png"), no-repeat center/cover url("/src/assets/image/BgThreeCircles.svg");
     background-color: ${myTheme.colors.BgMainSection};
     min-height: 100vh;
     padding-top: 150px;
     padding-bottom: 50px;
-    
-    @media screen and (max-width: 1550px) {
-        background: no-repeat left/cover url("/src/assets/image/mainPhoto.webp"), no-repeat center/cover url("/src/assets/image/BgMain.svg");
-    }
+
     @media ${myTheme.media.extra_large} {
-        background: no-repeat center/cover url("/src/assets/image/mainPhoto.webp"), no-repeat center/cover url("/src/assets/image/BgMain.svg");
+             background:  no-repeat  300px bottom/110vh url("/src/assets/image/iamDanial.png"),no-repeat center/cover url("/src/assets/image/BgThreeCircles.svg");
+         }
+        @media ${myTheme.media.large} {
+        background: no-repeat 300px bottom/100vh url("/src/assets/image/iamDanial.png"), no-repeat center/cover url("/src/assets/image/BgMain.svg");
     }
-    @media screen and (max-height: 700px) {
-        background: no-repeat 100px/cover url("/src/assets/image/mainPhoto.webp"), no-repeat center/cover url("/src/assets/image/BgMain.svg");
+        @media ${myTheme.media.tablet} {
+        background: no-repeat center/cover url("/src/assets/image/BgMain.svg");
     }
-    @media ${myTheme.media.tablet} {
-        background: no-repeat 100px/cover url("/src/assets/image/BgMain.svg");
-    }
+     @media screen and (max-width: 500px), (max-height: 600px) {
+         background: none
 `
+
 
 // Main Info
 const MainInfoWrapper = styled.div`

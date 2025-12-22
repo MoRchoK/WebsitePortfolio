@@ -8,12 +8,11 @@ import {Menu} from "../../../components/menu/Menu.tsx";
 
 
 
-
 export function Portfolio() {
     const TabItems: Array<string> = ['All', 'Branding', 'Shirt', 'Pakage', 'Poster']
     const [activeItem, setActiveItem] = useState<string>('All')
     return (
-        <S.PortfolioSection>
+        <S.PortfolioSection id={'store'}>
             <Wrapper flexdirection={'column'} alignitems={'center'} justifycontent={'center'}>
                 <Title title={"Portfolio"}/>
                 <Menu $setActiveItem={(item:string)=>setActiveItem(item)} title={TabItems} $activeItem={activeItem} gap={'50px'} tagName={'button'} />
@@ -23,3 +22,5 @@ export function Portfolio() {
         </S.PortfolioSection>
     )
 }
+
+

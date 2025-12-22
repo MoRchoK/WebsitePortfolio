@@ -8,6 +8,8 @@ import {Wrapper} from "../../../components/wrapperComponent/Wrapper.tsx";
 const StatisticSection = styled.section`
     padding: 130px 0;
     background-color: ${myTheme.colors.BgBrandsSection};
+    position: relative;
+    z-index: 1;
     }
 `
 

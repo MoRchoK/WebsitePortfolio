@@ -6,6 +6,7 @@ const BlogMainSection = styled.section`
     padding: 300px 0 60px;
     background-color: ${myTheme.colors.whteColor};
     position: relative;
+    z-index: 1;
     &::before {
         content: '';
         position: absolute;
