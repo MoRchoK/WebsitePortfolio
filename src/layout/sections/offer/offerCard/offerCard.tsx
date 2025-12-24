@@ -25,8 +25,8 @@ export const OfferCard: React.FC<OfferCardPropsType> = ({index, activeOfferItem,
                     width={'85px'}
                     height={'85px'}
                     viewBox={item.viewBox}
-                    fill={item.$is_fill ? myTheme.colors.additionalText : 'transparent'}
-                    stroke={item.$is_stroke ? myTheme.colors.additionalText : 'transparent'}
+                    fill={(item.$is_fill  && (index === activeOfferItem) &&  myTheme.colors.highlighting ) ||  (item.$is_fill && myTheme.colors.additionalText) ||  'transparent'}
+                    stroke={(item.$is_stroke && (index === activeOfferItem) &&  myTheme.colors.highlighting) || (item.$is_stroke && myTheme.colors.additionalText)|| 'transparent'}
                 />
                 <S.CardTitle>{item.title}</S.CardTitle>
                 <S.CardDesctiprion>

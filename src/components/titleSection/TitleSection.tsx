@@ -37,6 +37,9 @@ const Description = styled.p<TitleDescriptionProps>`
     ${font({color: myTheme.colors.discriptionText, family: 'Lato, sans-serif', lineHeight: 1.85, weight: 400, letterSpacing: '0.02em'})}
     text-align: center;
     font-size: ${(props) => props.font_size_description || '16px'};
+   
+      
+  
 `
 
 type TitleSectionPropsType = TitleSectionProps & {

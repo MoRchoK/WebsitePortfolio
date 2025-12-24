@@ -2,10 +2,17 @@ import {BtnStyled} from "../../../../components/btnStyled/BtnStyled.tsx";
 import {S} from "./../main_styled/Main_Styled.tsx";
 import {Wrapper} from "../../../../components/wrapperComponent/Wrapper.tsx";
 import Typewriter from 'typewriter-effect';
+import { animateScroll as scroll } from 'react-scroll';
 
 
+export const MainInfo:React.FC = ()=> {
 
-export function MainInfo() {
+    const scrollToBottom = (e: any) => {
+        e.preventDefault()
+        scroll.scrollToBottom();
+    };
+
+
     return (
         <S.MainInfoWrapper >
                 <S.MainTitle>
@@ -25,9 +32,8 @@ export function MainInfo() {
                 <S.DiscriptionTextStyled>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque consequat,
                     faucibus et, et. Non semper blandit vitae semper blandit. Tellus dignissim a dui turpis arcu, nulla
                     ullamcorper tincidunt.</S.DiscriptionTextStyled>
-                <BtnStyled>GET IN TOUCH</BtnStyled>
+                <BtnStyled onClick={scrollToBottom} as={'a'} href={'footer'}>GET IN TOUCH</BtnStyled>
         </S.MainInfoWrapper>
-
     )
 }
 

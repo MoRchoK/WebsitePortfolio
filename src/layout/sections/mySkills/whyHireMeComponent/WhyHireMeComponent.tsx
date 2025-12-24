@@ -3,9 +3,15 @@ import {Title} from "../../../../components/title/Title.tsx";
 import {BtnDark} from "../../../../components/buttonDark/ButtonDark.tsx";
 import {ButtonLight} from "../../../../components/buttonLight/ButtonLight.tsx";
 import {S} from "../skills_styled/Skills_Styled.ts";
+import * as React from "react";
+import portfolio from "../../../../assets/files/Print-Ready_Portfolio.pdf";
 
 
-export function WhyHireMeComponent() {
+export type WhyHireMePropsType = {
+    setIsActive: (value:boolean)=>void;
+}
+
+export const WhyHireMeComponent:React.FC<WhyHireMePropsType> = (props:WhyHireMePropsType)=> {
     return (
         <S.WhyHireMe>
             <Wrapper flexdirection={'column'} justifycontent={'flex-start'}>
@@ -18,8 +24,10 @@ export function WhyHireMeComponent() {
                     cursus suspendisse risus vulputate enim pharetra eu. Tetur adipiscing elit eu placera.</span>
                 </S.MySkillsText>
                 <S.BtnWrapper>
-                    <BtnDark as={'a'}>Hire Me</BtnDark>
-                    <ButtonLight>Download CV</ButtonLight>
+                    <BtnDark onClick={()=>{
+                        props.setIsActive(true)
+                    }}>Hire Me</BtnDark>
+                    <ButtonLight as={'a'} href={portfolio}  download="My Portfolio">Download CV</ButtonLight>
                 </S.BtnWrapper>
             </Wrapper>
         </S.WhyHireMe>

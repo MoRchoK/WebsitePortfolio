@@ -12,6 +12,7 @@ const BlogPostsSection = styled.section`
     button {
         margin-top: 60px;
     }
+    
 `
 
 //BlogCard
@@ -23,26 +24,21 @@ const BlogCard = styled(Wrapper)`
         gap: 50px;
     }
 `
-const WrapperBlogCard = styled(Wrapper)`
+const WrapperBlogCard = styled.div`
     max-width: 450px;
     width: 100%;
     height: 100%;
+    margin: 0 auto;
     @media ${myTheme.media.large} {
-        width: 60%;
-        justify-content: center;
-        align-items: center;
-    }
-    @media ${myTheme.media.tablet} {
-        width: 60%;
-    }
-    @media ${myTheme.media.mobile} {
         width: 80%;
     }
+    
 `
 const LinkBlog = styled.a`
+    display: inline-block;
     ${font({weight: 600, Fmax: 22, Fmin: 18, lineHeight: 1.4})}
     width: 100%;
-    padding: 0 10px;
+    padding-left: 10px;
 `
 
 

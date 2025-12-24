@@ -16,9 +16,7 @@ const StatisticSection = styled.section`
 
 const StatCard = styled(Wrapper)`
     @media ${myTheme.media.large} {
-        width: 30%;
-    }
-    @media ${myTheme.media.mobile} {
+        min-width: 300px;
         width: 100%;
     }
 `

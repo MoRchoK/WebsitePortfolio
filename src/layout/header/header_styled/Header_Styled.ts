@@ -21,8 +21,11 @@ const Header = styled.header`
     a{
         cursor: pointer;
     }
-    @media ${myTheme.media.tablet} {
-        height: 10%;
+    @media ${myTheme.media.tablet}, (max-height: 800px) {
+        height: 70px;
+    }
+    @media screen and (max-height: 600px){
+       display: none;
     }
     `
 
@@ -32,7 +35,7 @@ const HeaderWrapper = styled(Wrapper)`
 
 
 //Menu
-const NavStyled = styled.nav`
+const Nav = styled.nav`
 `
 export type MenuUlPropsType = {
     gap?: string;
@@ -41,10 +44,18 @@ const MenuUl = styled.ul<MenuUlPropsType>`
     width: 100%;
     display: flex;
     gap: ${(props) => props.gap};
+    
 `
 const MenuList = styled.li`
-    list-style: none;
-   
+    a {
+        color: ${myTheme.colors.PraymaryText};
+        font-size: 16px;
+        transition: color 0.2s;
+        cursor: pointer;
+        &:hover {
+            color: ${myTheme.colors.highlighting};
+        }
+    }
 `
 type MenuLinkPropsType = {
     color?: string;
@@ -55,24 +66,16 @@ type MenuLinkPropsType = {
 const MenuLink = styled.a<MenuLinkPropsType>`
     cursor: pointer;
     ${font({Fmax: 20, Fmin: 16, weight: 500, color: myTheme.colors.descriptionCard, letterSpacing: '0.01em'})};
-    &:hover {
-        color: ${myTheme.colors.PraymaryText};
-    }
     ${(props) => props.$active && css<MenuLinkPropsType>`
         color: ${myTheme.colors.PraymaryText};
     `}
-
 `
+
+
 
 //Menu Desktop
 const MenuDesktop = styled.div`
-    a {
-        color: ${myTheme.colors.PraymaryText};
-        font-size: 16px;
-        &:hover {
-            color: ${myTheme.colors.highlighting};
-        }
-    }
+    
     .active{
         color: ${myTheme.colors.highlighting}
     }
@@ -85,8 +88,11 @@ const MenuDesktop = styled.div`
 //Mobile Menu
 
 const WrapperMobileMenu = styled.div`
+    position: fixed;
+    top: 0;
     display: flex;
     align-items: center;
+    z-index: 100000;
 `
 
 const MenuMobile = styled.div<BurgerButtonProps>`
@@ -100,15 +106,35 @@ const MenuMobile = styled.div<BurgerButtonProps>`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     ul {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 50px;
+
         a {
-            ${font({weight: 400, Fmax: 42, Fmin: 42})}
+            ${font({weight: 400, Fmax: 42, Fmin: 42})};
+        }
+
+        li:hover {
+            a {
+                color: ${myTheme.colors.highlighting};
+            }
         }
     }
-    
+
+    @media screen and (max-height: 600px) {
+        ul {
+            gap: 30px;
+
+            a {
+                font-size: 30px;
+            }
+        }
+    }
+
+
 `
 type BurgerButtonProps = {
     $isActive: boolean;
@@ -121,10 +147,11 @@ const BurgerButton = styled.button<BurgerButtonProps>`
     width: 50px;
     height: 50px;
     right: 20px;
+    top: 10px;
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 10000;
+    z-index: 900000000;
     span {
         position: absolute;
         width: 36px;
@@ -174,11 +201,11 @@ export const S = {
     Header,
     MenuDesktop,
     MenuMobile,
-    NavStyled,
+    NavStyled: Nav,
     MenuUl,
     MenuList,
     MenuLink,
     BurgerButton,
     WrapperMobileMenu,
-    HeaderWrapper
+    HeaderWrapper,
 }

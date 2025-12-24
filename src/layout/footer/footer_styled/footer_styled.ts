@@ -75,18 +75,22 @@ const SocialItem = styled.li`
     svg {
         width: 20px;
     }
+    
 `
 const SocialLink = styled.a`
     cursor: pointer;
     color: ${myTheme.colors.borderFooterBtn};
-
+    transition: color 0.3s;
+    
     &:hover {
         color: ${myTheme.colors.highlighting};
+        
     }
 
     @media ${myTheme.media.mobile} {
         svg {
             width: 20px;
+            
         }
     }
 `

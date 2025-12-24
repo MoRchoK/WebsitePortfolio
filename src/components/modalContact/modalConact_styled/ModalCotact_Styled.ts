@@ -45,10 +45,12 @@ export const Form = styled.form`
     background-color: ${myTheme.colors.BgBrandsSection};
     border-radius: 30px;
     box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.5);
+  
     
     button {
         max-width: 150px;
         width: 100%;
+        height: auto;
         margin-bottom: 0;
         @media screen and (max-height: 700px), ${myTheme.media.mobile} {
             max-width: 100px;
@@ -79,13 +81,16 @@ const Textarea = styled.textarea`
     min-height: 130px;
     resize: none;
     border: 2px solid ${myTheme.colors.PraymaryText};
+  
     @media screen and (max-height: 700px), ${myTheme.media.mobile} {
         min-height: 100px;
     }
+    
 `
 
 const WrapperInput = styled(Wrapper)`
     width: 100%;
+    height: auto;
     flex-direction: column;
     justify-content: end;
     position: relative;
@@ -98,6 +103,7 @@ const WrapperInput = styled(Wrapper)`
         background-color: transparent;
         border: none;
         border-bottom: 2px solid ${myTheme.colors.PraymaryText};
+        margin-bottom: 40px;
         &:focus-visible {
             border-color: ${myTheme.colors.highlighting}
         }
@@ -121,7 +127,7 @@ const WrapperInput = styled(Wrapper)`
         left: 5px;
         transition: .1s;
         opacity: .8;
-        top: -30%;
+        top: -10px;
         user-select: none;
         @media screen and (max-height: 700px), ${myTheme.media.mobile} {
             display: none;
@@ -129,13 +135,16 @@ const WrapperInput = styled(Wrapper)`
     }
     
 `
-
+const BntWrapperContacts = styled(Wrapper)`
+    height: auto;
+`
 
 
 export const S = {
     ModalContact,
     Form,
     Textarea,
-    WrapperInput
+    WrapperInput,
+    BntWrapperContacts
 
 }

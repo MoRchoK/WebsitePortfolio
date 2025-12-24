@@ -9,22 +9,28 @@ import {BlogPosts} from "./layout/sections/blogPosts/BlogPosts.tsx";
 import {Statistic} from "./layout/sections/statistic/Statistic.tsx";
 import {Footer} from "./layout/footer/Footer.tsx";
 import {Particle} from "./components/particle/Particle.tsx";
+import {ModalContact} from "./components/modalContact/ModalContact.tsx";
+import {useState} from "react";
+
+
 
 
 function App() {
+    const [isActiveContact, setIsActiveContact] = useState(false)
     return (
             <div>
                 <Header/>
                 <Main/>
-                <MySkills/>
+                <MySkills setIsActive={setIsActiveContact}/>
                 <Offer />
                 <Portfolio/>
                 <BrandsInfo/>
                 <BlogMain/>
                 <BlogPosts/>
                 <Statistic/>
-                <Footer/>
+                <Footer setIsActive={setIsActiveContact}/>
                 <Particle/>
+                {setIsActiveContact && <ModalContact $setIsActive={setIsActiveContact} $isOpen={isActiveContact}/>}
             </div>
     )
 }

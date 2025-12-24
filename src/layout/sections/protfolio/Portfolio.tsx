@@ -15,7 +15,7 @@ export function Portfolio() {
         <S.PortfolioSection id={'store'}>
             <Wrapper flexdirection={'column'} alignitems={'center'} justifycontent={'center'}>
                 <Title title={"Portfolio"}/>
-                <Menu $setActiveItem={(item:string)=>setActiveItem(item)} title={TabItems} $activeItem={activeItem} gap={'50px'} tagName={'button'} />
+                <Menu $setActiveItem={(item:string)=>setActiveItem(item)} menuItems={TabItems} $activeItem={activeItem} gap={'50px'} tagName={'button'} />
                 <PortfolioPost activeTab={activeItem}/>
                 <BtnDark>VIEW PORTFOLIO</BtnDark>
             </Wrapper>

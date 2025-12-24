@@ -27,7 +27,7 @@ export function BlogCard() {
                 triggerOnce={false}
             >
                 {blogPosts.map((post, index) => (
-                    <S.WrapperBlogCard flexdirection={'column'} key={index}>
+                    <S.WrapperBlogCard  key={index}>
                         <S.PostImage url={post.url}/>
                         <S.LinkBlog>
                             {post.title}

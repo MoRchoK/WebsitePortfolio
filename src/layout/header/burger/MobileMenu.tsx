@@ -1,22 +1,22 @@
 import {S} from "../header_styled/Header_Styled.ts";
-import * as React from "react";
-
-
 import {MenuMobileList} from "../menuHeader/MenuMobileList/menuMobile.tsx";
+import {useState} from "react";
+import {headerMenuItemsType} from "../Header.tsx";
 
-type BurgerPropsType = {
-    $isActive: boolean
-    $setIsActive: (isActive: boolean) => void
+
+type MobileMenuPropsType = {
+    menuItems: Array<headerMenuItemsType>
 }
 
-export const MobileMenu: React.FC<BurgerPropsType> = ({$isActive, $setIsActive}:BurgerPropsType)=>{
-    const headerMenuItems: Array<string> = ['Home','About', 'Services','Store', 'Blog', 'Contact' ]
+
+export const MobileMenu: React.FC<MobileMenuPropsType> = ({menuItems}: MobileMenuPropsType)=>{
+    const [isOpen, setIsOpen] = useState(false);
     return (
         <S.WrapperMobileMenu>
-            <S.BurgerButton $isActive={$isActive} onClick={() => $setIsActive(!$isActive)}>
+            <S.BurgerButton $isActive={isOpen} onClick={() => setIsOpen(!isOpen)}>
                 <span></span>
             </S.BurgerButton>
-            {$isActive &&  <MenuMobileList $isActive={$isActive} menuItems={headerMenuItems}/>}
+            {isOpen &&  <MenuMobileList setIsOpen={setIsOpen} $isActive={isOpen} menuItems={menuItems}/>}
         </S.WrapperMobileMenu>
     )
 }

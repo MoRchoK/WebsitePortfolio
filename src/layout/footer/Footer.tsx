@@ -1,6 +1,4 @@
 import {Container} from "../../container/Container.ts";
-import {ModalContact} from "../../components/modalContact/ModalContact.tsx";
-import {useState} from "react";
 import {S} from "./footer_styled/footer_styled.ts";
 import {FooterMain} from "./footerMain/FooterMain.tsx";
 import {SubFooter} from "./subFooter/subFooter.tsx";
@@ -38,17 +36,20 @@ const socialItems: Array<socialItemsType> = [
         viewBox: "0 0 1024 1024"
     }]
 
-export const Footer: React.FC = () => {
-    const [isActive, setIsActive] = useState(false)
+
+type FooterPropsType = {
+    setIsActive: (value:boolean)=>void
+}
+export const Footer: React.FC<FooterPropsType> = (props: FooterPropsType) => {
+
     return (
         <S.Footer id={'contact'}>
             <Container>
                 <S.WrapperFooter  flexdirection={'column'} alignitems={'center'} justifycontent={'center'}>
-                    <FooterMain setIsActive={setIsActive} />
+                    <FooterMain setIsActive={props.setIsActive} />
                     <SubFooter  socialItems={socialItems}/>
                 </S.WrapperFooter>
             </Container>
-            <ModalContact $setIsActive={setIsActive} $isOpen={isActive}/>
         </S.Footer>
     )
 }

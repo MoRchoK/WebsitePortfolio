@@ -45,12 +45,12 @@ const icon: Array<icon> = [
         description: 'Lorem ipsum dolor sit amet, sit ametOrsit ametur adipiscing elit. Orsit ametmet, consectetur adipiscing elisit amet, consectetur adipiscing elici eget mi elit cursus donec amet sed sagittis'
     },
     {
-        id: "box",
+        id: "Poster",
         $is_fill: false,
         $is_stroke: true,
-        title: "Package Design",
-        viewBox: "0 0 24 24",
-        description: 'Lorem ipsum dolor sit amet, sit ametOrsit ametur adipiscing elit. Orsit ametmet, consectetur adipiscing elisit amet, consectetur adipiscing elici eget mi elit cursus donec amet sed sagittis'
+        title: "Poster Design",
+        viewBox: "0 0 213.275 213.275",
+        description: 'Lorem ipsum dolor sit amet, sit ametOrsit ametur adipiscing elit. Orsit ametmet,adipiscing elit. Orsit ame consectetur adipiscing elisit amet, consectetur adipiscing elici eget mi elit cursus donec amet sed sagittis'
     },
 ]
 

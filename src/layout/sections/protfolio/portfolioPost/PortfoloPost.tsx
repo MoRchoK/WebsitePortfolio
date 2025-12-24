@@ -46,8 +46,8 @@ const portfolioPosts: Array<portfolioPostsType> = [
     },
     {
         img: bgSixImg,
-        title: 'sports shoes',
-        type: 'Poster'
+        title: 'designer chair',
+        type: 'Branding'
     },
 
 ]
@@ -58,13 +58,13 @@ export function PortfolioPost(props: PortfolioPostPropsType) {
         props.activeTab === 'All' ? item.type : item.type === props.activeTab
     )
     let iterCount: number = 1
-    let chetOrno = 1
+    let chetValue: number = 1
     let columnPosition = 0
     const rows_count = setGridTempleteRows(portfolioPostsActive)
 
     function setGridTempleteRows(array: Array<portfolioPostsType>) {
         let templeteRows = ''
-        if (array.length >= 3) {
+        if (array.length >= 6) {
             for (let i = 1; i <= Math.ceil(array.length / 3); i++) {
                 if (i % 2 === 0) {
                     templeteRows = templeteRows + ' 200px 540px '
@@ -89,14 +89,31 @@ export function PortfolioPost(props: PortfolioPostPropsType) {
                         columnPosition++
                         if (columnPosition === 4) {
                             columnPosition = 1
-                            chetOrno++
+                            chetValue++
                             if (index % 6 === 0) {
                                 iterCount = iterCount + 2
                             } else {
                                 iterCount++
                             }
                         }
-                        if (chetOrno % 2 === 0) {
+                        if (portfolioPostsActive.length<6){
+                            return (
+                                <S.PortfolioPost
+                                    grid_row_start={iterCount}
+                                    grid_row_end={iterCount + 1}
+                                    key={index}
+                                    layout
+                                    initial={{opacity: 0}}
+                                    animate={{opacity: 1}}
+                                    exit={{opacity: 0}}
+                                    grid_column_start={columnPosition}>
+                                    <img src={post.img} alt={post.title}/>
+                                    <OverleyPost title={post.title}/>
+                                </S.PortfolioPost>
+                            )
+
+                        }else {
+                        if (chetValue % 2 === 0) {
                             if (columnPosition % 2 === 0) {
                                 return (
                                     <S.PortfolioPost
@@ -156,7 +173,7 @@ export function PortfolioPost(props: PortfolioPostPropsType) {
                                     </S.PortfolioPost>)
                             }
                         }
-                    }
+                    }}
                 )}
             </AnimatePresence>
         </S.WrapperPrortfolio>

@@ -1,10 +1,10 @@
 import {S} from "./header_styled/Header_Styled.ts";
 import {Logo} from "../../components/logo/Logo.tsx";
 import {Container} from "../../container/Container.ts";
-import {useEffect, useState} from "react";
-import {MobileMenu} from "./burger/MobileMenu.tsx";
 import {MenuDesktop} from "./menuHeader/menuDesktop/MenuDesktop.tsx";
 import * as React from "react";
+import {MobileMenu} from "./burger/MobileMenu.tsx";
+import {useEffect, useState} from "react";
 
 
 // const Ligting: React.FC = ()=> {
@@ -66,9 +66,7 @@ const headerMenuItems: Array<headerMenuItemsType> = [{
     },
 ]
 
-
 export const Header: React.FC = () => {
-    const [isActive, setIsActive] = useState(false)
     const [width, setWidth] = useState(window.innerWidth);
     const tablet = 768;
     useEffect(() => {
@@ -77,18 +75,20 @@ export const Header: React.FC = () => {
         return () => window.removeEventListener("resize", handleWindowResize);
     }, []);
 
+
+
     return (
-        <S.Header>
+        <>
+        {width > tablet ? <S.Header>
             <Container>
                 <S.HeaderWrapper justifycontent={'space-between'} alignitems={'center'}>
                     <Logo/>
-                    {width <= tablet ? <MobileMenu $isActive={isActive}
-                                                   $setIsActive={setIsActive}/> :
-                        <MenuDesktop menuItems={headerMenuItems}/>}
+                    <MenuDesktop menuItems={headerMenuItems}/>
                     {/*<Ligting/>*/}
                 </S.HeaderWrapper>
             </Container>
-        </S.Header>
+        </S.Header> : <MobileMenu menuItems={headerMenuItems}/>}
+        </>
     )
 }
 

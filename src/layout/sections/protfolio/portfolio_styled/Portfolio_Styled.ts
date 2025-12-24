@@ -110,6 +110,7 @@ const PortfolioPost = styled(motion.div)<PortfolioPostStyledPropsType>`
     max-height: 800px;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
     
     &::before {
         content: '';

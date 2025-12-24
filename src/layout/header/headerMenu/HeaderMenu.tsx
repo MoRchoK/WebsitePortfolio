@@ -32,7 +32,7 @@ export const HeaderMenu:React.FC<HeaderMenuPropsType> = (props:HeaderMenuPropsTy
 
     return (
         <S.NavStyled>
-            <S.MenuUl gap={'50px'}>
+            <S.MenuUl gap={'40px'}>
                 {props.headerItems.map((item) => (
                     <S.MenuList key={item.id}>
                         <Link activeClass="active"
@@ -46,10 +46,17 @@ export const HeaderMenu:React.FC<HeaderMenuPropsType> = (props:HeaderMenuPropsTy
                         >
                             {item.title}
                         </Link>
-
                     </S.MenuList>
                 ))}
             </S.MenuUl>
         </S.NavStyled>
     )
 }
+
+
+
+
+
+
+
+
